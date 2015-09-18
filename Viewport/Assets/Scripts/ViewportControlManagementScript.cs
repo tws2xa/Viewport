@@ -13,12 +13,15 @@ public class ViewportControlManagementScript : MonoBehaviour {
 	public float viewportIndicatorYOffset = 1.0f; // The Y offset for the indicator when displayed. Should be greater than radius of sphere.
 	private Object viewportTargetIndicator; // The current indicator (null if not currently the viewport target)
 
+	private SoundManagementScript soundManagerScript;
+
 	// Use this for initialization
 	void Start () {
 		viewportCam = Camera.main;
 		cameraFollowScript = viewportCam.GetComponent<FollowObject> ();
+		loadSoundManager ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (grabShieldTimer > 0) {
@@ -32,6 +35,16 @@ public class ViewportControlManagementScript : MonoBehaviour {
 		// we're not actually the viewport target.
 		if (viewportTargetIndicator != null && !CameraIsTargeting (gameObject)) {
 			DestroyViewportTargetIcon();
+		}
+	}
+	
+	// Loads in the sound manager object.
+	public void loadSoundManager() {
+		GameObject[] soundManagerObjects = GameObject.FindGameObjectsWithTag ("SoundManager");
+		if (soundManagerObjects.Length == 1) {
+			soundManagerScript = soundManagerObjects [0].GetComponent<SoundManagementScript> ();
+		} else {
+			Debug.LogError ("Incorrect number of sound managers. Must have exactly one.");
 		}
 	}
 
@@ -79,6 +92,11 @@ public class ViewportControlManagementScript : MonoBehaviour {
 			ViewportControlManagementScript otherControlScript = collision.gameObject.GetComponent<ViewportControlManagementScript>();
 			DestroyViewportTargetIcon();
 			otherControlScript.TakeCamera();
+
+			// Increment bkg music
+			if(soundManagerScript != null) {
+				soundManagerScript.updateBkgMusic();
+			}
 		}
 	}
 
