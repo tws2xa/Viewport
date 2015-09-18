@@ -3,6 +3,15 @@ using System.Collections;
 
 public class PlayerControls : MonoBehaviour {
 
+	public int playerNum = -1;
+
+	private static int MAX_NUM_PLAYERS = 4;
+
+	private const string HORIZ_AXIS_STR = "Horizontal";
+	private const string VERT_AXIS_STR = "Vertical";
+	private const string CHARGE_BUTTON_STR = "Charge";
+	private const string PLAYER_CONTROL_MODIFIER = "_p{0}"; // {0} replaced with player number 
+
 	private Rigidbody rigidBody;
 
 	public float normalMovementForce = 10.0f; // The torque to add when moving normally
@@ -18,9 +27,9 @@ public class PlayerControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float horizAxis = Input.GetAxis("Horizontal");
-		float vertAxis = Input.GetAxis ("Vertical");
-		bool charging = Input.GetButton ("Charge");
+		float horizAxis = Input.GetAxis(getControlInputName(HORIZ_AXIS_STR));
+		float vertAxis = Input.GetAxis (getControlInputName(VERT_AXIS_STR));
+		bool charging = Input.GetButton (getControlInputName(CHARGE_BUTTON_STR));
 
 		Vector3 forceToApply = new Vector3 (
 			horizAxis * (charging ? chargeMovementForce : normalMovementForce),
@@ -45,12 +54,20 @@ public class PlayerControls : MonoBehaviour {
 				rigidBody.AddForce (assistDirection * turnAssist);
 			}
 		}
+	}
 
-
-		if(Input.GetButton ("Fire2")) {
-			ViewportControlManagementScript viewportControlManager = gameObject.GetComponent<ViewportControlManagementScript>();
-			viewportControlManager.TakeCamera();
+	/// <summary>
+	/// Creates the name of the input control to check
+	/// Given the base control and the player number
+	/// </summary>
+	/// <returns>The control input string.</returns>
+	/// <param name="baseStr">The desired input type (Horizontal, Vertical, Charge, etc).</param>
+	private string getControlInputName(string baseStr) {
+		if (playerNum < 0 || playerNum > MAX_NUM_PLAYERS) {
+			Debug.LogError(string.Format("Player number {0} is not valid. " +
+				"Please update the player number in the player movement script.", playerNum));
 		}
+		return string.Format (baseStr + PLAYER_CONTROL_MODIFIER, playerNum);
 	}
 
 }

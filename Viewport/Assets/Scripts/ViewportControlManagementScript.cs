@@ -10,7 +10,7 @@ public class ViewportControlManagementScript : MonoBehaviour {
 	private float grabShieldTimer = 0.0f; // Timer on the grab shield
 
 	public Object viewportTargetIndicatorTemlate; // The indicator to show when you have the viewport's control.
-	public float viewportIndicatorYOffset = 2.0f; // The Y offset for the indicator when displayed. Should be greater than radius of sphere.
+	public float viewportIndicatorYOffset = 1.0f; // The Y offset for the indicator when displayed. Should be greater than radius of sphere.
 	private Object viewportTargetIndicator; // The current indicator (null if not currently the viewport target)
 
 	// Use this for initialization
