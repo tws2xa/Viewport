@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - SoundManager
+  - InitialViewportTarget
+  - DestroyOnPlayerImpact
+  - testPowerUp
   layers:
   - Default
   - TransparentFX
