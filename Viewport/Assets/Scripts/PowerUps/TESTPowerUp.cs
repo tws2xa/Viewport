@@ -3,10 +3,22 @@ using System.Collections;
 
 public class TESTPowerUp : PowerUp {
 
-	public override void Start () {
-		powerUpID = 1;
-		duration = 10;
-		timeLeft = 10.0f;
+	// This powerUp should slow the Player to 1/4 original acceleration. Max speed should still be the same.
+
+	// Make sure, when you create a powerUp, to add it to the ENUMERATION in PowerUpManagementScript.
+
+	Rigidbody orb;
+
+	float origDrag;
+
+	public TESTPowerUp (int duration) : base (duration) {
+	}
+
+	public void Start () {
+		base.Start ();
+		orb = gameObject.GetComponent<Rigidbody> ();
+		origDrag = orb.drag;
+		ModifyObject ();
 	}
 	
 	// Update is called once per frame
@@ -14,13 +26,11 @@ public class TESTPowerUp : PowerUp {
 		Timer ();
 	}
 
-	public override void ModifyObject() {
-		Rigidbody orb = gameObject.GetComponent<Rigidbody> ();
+	public override void ModifyObject () {
 		orb.drag = 2;
 	}
 
-	public override void Timer() {
-		//Subtract duration from the timer.
-		timeLeft -= 0.01f;
+	public override void DemodifyObject () {
+		orb.drag = origDrag;
 	}
 }
