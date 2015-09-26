@@ -706,10 +706,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 620650149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be80fbe391879460c90869cb69df2eb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a2f48a1b5c784f11a04b7fe93921f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpID: -1
 --- !u!1 &623432882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,10 +1202,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 965713645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be80fbe391879460c90869cb69df2eb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a2f48a1b5c784f11a04b7fe93921f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpID: -1
 --- !u!1 &973579353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,10 +1363,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1226599452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be80fbe391879460c90869cb69df2eb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a2f48a1b5c784f11a04b7fe93921f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpID: -1
 --- !u!1 &1554845072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,10 +1540,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1596471648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be80fbe391879460c90869cb69df2eb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a2f48a1b5c784f11a04b7fe93921f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpID: -1
 --- !u!1 &1725859726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,6 +1789,10 @@ Prefab:
     - target: {fileID: 11482590, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: turnAssist
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 13580060, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}

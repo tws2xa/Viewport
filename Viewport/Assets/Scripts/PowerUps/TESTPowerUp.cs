@@ -15,7 +15,8 @@ public class TESTPowerUp : PowerUp {
 	}
 
 	public void Start () {
-		base.Start ();
+		duration = 10;
+		timeLeft = this.duration;
 		orb = gameObject.GetComponent<Rigidbody> ();
 		origDrag = orb.drag;
 		ModifyObject ();
