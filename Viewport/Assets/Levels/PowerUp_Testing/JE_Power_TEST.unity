@@ -695,7 +695,8 @@ Prefab:
       propertyPath: viewportTargetIndicatorTemlate
       value: 
       objectReference: {fileID: 178740, guid: 18282a62f7a20479d92613931aaab57a, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11415720, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &620650149 stripped
@@ -1049,7 +1050,8 @@ Prefab:
       propertyPath: viewportTargetIndicatorTemlate
       value: 
       objectReference: {fileID: 178740, guid: 18282a62f7a20479d92613931aaab57a, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11415720, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &861482808
@@ -1806,7 +1808,8 @@ Prefab:
       propertyPath: viewportTargetIndicatorTemlate
       value: 
       objectReference: {fileID: 178740, guid: 18282a62f7a20479d92613931aaab57a, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11415720, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2087099349
@@ -1966,7 +1969,8 @@ Prefab:
       propertyPath: viewportTargetIndicatorTemlate
       value: 
       objectReference: {fileID: 178740, guid: 18282a62f7a20479d92613931aaab57a, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11415720, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2119892588
