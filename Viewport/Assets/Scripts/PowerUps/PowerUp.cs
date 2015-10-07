@@ -31,7 +31,7 @@ public abstract class PowerUp : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	abstract public void Update ();
+	abstract public void FixedUpdate ();
 
 	abstract public void ModifyObject ();
 
@@ -39,7 +39,7 @@ public abstract class PowerUp : MonoBehaviour {
 
 	public void Timer() {
 		//Subtract duration from the timer.
-		timeLeft -= 0.01f;
+		timeLeft -= Time.deltaTime;
 		if (timeLeft < 0.05) {
 			PlayerPowerUpController manageScript = gameObject.GetComponent<PlayerPowerUpController> ();
 			this.DemodifyObject ();
