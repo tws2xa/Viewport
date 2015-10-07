@@ -10,8 +10,8 @@ public class PowerUpManagementScript : MonoBehaviour {
 
 	//private SoundManagementScript soundManagerScript;
 
-	// ENUMERATION of all the powerUps. Index starts at 0.
-	enum powerUpList {TESTPowerUp, SpeedUp};
+	// ENUMERATION of all the powerUps. Index starts at -1.
+	public enum PowerUpList {RANDOM = -1, TESTPowerUp, SpeedUp};
 
 	// A constant that declares the maximum amount of powerUps a Player can hold.
 	public const int MAX_AMT_POW = 1;
@@ -20,7 +20,7 @@ public class PowerUpManagementScript : MonoBehaviour {
 	// RANDOM PICKUPS have a powerUpID of -2.
 	// ALL OTHER PICKUPS have a powerUpID corresponding to their powerUp.
 	// THE CORRECT powerUpID is the index of your desired powerUp in the powerUpList ENUMERATION.
-	public int powerUpID;
+	public PowerUpList powerUpID;
 
 	// Use this for initialization
 	void Start () {
@@ -44,36 +44,36 @@ public class PowerUpManagementScript : MonoBehaviour {
 
 	public static Array getPowerUpList (int choice) {
 		if (choice == 1) {
-			return Enum.GetNames (typeof(powerUpList));
+			return Enum.GetNames (typeof(PowerUpList));
 		} else {
-			return Enum.GetValues (typeof(powerUpList));
+			return Enum.GetValues (typeof(PowerUpList));
 		}
 	}
 	
-	public PowerUp getPowerUp (int chosenPowerUpID) {
+	public PowerUp getPowerUp (PowerUpList chosenPowerUpID) {
 		PowerUp chosenPowerUp = null;
 		switch (chosenPowerUpID) {
-		case (int)powerUpList.TESTPowerUp: 
+		case PowerUpList.TESTPowerUp: 
 			chosenPowerUp = new TESTPowerUp(10);
 			break;
-        case (int)powerUpList.SpeedUp:
+        case PowerUpList.SpeedUp:
             chosenPowerUp = new SpeedUp(10);
             break;
 		}
 		return chosenPowerUp;
 	}
 
-	public PowerUp getThisPowerUp () {
-		if (powerUpID == -1) {
+    public PowerUp getThisPowerUp () {
+		if (powerUpID == PowerUpList.RANDOM) {
 			Array values = getPowerUpList (0);
-			int randNum = UnityEngine.Random.Range (0, values.Length);
-			return getPowerUp (randNum);
+			int randNum = UnityEngine.Random.Range (0, values.Length - 1);
+			return getPowerUp ((PowerUpList) randNum);
 		} else {
-			return getPowerUp (powerUpID);
+			return getPowerUp ((PowerUpList) powerUpID);
 		}
 	}
 
-	public int getPowerUpID () {
+	public PowerUpList getPowerUpID () {
 		return powerUpID;
 	}
 }
