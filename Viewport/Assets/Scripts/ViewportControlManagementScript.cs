@@ -24,7 +24,10 @@ public class ViewportControlManagementScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (grabShieldTimer > 0) {
+        if (Input.GetKey("escape"))
+            Application.Quit();
+
+        if (grabShieldTimer > 0) {
 			grabShieldTimer -= Time.deltaTime;
 			if(grabShieldTimer < 0) {
 				grabShieldTimer = 0;
