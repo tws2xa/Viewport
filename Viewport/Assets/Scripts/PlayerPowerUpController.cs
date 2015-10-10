@@ -79,12 +79,7 @@ public class PlayerPowerUpController : MonoBehaviour {
 		// Check if the other object allows picking up of power ups.
 		if (obj.GetComponent<PowerUpManagementScript> () == null) {
 			return false;
-		} else {
-			PowerUpManagementScript manageScript = obj.GetComponent<PowerUpManagementScript> ();
-			if (manageScript.powerUpID != 0) {
-				return false;
-			}
-		}
+		} 
 		
 		// Allow object to take powerup
 		return true;

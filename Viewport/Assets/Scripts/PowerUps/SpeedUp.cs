@@ -15,6 +15,8 @@ public class SpeedUp : PowerUp
 	// Should fix any fringe cases where two powerups that modify one property are retrieved in sequence.
 	float velDelta;
 	float angDrDelta;
+    float masDelta;
+	float forcDelta;
 
     public SpeedUp(int duration) : base(duration)
     {
@@ -26,7 +28,8 @@ public class SpeedUp : PowerUp
         timeLeft = this.duration;
         orb = gameObject.GetComponent<Rigidbody>();
 		velDelta = 14 - orb.maxAngularVelocity;
-		angDrDelta = 0 - orb.angularDrag;
+        //masDelta = 0.25F;
+		//angDrDelta = 0 - orb.angularDrag;
         ModifyObject();
     }
 
@@ -39,12 +42,14 @@ public class SpeedUp : PowerUp
     public override void ModifyObject()
     {
         orb.maxAngularVelocity += velDelta;
-        orb.angularDrag += angDrDelta;
+        //orb.angularDrag += angDrDelta;
+        orb.mass -= masDelta;
     }
 
     public override void DemodifyObject()
     {
         orb.maxAngularVelocity -= velDelta;
         orb.angularDrag -= angDrDelta;
+        orb.mass += masDelta;
     }
 }
