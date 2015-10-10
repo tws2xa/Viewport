@@ -25,4 +25,9 @@ public class DeathController : MonoBehaviour {
     void killObj(GameObject obj) {
         Destroy(obj);
     }
+
+	public static void KillPlayer (GameObject obj) {
+		obj.SetActive (false);
+		// Code here to allow the player to respawn afterwards
+	}
 }

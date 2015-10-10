@@ -88,7 +88,7 @@ public class PlayerPowerUpController : MonoBehaviour {
 	}
 	
 	public void DeactivatePowerUp (PowerUp power) {
-		if (power == null) {
+		if (!power) {
 			foreach (PowerUp p in activePowers) {
 				Destroy (gameObject.GetComponent (p.GetType ()));
 			}
