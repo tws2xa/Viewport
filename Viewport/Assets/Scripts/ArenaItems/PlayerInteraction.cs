@@ -28,7 +28,6 @@ public class PlayerInteraction : MonoBehaviour {
 			DeathController.KillPlayer(this.gameObject);
 			break;
 		case "Bouncy":
-			Debug.Log("Bounce!");
 			rb.AddForce(bounceVector);
 			break;
 		}
