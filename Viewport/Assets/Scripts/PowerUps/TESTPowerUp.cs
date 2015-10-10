@@ -9,7 +9,7 @@ public class TESTPowerUp : PowerUp {
 
 	Rigidbody orb;
 
-	float origDrag;
+	float dragDelta;
 
 	public TESTPowerUp (int duration) : base (duration) {
 	}
@@ -18,7 +18,7 @@ public class TESTPowerUp : PowerUp {
 		duration = 10;
 		timeLeft = this.duration;
 		orb = gameObject.GetComponent<Rigidbody> ();
-		origDrag = orb.drag;
+		dragDelta = 1;
 		ModifyObject ();
 	}
 	
@@ -28,10 +28,10 @@ public class TESTPowerUp : PowerUp {
 	}
 
 	public override void ModifyObject () {
-		orb.drag = 2;
+		orb.drag += dragDelta;
 	}
 
 	public override void DemodifyObject () {
-		orb.drag = origDrag;
+		orb.drag -= dragDelta;
 	}
 }

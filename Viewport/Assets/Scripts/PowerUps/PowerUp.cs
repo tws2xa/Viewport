@@ -21,7 +21,6 @@ public abstract class PowerUp : MonoBehaviour {
 		duration = 10;
 		timeLeft = this.duration;
 		foreach (string p in PowerUpManagementScript.getPowerUpList(1)) {
-			Debug.Log(p);
 			if (Type.GetType(p).Equals(this.GetType())) {
 				powerUpID = index;
 				break;
@@ -66,7 +65,6 @@ public abstract class PowerUp : MonoBehaviour {
 
 	public static bool operator ==(PowerUp p1, PowerUp p2)
 	{
-		Debug.Log ("Entered ==");
 		if (!(p1 is PowerUp)) {
 			return false;
 		} else {
