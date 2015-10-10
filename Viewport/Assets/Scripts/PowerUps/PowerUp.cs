@@ -18,8 +18,10 @@ public abstract class PowerUp : MonoBehaviour {
 
 	public void Start () {
 		int index = 0;
-		foreach (PowerUp p in PowerUpManagementScript.getPowerUpList()) {
-			if (p.GetType().Equals(this.GetType())) {
+		duration = 10;
+		timeLeft = this.duration;
+		foreach (string p in PowerUpManagementScript.getPowerUpList(1)) {
+			if (Type.GetType(p).Equals(this.GetType())) {
 				powerUpID = index;
 				break;
 			}
@@ -28,7 +30,7 @@ public abstract class PowerUp : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	abstract public void Update ();
+	abstract public void FixedUpdate ();
 
 	abstract public void ModifyObject ();
 
@@ -36,15 +38,51 @@ public abstract class PowerUp : MonoBehaviour {
 
 	public void Timer() {
 		//Subtract duration from the timer.
-		timeLeft -= 0.01f;
+		timeLeft -= Time.deltaTime;
 		if (timeLeft < 0.05) {
-			PowerUpManagementScript manageScript = gameObject.GetComponent<PowerUpManagementScript> ();
+			PlayerPowerUpController manageScript = gameObject.GetComponent<PlayerPowerUpController> ();
 			this.DemodifyObject ();
 			manageScript.DeactivatePowerUp (this);
+			Destroy(this);
 		}
 	}
 
 	public override string ToString () {
-		return "ID: " + powerUpID.ToString () + "DUR: " + duration.ToString () + this.GetType ().ToString ();
+		return "ID: " + powerUpID.ToString () + " DUR: " + duration.ToString () + " " + this.GetType ().ToString ();
+	}
+
+	public int getPowerUpID() {
+		return powerUpID;
+	}
+
+	public override bool Equals (object o)
+	{
+		if (!(o is PowerUp)) {
+			return false;
+		}
+		return (powerUpID == ((PowerUp)o).getPowerUpID ());
+	}
+
+	public static bool operator ==(PowerUp p1, PowerUp p2)
+	{
+		if (!(p1 is PowerUp)) {
+			return false;
+		} else {
+			return p1.Equals (p2);
+		}
+	}
+
+	public static bool operator != (PowerUp p1, PowerUp p2)
+	{
+		Debug.Log ("Entered !=");
+		if ((p1 is PowerUp && p2 is PowerUp)) {
+			return !(p1.Equals (p2));
+		} else if (!(p1 is PowerUp) && p2 is PowerUp) {
+			return true;
+		} else if (p1 is PowerUp && !(p2 is PowerUp)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

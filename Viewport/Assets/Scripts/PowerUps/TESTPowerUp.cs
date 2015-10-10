@@ -9,28 +9,29 @@ public class TESTPowerUp : PowerUp {
 
 	Rigidbody orb;
 
-	float origDrag;
+	float dragDelta;
 
 	public TESTPowerUp (int duration) : base (duration) {
 	}
 
 	public void Start () {
-		base.Start ();
+		duration = 10;
+		timeLeft = this.duration;
 		orb = gameObject.GetComponent<Rigidbody> ();
-		origDrag = orb.drag;
+		dragDelta = 1;
 		ModifyObject ();
 	}
 	
 	// Update is called once per frame
-	public override void Update () {
+	public override void FixedUpdate () {
 		Timer ();
 	}
 
 	public override void ModifyObject () {
-		orb.drag = 2;
+		orb.drag += dragDelta;
 	}
 
 	public override void DemodifyObject () {
-		orb.drag = origDrag;
+		orb.drag -= dragDelta;
 	}
 }
