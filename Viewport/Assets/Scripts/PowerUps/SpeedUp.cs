@@ -10,8 +10,11 @@ public class SpeedUp : PowerUp
 
     Rigidbody orb;
 
-    float origVeloc;
-    float origAngDr;
+
+	// Changed variables to use change in variables instead of storing original variables.
+	// Should fix any fringe cases where two powerups that modify one property are retrieved in sequence.
+	float velDelta;
+	float angDrDelta;
 
     public SpeedUp(int duration) : base(duration)
     {
@@ -22,8 +25,8 @@ public class SpeedUp : PowerUp
         duration = 10;
         timeLeft = this.duration;
         orb = gameObject.GetComponent<Rigidbody>();
-        origVeloc = orb.maxAngularVelocity;
-        origAngDr = orb.angularDrag;
+		velDelta = 14 - orb.maxAngularVelocity;
+		angDrDelta = 0 - orb.angularDrag;
         ModifyObject();
     }
 
@@ -32,16 +35,16 @@ public class SpeedUp : PowerUp
     {
         Timer();
     }
-
+	
     public override void ModifyObject()
     {
-        orb.maxAngularVelocity = 14;
-        orb.angularDrag = 0;
+        orb.maxAngularVelocity += velDelta;
+        orb.angularDrag += angDrDelta;
     }
 
     public override void DemodifyObject()
     {
-        orb.maxAngularVelocity = origVeloc;
-        orb.angularDrag = origAngDr;
+        orb.maxAngularVelocity -= velDelta;
+        orb.angularDrag -= angDrDelta;
     }
 }

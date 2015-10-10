@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 1da7e892ef63b4b85913a488d14d0cfb
+timeCreated: 1443306401
+=======
 guid: 97001c227d0cd7544879e6d1437d334e
 timeCreated: 1443293057
+>>>>>>> origin/master
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -8,7 +13,11 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+<<<<<<< HEAD
+    linearTexture: 1
+=======
     linearTexture: 0
+>>>>>>> origin/master
     correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
@@ -16,7 +25,11 @@ TextureImporter:
     mipMapFadeDistanceEnd: 3
   bumpmap:
     convertToNormalMap: 0
+<<<<<<< HEAD
+    externalNormalMap: 1
+=======
     externalNormalMap: 0
+>>>>>>> origin/master
     heightScale: .25
     normalMapFilter: 0
   isReadable: 0
@@ -46,7 +59,11 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 0
+<<<<<<< HEAD
+  textureType: 1
+=======
   textureType: -1
+>>>>>>> origin/master
   buildTargetSettings: []
   spriteSheet:
     sprites: []
