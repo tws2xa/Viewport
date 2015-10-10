@@ -17,15 +17,22 @@ public class PlayerPowerUpController : MonoBehaviour {
 	// Should never be higher than maxAmtPow.
 	int curAmtPow;
 
+	bool respawningPowerUp = false;
+	float timeLeft;
+	List<PowerUpManagementScript> activeManageScripts;
+
 	// Use this for initialization
 	void Start () {
 		maxAmtPow = PowerUpManagementScript.MAX_AMT_POW;
 		activePowers = new List<PowerUp> ();
+		activeManageScripts = new List<PowerUpManagementScript> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (respawningPowerUp) {
+			RespawnTimer();
+		}
 	}
 
 	void OnTriggerEnter (Collider coll) {
@@ -35,6 +42,7 @@ public class PlayerPowerUpController : MonoBehaviour {
 			PowerUpManagementScript otherControlScript = coll.gameObject.GetComponent<PowerUpManagementScript>();
 			PowerUp chosenPowerUp = otherControlScript.getThisPowerUp();
 			ActivatePowerUp(chosenPowerUp);
+			InitiateRespawnTimer(otherControlScript);
 			otherControlScript.gameObject.SetActive(false);
 			// Increment bkg music
 			
@@ -47,7 +55,19 @@ public class PlayerPowerUpController : MonoBehaviour {
 	}
 
 	public void InitiateRespawnTimer (PowerUpManagementScript script) {
+		respawningPowerUp = true;
+		timeLeft = PowerUpManagementScript.RESPAWN_TIMER;
+		activeManageScripts.Add (script);
+	}
 
+	void RespawnTimer () {
+		//Subtract duration from the timer.
+		timeLeft -= Time.deltaTime;
+		if (timeLeft < 0.05) {
+			foreach (PowerUpManagementScript ms in activeManageScripts) {
+				ms.RespawnThis();
+			}
+		}
 	}
 
 	/// <summary>
