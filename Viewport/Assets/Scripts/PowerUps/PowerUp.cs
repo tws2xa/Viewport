@@ -40,11 +40,15 @@ public abstract class PowerUp : MonoBehaviour {
 		//Subtract duration from the timer.
 		timeLeft -= Time.deltaTime;
 		if (timeLeft < 0.05) {
-			PlayerPowerUpController manageScript = gameObject.GetComponent<PlayerPowerUpController> ();
-			this.DemodifyObject ();
-			manageScript.DeactivatePowerUp (this);
-			Destroy(this);
+			DestroyThis();
 		}
+	}
+
+	public void DestroyThis() {
+		PlayerPowerUpController manageScript = gameObject.GetComponent<PlayerPowerUpController> ();
+		this.DemodifyObject ();
+		manageScript.DeactivatePowerUp (this);
+		Destroy(this);
 	}
 
 	public override string ToString () {
