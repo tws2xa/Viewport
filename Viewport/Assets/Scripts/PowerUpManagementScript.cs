@@ -16,6 +16,9 @@ public class PowerUpManagementScript : MonoBehaviour {
 	// A constant that declares the maximum amount of powerUps a Player can hold.
 	public const int MAX_AMT_POW = 1;
 
+	// A constant that declares the respawn timer IN SECONDS.
+	public const float RESPAWN_TIMER = 10.0f;
+
 	// PLAYERS have a powerUpID of -1.
 	// RANDOM PICKUPS have a powerUpID of -2.
 	// ALL OTHER PICKUPS have a powerUpID corresponding to their powerUp.
@@ -41,6 +44,12 @@ public class PowerUpManagementScript : MonoBehaviour {
 //			Debug.LogError ("Incorrect number of sound managers. Must have exactly one.");
 //		}
 //	}
+
+	public void RespawnThis() {
+		if (!gameObject.activeInHierarchy) {
+			gameObject.SetActive(true);
+		}
+	}
 
 	public static Array getPowerUpList (int choice) {
 		if (choice == 1) {

@@ -46,6 +46,10 @@ public class PlayerPowerUpController : MonoBehaviour {
 
 	}
 
+	public void InitiateRespawnTimer (PowerUpManagementScript script) {
+
+	}
+
 	/// <summary>
 	/// Checks if the given object can grab a power up.
 	/// </summary>
