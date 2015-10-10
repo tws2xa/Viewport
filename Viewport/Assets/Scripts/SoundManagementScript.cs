@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class SoundManagementScript : MonoBehaviour {
 
 	public bool enabled = false;
+    public bool cycleTracks = true;
 
 	int currMusicIndex = 0;
 	public AudioClip[] bkgMusicClips;
@@ -58,12 +59,24 @@ public class SoundManagementScript : MonoBehaviour {
 		float prevTime = bkgMusicSources [currMusicIndex].time;
 		bkgMusicSources [currMusicIndex].Stop ();
 
-		currMusicIndex += (ascend ? 1 : -1);
-		if (currMusicIndex == 0 || currMusicIndex == bkgMusicSources.Count - 1) {
-			ascend = !ascend; 
-		}
+        if (cycleTracks)
+        {
+            currMusicIndex += (ascend ? 1 : -1);
+            if (currMusicIndex == 0 || currMusicIndex == bkgMusicSources.Count - 1)
+            {
+                ascend = !ascend;
+            }
+        }
+        else
+        {
+            if (currMusicIndex < bkgMusicSources.Count)
+            {
+                currMusicIndex++;
+            }
+        }
 
-		bkgMusicSources [currMusicIndex].time = prevTime;
+
+        bkgMusicSources[currMusicIndex].time = prevTime;
 		bkgMusicSources [currMusicIndex].Play ();
 	}
 

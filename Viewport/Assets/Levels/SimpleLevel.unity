@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -291,11 +289,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c6b4872e1b4b418559b111b814322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
+  cycleTracks: 1
   bkgMusicClips:
-  - {fileID: 8300000, guid: 072b57e42a14b094293b1fa66048db4a, type: 3}
-  - {fileID: 8300000, guid: 7b91e12d078fa954ba7be15754fa0a4f, type: 3}
-  - {fileID: 8300000, guid: 01fe2029bdcb0f648b273fecd565b55f, type: 3}
+  - {fileID: 8300000, guid: d5848f340e77e434c8b581a7521558b5, type: 3}
+  - {fileID: 8300000, guid: d5848f340e77e434c8b581a7521558b5, type: 3}
   pitchVelocityMultiplier: .00079999998
 --- !u!114 &270186227
 MonoBehaviour:
