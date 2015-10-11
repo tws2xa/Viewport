@@ -7,6 +7,8 @@ public class FollowObject : MonoBehaviour {
 	public bool followY = false; // Follow along the y axis?
 	public bool followZ = true; // Follow along the z axis?
 
+    public Vector3 offsets = new Vector3(0, 0, 0); // Permanent offsets applied when following
+
 	public GameObject initialTarget; // The initial object to follow
 	private GameObject target; // The current target
 	private Transform targetTransform; // The transform of the current  target
@@ -23,9 +25,9 @@ public class FollowObject : MonoBehaviour {
 	void Update () {
 		if (targetTransform != null) {
 			Vector3 desiredPos = new Vector3 (
-			followX ? targetTransform.position.x : transform.position.x,
-			followY ? targetTransform.position.y : transform.position.y,
-			followZ ? targetTransform.position.z : transform.position.z
+			followX ? targetTransform.position.x + offsets.x : transform.position.x,
+			followY ? targetTransform.position.y + offsets.y : transform.position.y,
+			followZ ? targetTransform.position.z + offsets.z : transform.position.z
 			);
 
 			Vector3 newPos = transform.position;

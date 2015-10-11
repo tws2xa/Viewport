@@ -26,8 +26,40 @@ public class DeathController : MonoBehaviour {
         Destroy(obj);
     }
 
-	public static void KillPlayer (GameObject obj) {
-		obj.SetActive (false);
-		// Code here to allow the player to respawn afterwards
+	public static void KillPlayer (GameObject player) {
+        player.SetActive(false);
+
+        // Code here to allow the player to respawn afterwards
+
+        // If necessary, reassign the camera
+        if (player.GetComponent<ViewportControlManagementScript>() != null)
+        {
+            ViewportControlManagementScript viewportManager = player.GetComponent<ViewportControlManagementScript>();
+            if(viewportManager.HasCamera())
+            {
+                viewportManager.DestroyViewportTargetIcon();
+                RandomPlayerCameraReassign();
+            }
+        }
 	}
+
+    public static void RandomPlayerCameraReassign()
+    {
+        GameObject[] remainingPlayers = GameObject.FindGameObjectsWithTag("Player");
+        if(remainingPlayers.Length <= 0)
+        {
+            return; // No players left!
+        }
+
+        int randIndex = (int)Mathf.Floor(Random.value * remainingPlayers.Length);
+
+        GameObject newTarget = remainingPlayers[randIndex];
+
+        if (newTarget.GetComponent<ViewportControlManagementScript>() != null)
+        {
+            ViewportControlManagementScript viewportManager = newTarget.GetComponent<ViewportControlManagementScript>();
+            viewportManager.TakeCamera();
+
+        }
+    }
 }

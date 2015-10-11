@@ -239,6 +239,7 @@ MonoBehaviour:
   followX: 1
   followY: 0
   followZ: 1
+  offsets: {x: 0, y: 0, z: 0}
   initialTarget: {fileID: 935450118}
   moveStepDistance: 1
 --- !u!81 &187474719
@@ -367,6 +368,7 @@ MonoBehaviour:
   followX: 1
   followY: 1
   followZ: 1
+  offsets: {x: 0, y: 0, z: 0}
   initialTarget: {fileID: 0}
   moveStepDistance: 1000
 --- !u!4 &270186228

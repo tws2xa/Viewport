@@ -75,13 +75,17 @@ public class ViewportControlManagementScript : MonoBehaviour {
 
 			FollowObject indicatorFollowScript = ((GameObject)viewportTargetIndicator).GetComponent<FollowObject>();
 			indicatorFollowScript.SetTarget (gameObject);
-		}
+            indicatorFollowScript.followX = true;
+            indicatorFollowScript.followY = true;
+            indicatorFollowScript.followZ = true;
+            indicatorFollowScript.offsets.y = viewportIndicatorYOffset;
+        }
 	}
 
 	/// <summary>
 	/// Removes the viewport target icon.
 	/// </summary>
-	void DestroyViewportTargetIcon() {
+	public void DestroyViewportTargetIcon() {
 		if (viewportTargetIndicator != null) {
 			Destroy (viewportTargetIndicator);
 		}
@@ -136,6 +140,15 @@ public class ViewportControlManagementScript : MonoBehaviour {
 	bool CameraIsTargeting(GameObject obj) {
 		return (cameraFollowScript.GetTarget () == obj);
 	}
+
+    /// <summary>
+    /// Checks if the object has the camera.
+    /// </summary>
+    /// <returns>True if the object has the camera, false otherwise</returns>
+    public bool HasCamera()
+    {
+        return CameraIsTargeting(gameObject);
+    }
 
 	/// <summary>
 	/// Checks if this object is somehow shielded from losing the camera.
