@@ -25,8 +25,7 @@ public class PlayerControls : MonoBehaviour {
 		rigidBody = GetComponent<Rigidbody> ();
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		float horizAxis = Input.GetAxis(getControlInputName(HORIZ_AXIS_STR));
 		float vertAxis = Input.GetAxis (getControlInputName(VERT_AXIS_STR));
 		bool charging = Input.GetButton (getControlInputName(CHARGE_BUTTON_STR));
@@ -37,10 +36,9 @@ public class PlayerControls : MonoBehaviour {
 			vertAxis * (charging ? chargeMovementForce : normalMovementForce)
 		);
 		rigidBody.AddForce (forceToApply);
-
-
+        
 		// Turn assist
-		if (turnAssist > 0) {
+		if (turnAssist > 0 && forceToApply.sqrMagnitude > 0) {
 			Vector3 desiredDirection = new Vector3 (horizAxis, rigidBody.velocity.y, vertAxis);
 			desiredDirection.Normalize ();
 
