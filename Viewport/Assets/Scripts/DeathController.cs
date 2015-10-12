@@ -16,23 +16,30 @@ public class DeathController : MonoBehaviour {
         foreach (string tag in tags) {
             foreach (GameObject obj in GameObject.FindGameObjectsWithTag(tag)) {
                 if (!GeometryUtility.TestPlanesAABB(planes, obj.GetComponent<Collider>().bounds)) {
-                    killObj(obj);
+                    KillPlayer(obj);
+                } else if (!obj.GetComponent<PlayerDeathController>().getPrevState()) {
+                    obj.GetComponent<PlayerDeathController>().setPrevState(true);
                 }
             }
         }
 	}
 
-    void killObj(GameObject obj) {
-        Destroy(obj);
-    }
-
 	public static void KillPlayer (GameObject player) {
-        player.SetActive(false);
+        PlayerDeathController playerDeath = player.GetComponent<PlayerDeathController>();
+        if (playerDeath.getPrevState()) {
+            playerDeath.attempts -= 1;
+            playerDeath.setPrevState(false);
+            playerDeath.setTimer(0f);
+        }
+        playerDeath.setTimer(playerDeath.getTimer() + Time.deltaTime);
+        if (playerDeath.getTimer() >= 1 + (playerDeath.secondsPerAttempt * playerDeath.attempts)) {
+            player.SetActive(false);
+        }
 
         // Code here to allow the player to respawn afterwards
 
         // If necessary, reassign the camera
-        if (player.GetComponent<ViewportControlManagementScript>() != null)
+        if (player.activeSelf && player.GetComponent<ViewportControlManagementScript>() != null)
         {
             ViewportControlManagementScript viewportManager = player.GetComponent<ViewportControlManagementScript>();
             if(viewportManager.HasCamera())

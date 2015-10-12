@@ -9,6 +9,7 @@ TagManager:
   - DestroyOnPlayerImpact
   - DestroyPlayerOnImpact
   - Bouncy
+  - FollowArrow
   layers:
   - Default
   - TransparentFX

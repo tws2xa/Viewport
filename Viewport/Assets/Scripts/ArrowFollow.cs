@@ -6,8 +6,8 @@ public class ArrowFollow : MonoBehaviour {
     public GameObject target;
 
 	void Update () {
-        if (target == null) {
-            Destroy(this.gameObject);
+        if (target == null || !target.activeSelf) {
+            this.gameObject.SetActive(false);
             return;
         }
 
@@ -20,17 +20,16 @@ public class ArrowFollow : MonoBehaviour {
             this.GetComponent<Renderer>().enabled = true;
         }
 
-        targetPos.x -= 0.45f;  // Translate to use center of viewport
+        targetPos.x -= 0.45f;
         targetPos.y -= 0.45f;
-        targetPos.z = 0;      // I think I can do this rather than do a 
-                          //   a full projection onto the plane
+        targetPos.z = 0;
 
         float fAngle = Mathf.Atan2(targetPos.x, targetPos.y);
         transform.localEulerAngles = new Vector3(0.0f, 0.0f, -fAngle * Mathf.Rad2Deg);
 
-        targetPos.x = 0.45f * Mathf.Sin(fAngle) + 0.5f;  // Place on ellipse touching 
-        targetPos.y = 0.45f * Mathf.Cos(fAngle) + 0.5f;  //   side of viewport
-        targetPos.z = Camera.main.nearClipPlane + 10.5f;  // Looking from neg to pos Z;
+        targetPos.x = 0.45f * Mathf.Sin(fAngle) + 0.5f;
+        targetPos.y = 0.45f * Mathf.Cos(fAngle) + 0.5f;
+        targetPos.z = Camera.main.nearClipPlane + 10.5f;
         transform.position = Camera.main.ViewportToWorldPoint(targetPos);
         transform.LookAt(target.transform.position);
         transform.Rotate(0f, 0f, -transform.rotation.z);
