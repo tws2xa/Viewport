@@ -69,8 +69,8 @@ public class PowerUpManagementScript : MonoBehaviour {
             chosenPowerUp = new SpeedUp(10);
             break;
         case PowerUpList.Warp:
-                chosenPowerUp = new Warp(10);
-                break;
+            chosenPowerUp = new Warp(10);
+            break;
 		}
 		return chosenPowerUp;
 	}

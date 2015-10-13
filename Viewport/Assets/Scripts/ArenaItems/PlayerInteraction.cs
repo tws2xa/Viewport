@@ -18,7 +18,7 @@ public class PlayerInteraction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	void OnCollisionEnter(Collision coll) {
@@ -28,6 +28,8 @@ public class PlayerInteraction : MonoBehaviour {
 			DeathController.KillPlayer(this.gameObject);
 			break;
 		case "Bouncy":
+			bouncyForce = rb.mass * 550.0F;
+			bounceVector = new Vector3 (0, bouncyForce, 0);
 			rb.AddForce(bounceVector);
 			break;
 		}
