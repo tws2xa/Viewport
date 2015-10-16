@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TESTPowerUp : PowerUp {
+public class SlowDown : PowerUp {
 
 	// This powerUp should slow the Player to 1/4 original acceleration. Max speed should still be the same.
 
@@ -11,7 +11,7 @@ public class TESTPowerUp : PowerUp {
 
 	float dragDelta;
 
-	public TESTPowerUp (int duration) : base (duration) {
+	public SlowDown (int duration) : base (duration) {
 	}
 
 	public void Start () {
