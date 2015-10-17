@@ -12,6 +12,7 @@ public class Warp : PowerUp {
 
     public void Start()
     {
+		powerUpID = 2;
         duration = 10;
         timeLeft = this.duration;
         orb = gameObject.GetComponent<Rigidbody>();
@@ -32,6 +33,6 @@ public class Warp : PowerUp {
 
     public override void DemodifyObject()
     {
-        transform.localScale -= deltaScale;
+		transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale - deltaScale, 1);
     }
 }
