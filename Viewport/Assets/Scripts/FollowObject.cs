@@ -12,6 +12,7 @@ public class FollowObject : MonoBehaviour {
 	public GameObject initialTarget; // The initial object to follow
 	private GameObject target; // The current target
 	private Transform targetTransform; // The transform of the current  target
+    private PlayerControls targetPlayer;
 
 	private bool lockedOnTarget = false;
 	public float moveStepDistance = 1.0f; // Amount this object can move each frame when trying to lock on to the target.
@@ -62,9 +63,20 @@ public class FollowObject : MonoBehaviour {
 	/// </summary>
 	/// <param name="newTarget">The new target object.</param>
 	public void SetTarget(GameObject newTarget) {
-		if (newTarget != null) {
+        if (newTarget != null)
+        {
+            if (target != initialTarget && target != null)
+            { 
+                targetPlayer = target.GetComponent<PlayerControls>();
+                targetPlayer.setTarget(false);
+            }         
 			target = newTarget;
-			targetTransform = newTarget.transform;
+            if (target != initialTarget)
+            {
+                targetPlayer = target.GetComponent<PlayerControls>();
+                targetPlayer.setTarget(true);
+            }
+            targetTransform = newTarget.transform;
 			lockedOnTarget = false;
 		}
 	}
