@@ -31,10 +31,6 @@ public class DeathController : MonoBehaviour {
             playerDeath.setPrevState(false);
             playerDeath.setTimer(0f);
         }
-        playerDeath.setTimer(playerDeath.getTimer() + Time.deltaTime);
-        if (playerDeath.getTimer() >= 1 + (playerDeath.secondsPerAttempt * playerDeath.attempts)) {
-            player.SetActive(false);
-        }
 
         // Code here to allow the player to respawn afterwards
 
@@ -48,7 +44,13 @@ public class DeathController : MonoBehaviour {
                 RandomPlayerCameraReassign();
             }
         }
-	}
+
+        playerDeath.setTimer(playerDeath.getTimer() + Time.deltaTime);
+        if (playerDeath.getTimer() >= 1 + (playerDeath.secondsPerAttempt * playerDeath.attempts))
+        {
+            player.SetActive(false);
+        }
+    }
 
     public static void RandomPlayerCameraReassign()
     {
