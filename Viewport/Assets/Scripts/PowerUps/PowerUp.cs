@@ -21,7 +21,7 @@ public abstract class PowerUp : MonoBehaviour {
 		duration = 10;
 		timeLeft = this.duration;
 		foreach (string p in PowerUpManagementScript.getPowerUpList(1)) {
-			if (Type.GetType(p).Equals(this.GetType())) {
+			if (p.Equals(this.GetType().Name)) {
 				powerUpID = index;
 				break;
 			}
