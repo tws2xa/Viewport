@@ -14,6 +14,8 @@ public class PlayerControls : MonoBehaviour {
 
     private bool isTarget = false;
 
+	private bool onIce = false;
+
 	private Rigidbody rigidBody;
 
 	public float normalMovementForce = 10.0f; // The torque to add when moving normally
@@ -90,5 +92,24 @@ public class PlayerControls : MonoBehaviour {
     {
         this.isTarget = isTarget;
     }
+
+	public void SetTurnAssistDirection(int modifier) 
+	{
+		turnAssist = modifier * Mathf.Abs (turnAssist);
+	}
+
+	public void OnIce() {
+		if (!onIce) {
+			turnAssist = -Mathf.Abs (turnAssist);
+			onIce = true;
+		}
+	}
+
+	public void OffIce() {
+		if (onIce) {
+			turnAssist = Mathf.Abs (turnAssist);
+			onIce = false;
+		}
+	}
 
 }
