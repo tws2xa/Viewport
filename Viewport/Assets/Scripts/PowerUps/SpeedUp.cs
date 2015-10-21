@@ -24,12 +24,13 @@ public class SpeedUp : PowerUp
 
     public void Start()
     {
+		powerUpID = 1;
         duration = 10;
         timeLeft = this.duration;
         orb = gameObject.GetComponent<Rigidbody>();
 		velDelta = 14 - orb.maxAngularVelocity;
-        //masDelta = 0.25F;
-		//angDrDelta = 0 - orb.angularDrag;
+        masDelta = 0.25F;
+		angDrDelta = 0 - orb.angularDrag;
         ModifyObject();
     }
 

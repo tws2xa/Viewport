@@ -21,8 +21,13 @@ public class PlayerPowerUpController : MonoBehaviour {
 	float timeLeft;
 	List<PowerUpManagementScript> activeManageScripts;
 
+
+	ParticleSystem powerUpParticles;
+
 	// Use this for initialization
 	void Start () {
+		powerUpParticles = gameObject.GetComponent<ParticleSystem> ();
+		powerUpParticles.enableEmission = false;
 		maxAmtPow = PowerUpManagementScript.MAX_AMT_POW;
 		activePowers = new List<PowerUp> ();
 		activeManageScripts = new List<PowerUpManagementScript> ();
@@ -95,11 +100,8 @@ public class PlayerPowerUpController : MonoBehaviour {
 			power.Start ();
 			gameObject.AddComponent (power.GetType ());
 			Debug.Log("Adding: " + power.ToString ());
-		} else {
-			//Debug.Log("Tried to add a power that the object already has, or the object has reached it's maximum Power Limit." +
-			//	"Power is shown here: " + power.ToString () + " and current/maximum Powers are listed here: MAX: " + maxAmtPow.ToString () + 
-			//        "CUR: " + curAmtPow.ToString ());
 		}
+		powerUpParticles.enableEmission = true;
 	}
 	
 	public void DeactivatePowerUp (PowerUp power) {
@@ -116,6 +118,7 @@ public class PlayerPowerUpController : MonoBehaviour {
 		} else {
 			Debug.Log("Tried to remove a power that the object did not have. Power is toString'd here: " + power.ToString ());
 		}
+		powerUpParticles.enableEmission = false;
 		//gameObject.GetComponent<pu.GetType()>
 	}
 

@@ -15,6 +15,7 @@ public class SlowDown : PowerUp {
 	}
 
 	public void Start () {
+		powerUpID = 0;
 		duration = 10;
 		timeLeft = this.duration;
 		orb = gameObject.GetComponent<Rigidbody> ();

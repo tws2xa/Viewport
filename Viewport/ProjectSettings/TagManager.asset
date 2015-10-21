@@ -10,6 +10,8 @@ TagManager:
   - DestroyPlayerOnImpact
   - Bouncy
   - FollowArrow
+  - testPowerUp
+  - Icey
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,8 @@ public class PlayerControls : MonoBehaviour {
 
     private bool isTarget = false;
 
+	private bool onIce = false;
+
 	private Rigidbody rigidBody;
 
 	public float normalMovementForce = 10.0f; // The torque to add when moving normally
@@ -32,18 +34,31 @@ public class PlayerControls : MonoBehaviour {
 		float vertAxis = Input.GetAxis (getControlInputName(VERT_AXIS_STR));
 		bool charging = Input.GetButton (getControlInputName(CHARGE_BUTTON_STR));
 
-        if (isTarget)   //don't let player charge if they have the camera
-            charging = false;
+        //if (isTarget)   //don't let player charge if they have the camera
+        //    charging = false;
 
-		Vector3 forceToApply = new Vector3 (
-			horizAxis * (charging ? chargeMovementForce : normalMovementForce),
-			0,
-			vertAxis * (charging ? chargeMovementForce : normalMovementForce)
-		);
-		rigidBody.AddForce (forceToApply);
-        
-		// Turn assist
-		if (turnAssist > 0 && forceToApply.sqrMagnitude > 0) {
+        bool hasCamera = gameObject.GetComponent<ViewportControlManagementScript>().HasCamera();
+        Vector3 forceToApply;
+        if (!hasCamera) //charge if has camera and charging
+        {
+                forceToApply = new Vector3(
+                horizAxis * (charging ? chargeMovementForce : normalMovementForce),
+                0,
+                vertAxis * (charging ? chargeMovementForce : normalMovementForce)
+            );
+        }
+        else //otherwise move normally
+        {
+                forceToApply = new Vector3(
+                horizAxis * normalMovementForce,
+                0,
+                vertAxis * normalMovementForce
+            );
+        }
+        rigidBody.AddForce(forceToApply);
+
+        // Turn assist
+        if (turnAssist > 0 && forceToApply.sqrMagnitude > 0) {
 			Vector3 desiredDirection = new Vector3 (horizAxis, rigidBody.velocity.y, vertAxis);
 			desiredDirection.Normalize ();
 
@@ -77,5 +92,24 @@ public class PlayerControls : MonoBehaviour {
     {
         this.isTarget = isTarget;
     }
+
+	public void SetTurnAssistDirection(int modifier) 
+	{
+		turnAssist = modifier * Mathf.Abs (turnAssist);
+	}
+
+	public void OnIce() {
+		if (!onIce) {
+			turnAssist = -Mathf.Abs (turnAssist);
+			onIce = true;
+		}
+	}
+
+	public void OffIce() {
+		if (onIce) {
+			turnAssist = Mathf.Abs (turnAssist);
+			onIce = false;
+		}
+	}
 
 }
