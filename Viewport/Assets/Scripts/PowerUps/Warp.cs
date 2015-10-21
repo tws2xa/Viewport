@@ -6,6 +6,9 @@ public class Warp : PowerUp {
     Rigidbody orb;
     Vector3 deltaScale;
     Vector3 newScale;
+
+	CapsuleCollider capsuleColl;
+
     public Warp(int duration) : base(duration)
     {
     }
@@ -29,10 +32,17 @@ public class Warp : PowerUp {
     public override void ModifyObject()
     {
         transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale + deltaScale, 1);
+		Destroy (gameObject.GetComponent<SphereCollider> ());
+		capsuleColl = gameObject.AddComponent<CapsuleCollider> ();
+		capsuleColl.direction = 0;
+		capsuleColl.radius = 0.5f;
+		capsuleColl.height = 1.0f;
     }
 
     public override void DemodifyObject()
     {
 		transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale - deltaScale, 1);
+		Destroy (gameObject.GetComponent<CapsuleCollider>());
+		gameObject.AddComponent<SphereCollider>();
     }
 }

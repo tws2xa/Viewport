@@ -8,7 +8,7 @@ public class PlayerInteraction : MonoBehaviour {
 	Rigidbody rb;
 	PlayerControls pc;
 
-	public float bouncyForce = 100.0f;
+	float bouncyForce;
 	Vector3 bounceVector;
 
 	// Use this for initialization
@@ -30,7 +30,7 @@ public class PlayerInteraction : MonoBehaviour {
 			DeathController.KillPlayer (this.gameObject);
 			break;
 		case "Bouncy":
-			bouncyForce = rb.mass * 550.0F;
+			bouncyForce = rb.mass * 275.0F;
 			bounceVector = new Vector3 (0, bouncyForce, 0);
 			rb.AddForce (bounceVector);
 			break;
