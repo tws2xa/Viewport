@@ -8,7 +8,7 @@ public class PlayerInteraction : MonoBehaviour {
 	Rigidbody rb;
 	PlayerControls pc;
 
-	public float bouncyForce = 100.0f;
+	float bouncyForce;
 	Vector3 bounceVector;
 
 	// Use this for initialization
