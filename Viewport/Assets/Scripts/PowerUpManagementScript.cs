@@ -14,7 +14,7 @@ public class PowerUpManagementScript : MonoBehaviour {
 	public enum PowerUpList {RANDOM = -1, SlowDown, SpeedUp, Warp, IceyPlayer};
 
 	// A constant that declares the maximum amount of powerUps a Player can hold.
-	public const int MAX_AMT_POW = 1;
+	public const int MAX_AMT_POW = 5;
 
 	// A constant that declares the respawn timer IN SECONDS.
 	public const float RESPAWN_TIMER = 10.0f;
