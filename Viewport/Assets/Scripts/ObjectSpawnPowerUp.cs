@@ -14,6 +14,7 @@ public class ObjectSpawnPowerUp : PowerUp {
 
 	// Use this for initialization
 	void Start () {
+        delay = 5.0f;
         powerUpID = 4;
         duration = 10;
         timeLeft = this.duration;
@@ -42,9 +43,10 @@ public class ObjectSpawnPowerUp : PowerUp {
         if(delay <= 1.0f && delay >= 0.5f) {
             playerPos = gameObject.transform.position;
         }
-        if(delay <= 0.05f) {
+        if(delay <= 0.05f && delay > 0.0f) {
             GameObject obstacle = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            obstacle.transform.position = playerPos;
+            obstacle.transform.position = playerPos + transform.up;
+            obstacle.AddComponent<Rigidbody>();
         }
     }
 }
