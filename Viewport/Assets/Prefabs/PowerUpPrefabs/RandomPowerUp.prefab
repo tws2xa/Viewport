@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 135264}
   m_LocalRotation: {x: .461939812, y: .191341713, z: .191341713, w: .844623208}
   m_LocalPosition: {x: 16.8220005, y: .5, z: -5.48000002}
-  m_LocalScale: {x: .49999994, y: .500000119, z: .5}
+  m_LocalScale: {x: .850000024, y: .850000024, z: .850000024}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,7 +44,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7f0a837271dd51145a2c3094d96b5337, type: 2}
+  - {fileID: 2100000, guid: bbb7cdc4febaf964b8c355c379d6d69c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -274,7 +274,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4294901948
+        rgba: 4278255611
       minMaxState: 0
     startSize:
       scalar: .400000006
@@ -1199,6 +1199,26 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: moveWithTransform
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bbb7cdc4febaf964b8c355c379d6d69c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startColor.maxColor.rgba
+      value: 4278255611
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: .850000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: .850000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: .850000024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
