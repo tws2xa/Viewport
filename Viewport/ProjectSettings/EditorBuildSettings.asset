@@ -8,8 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/menu.unity
   - enabled: 1
-    path: Assets/Levels/PowerUp_Testing/JE_Power_TEST.unity
+    path: Assets/Levels/Jared_Level.unity
   - enabled: 1
-    path: Assets/Levels/Kevin Project.unity
+    path: Assets/Levels/Chuck Crum Level.unity
   - enabled: 1
     path: Assets/Levels/SimpleLevel.unity
+  - enabled: 1
+    path: Assets/Levels/Alden_Simple_Level.unity
+  - enabled: 1
+    path: Assets/Levels/Kevin Bread and Butter.unity
