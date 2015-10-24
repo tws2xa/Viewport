@@ -12,6 +12,7 @@ TagManager:
   - FollowArrow
   - testPowerUp
   - Icey
+  - Moveable
   layers:
   - Default
   - TransparentFX
