@@ -43,7 +43,7 @@ public class SpeedUp : PowerUp
     public override void ModifyObject()
     {
         orb.maxAngularVelocity += velDelta;
-        //orb.angularDrag += angDrDelta;
+        orb.angularDrag += angDrDelta;
         orb.mass -= masDelta;
     }
 
