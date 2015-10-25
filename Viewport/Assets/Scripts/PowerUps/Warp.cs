@@ -6,11 +6,14 @@ public class Warp : PowerUp {
     Rigidbody orb;
     Vector3 deltaScale;
     Vector3 newScale;
+	Vector3 origScale;
 
 	float velDelta;
 	float angDrDelta;
 	float masDelta;
 	float forcDelta;
+	float timePassed;
+	float interpolant;
 
 	CapsuleCollider capsuleColl;
 
@@ -28,6 +31,7 @@ public class Warp : PowerUp {
 		velDelta = 14 - orb.maxAngularVelocity;
 		masDelta = 0.25F;
 		angDrDelta = 0 - orb.angularDrag;
+		origScale = transform.localScale;
         ModifyObject();
     }
 
@@ -35,11 +39,11 @@ public class Warp : PowerUp {
     public override void FixedUpdate()
     {
         Timer();
+		scaleTimer();
     }
 
     public override void ModifyObject()
     {
-        transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale + deltaScale, 1);
 		Destroy (gameObject.GetComponent<SphereCollider> ());
 		capsuleColl = gameObject.AddComponent<CapsuleCollider> ();
 		capsuleColl.direction = 0;
@@ -52,11 +56,26 @@ public class Warp : PowerUp {
 
     public override void DemodifyObject()
     {
-		transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale - deltaScale, 1);
 		Destroy (gameObject.GetComponent<CapsuleCollider>());
 		gameObject.AddComponent<SphereCollider>();
 		orb.maxAngularVelocity -= velDelta;
 		orb.angularDrag -= angDrDelta;
 		orb.mass += masDelta;
     }
+	public void scaleTimer(){
+		timePassed += Time.deltaTime;
+		if (timePassed <= duration/2 && timePassed >= 0.0F) {
+			interpolant = timePassed/duration/2;
+			if (interpolant >= 1.0F){
+				interpolant = 1.0F;
+			}
+			transform.localScale = Vector3.Lerp (transform.localScale, origScale + deltaScale, interpolant);
+		} else if (timePassed >= duration/2 && timePassed <= duration) {
+			transform.localScale = Vector3.Lerp(transform.localScale, origScale, 0.1F);
+			interpolant = timePassed/duration;
+			if (interpolant >= 1.0F){
+				interpolant = 1.0F;
+			}
+		}
+	}
 }

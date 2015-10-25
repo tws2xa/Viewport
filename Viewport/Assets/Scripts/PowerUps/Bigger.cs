@@ -8,8 +8,10 @@ public class Bigger : PowerUp {
 	// Make sure, when you create a powerUp, to add it to the ENUMERATION in PowerUpManagementScript.
 	
 	Rigidbody orb;
-	bool scale;
 	Vector3 deltaScale;
+	Vector3 origScale;
+	float timePassed;
+	float interpolant;
 	
 	public Bigger (int duration) : base (duration) {
 	}
@@ -19,6 +21,7 @@ public class Bigger : PowerUp {
 		timeLeft = this.duration;
 		orb = gameObject.GetComponent<Rigidbody> ();
 		deltaScale = new Vector3(1,1,1);
+		origScale = transform.localScale;
 		ModifyObject ();
 	}
 	
@@ -29,19 +32,26 @@ public class Bigger : PowerUp {
 	}
 	
 	public override void ModifyObject () {
-		scale = true;
 	}
 	
 	public override void DemodifyObject () {
-		scale = false;
+		transform.localScale = new Vector3 (1, 1, 1);
 	}
-
+	
 	public void scaleTimer(){
-
-		if (scale) {
-			transform.localScale = Vector3.Lerp (transform.localScale, transform.localScale + deltaScale, 0.1F);
-		} else {
-			transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale - deltaScale, 0.1F);
+		timePassed += Time.deltaTime;
+		if (timePassed <= duration/2 && timePassed >= 0.0F) {
+			interpolant = timePassed/duration/2;
+			if (interpolant >= 1.0F){
+				interpolant = 1.0F;
+			}
+			transform.localScale = Vector3.Lerp (transform.localScale, origScale + deltaScale, interpolant);
+		} else if (timePassed >= duration/2 && timePassed <= duration) {
+			transform.localScale = Vector3.Lerp(transform.localScale, origScale, 0.1F);
+			interpolant = timePassed/duration;
+			if (interpolant >= 1.0F){
+				interpolant = 1.0F;
+			}
 		}
 	}
 }

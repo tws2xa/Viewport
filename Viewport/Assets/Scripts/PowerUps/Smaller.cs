@@ -11,6 +11,7 @@ public class Smaller : PowerUp {
 	Vector3 deltaScale;
 	Vector3 origScale;
 	float timePassed;
+	float interpolant;
 	
 	public Smaller (int duration) : base (duration) {
 	}
@@ -19,7 +20,7 @@ public class Smaller : PowerUp {
 		duration = 10;
 		timeLeft = this.duration;
 		orb = gameObject.GetComponent<Rigidbody> ();
-		deltaScale = new Vector3(1,1,1);
+		deltaScale = new Vector3(0.5F,0.5F,0.5F);
 		origScale = transform.localScale;
 		ModifyObject ();
 	}
@@ -31,21 +32,25 @@ public class Smaller : PowerUp {
 	}
 	
 	public override void ModifyObject () {
-		print ("PENIS!");
 	}
 	
 	public override void DemodifyObject () {
 		transform.localScale = new Vector3 (1, 1, 1);
-		print ("SHRINKING BACK!");
 	}
 	
 	public void scaleTimer(){
 		timePassed += Time.deltaTime;
-		print (timePassed);
-		print (timeLeft);
-		if (timePassed <= 5.0F && timePassed >= 0.0F) {
-			transform.localScale = Vector3.Lerp (transform.localScale, origScale + deltaScale, 0.1F);
-		} else if (timePassed >= 5.0F && timePassed <= 10.0F) {
+		if (timePassed <= duration/2 && timePassed >= 0.0F) {
+			interpolant = timePassed/duration/2;
+			if (interpolant >= 1.0F){
+				interpolant = 1.0F;
+			}
+			transform.localScale = Vector3.Lerp (transform.localScale, origScale - deltaScale, interpolant);
+		} else if (timePassed >= duration/2 && timePassed <= duration) {
+			interpolant = timePassed/duration;
+			if (interpolant >= 1.0F){
+				interpolant = 1.0F;
+			}
 			transform.localScale = Vector3.Lerp(transform.localScale, origScale, 0.1F);
 		}
 	}

@@ -84,10 +84,10 @@ public class PowerUpManagementScript : MonoBehaviour {
 			chosenPowerUp = new Push(10);
 			break;
 		case PowerUpList.Bigger:
-			//chosenPowerUp = new Bigger(10);
+			chosenPowerUp = new Bigger(10);
 			break;
 		case PowerUpList.Smaller:
-			//chosenPowerUp = new Smaller(10);
+			chosenPowerUp = new Smaller(10);
 			break;
 		}
 		return chosenPowerUp;
