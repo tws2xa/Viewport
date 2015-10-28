@@ -51,6 +51,11 @@ public abstract class PowerUp : MonoBehaviour {
 		Destroy(this);
 	}
 
+	public void DestroyAllHelper() {
+		this.DemodifyObject ();
+		Destroy (this);
+	}
+
 	public override string ToString () {
 		return "ID: " + powerUpID.ToString () + " DUR: " + duration.ToString () + " " + this.GetType ().ToString ();
 	}

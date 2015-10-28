@@ -100,25 +100,29 @@ public class PlayerPowerUpController : MonoBehaviour {
 			power.Start ();
 			gameObject.AddComponent (power.GetType ());
 			Debug.Log("Adding: " + power.ToString ());
+			powerUpParticles.enableEmission = true;
 		}
-		powerUpParticles.enableEmission = true;
 	}
 	
 	public void DeactivatePowerUp (PowerUp power) {
 		if (!power) {
 			foreach (PowerUp p in activePowers) {
+				p.DestroyAllHelper();
 				Destroy (gameObject.GetComponent (p.GetType ()));
 			}
 			activePowers.Clear ();
 			Debug.Log ("Deactivated powerup is null");
+			powerUpParticles.enableEmission = false;
 		} else if (activePowers.Contains (power)) {
 			Destroy (gameObject.GetComponent (power.GetType ()));
 			activePowers.Remove (power);
 			Debug.Log("Attempting to remove " + power.ToString ());
+			if (activePowers.Count <= 0) {
+				powerUpParticles.enableEmission = false;
+			}
 		} else {
 			Debug.Log("Tried to remove a power that the object did not have. Power is toString'd here: " + power.ToString ());
 		}
-		powerUpParticles.enableEmission = false;
 		//gameObject.GetComponent<pu.GetType()>
 	}
 

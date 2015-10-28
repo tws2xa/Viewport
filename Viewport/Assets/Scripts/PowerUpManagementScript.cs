@@ -11,7 +11,8 @@ public class PowerUpManagementScript : MonoBehaviour {
 	//private SoundManagementScript soundManagerScript;
 
 	// ENUMERATION of all the powerUps. Index starts at -1.
-	public enum PowerUpList {RANDOM = -1, SlowDown, SpeedUp, Warp, IceyPlayer, ObjectSpawnPowerUp, Push, Pull, Bigger, Smaller};
+	public enum PowerUpList {RANDOM = -1, SlowDown, SpeedUp, Warp, IceyPlayer, 
+		ObjectSpawnPowerUp, Push, Pull, Bigger, Smaller, OrbitingShield};
 
 	// A constant that declares the maximum amount of powerUps a Player can hold.
 	public const int MAX_AMT_POW = 5;
@@ -88,6 +89,9 @@ public class PowerUpManagementScript : MonoBehaviour {
 			break;
 		case PowerUpList.Smaller:
 			chosenPowerUp = new Smaller(10);
+			break;
+		case PowerUpList.OrbitingShield:
+			chosenPowerUp = new OrbitingShield(10);
 			break;
 		}
 		return chosenPowerUp;
