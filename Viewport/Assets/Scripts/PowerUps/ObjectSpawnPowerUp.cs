@@ -5,7 +5,6 @@ using System;
 public class ObjectSpawnPowerUp : PowerUp {
 
     private float delay;
-    Rigidbody orb;
     ParticleSystem flashiness; // Deal with this later
     Vector3 playerPos;
 
@@ -13,12 +12,11 @@ public class ObjectSpawnPowerUp : PowerUp {
     }
 
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
         delay = 5.0f;
         powerUpID = 4;
         duration = 10;
         timeLeft = this.duration;
-        orb = gameObject.GetComponent<Rigidbody>();
         ModifyObject();
     }
 	

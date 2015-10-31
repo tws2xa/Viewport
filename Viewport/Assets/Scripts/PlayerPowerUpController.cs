@@ -106,9 +106,9 @@ public class PlayerPowerUpController : MonoBehaviour {
 	
 	public void DeactivatePowerUp (PowerUp power) {
 		if (!power) {
-			foreach (PowerUp p in activePowers) {
-				p.DestroyAllHelper();
-				Destroy (gameObject.GetComponent (p.GetType ()));
+			for (int i = 0; i < activePowers.Count; i++) {
+				PowerUp power2 = (PowerUp)(gameObject.GetComponent(activePowers[0].GetType()));
+				power2.DestroyAllHelper();
 			}
 			activePowers.Clear ();
 			Debug.Log ("Deactivated powerup is null");

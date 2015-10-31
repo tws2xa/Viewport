@@ -13,7 +13,7 @@ public class Pull : PowerUp {
 	}
 
 	// Use this for initialization
-	public void Start () {
+	public override void Start () {
 		powerUpID = 6;
 		duration = 10;
 		timeLeft = this.duration;

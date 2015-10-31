@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SoundManagementScript : MonoBehaviour {
 
-	public bool enabled = false;
+	public bool soundEnabled = false;
     public bool cycleTracks = true;
 
 	int currMusicIndex = 0;
@@ -35,7 +35,7 @@ public class SoundManagementScript : MonoBehaviour {
 	
 	// Called once every frame
 	public void Update() {
-		if (!enabled)
+		if (!soundEnabled)
 			return;
 
 		if (cameraFollowScript.GetTarget () != null) {
@@ -53,7 +53,7 @@ public class SoundManagementScript : MonoBehaviour {
 
 	// Moves to the next background audio track
 	public void updateBkgMusic() {
-		if (!enabled)
+		if (!soundEnabled)
 			return;
 
 		float prevTime = bkgMusicSources [currMusicIndex].time;
@@ -82,7 +82,7 @@ public class SoundManagementScript : MonoBehaviour {
 
 	// Starts the background music at the given index
 	public void startBkgMusic(int index) {
-		if (!enabled)
+		if (!soundEnabled)
 			return;
 
 		for (int i=0; i < bkgMusicSources.Count; i++) {

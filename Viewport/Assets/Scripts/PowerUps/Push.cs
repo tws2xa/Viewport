@@ -13,7 +13,7 @@ public class Push : PowerUp {
 	}
 
 	// Use this for initialization
-	public void Start () {
+	public override void Start () {
 		powerUpID = 5;
 		duration = 10;
 		timeLeft = this.duration;

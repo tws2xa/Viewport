@@ -7,7 +7,6 @@ public class Bigger : PowerUp {
 	
 	// Make sure, when you create a powerUp, to add it to the ENUMERATION in PowerUpManagementScript.
 	
-	Rigidbody orb;
 	Vector3 deltaScale;
 	Vector3 origScale;
 	float timePassed;
@@ -16,10 +15,9 @@ public class Bigger : PowerUp {
 	public Bigger (int duration) : base (duration) {
 	}
 	
-	public void Start () {
+	public override void Start () {
 		duration = 10;
 		timeLeft = this.duration;
-		orb = gameObject.GetComponent<Rigidbody> ();
 		deltaScale = new Vector3(1,1,1);
 		origScale = transform.localScale;
 		ModifyObject ();

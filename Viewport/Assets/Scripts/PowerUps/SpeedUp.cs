@@ -22,7 +22,7 @@ public class SpeedUp : PowerUp
     {
     }
 
-    public void Start()
+	public override void Start()
     {
 		powerUpID = 1;
         duration = 10;

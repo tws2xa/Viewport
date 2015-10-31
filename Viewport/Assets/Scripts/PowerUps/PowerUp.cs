@@ -16,18 +16,18 @@ public abstract class PowerUp : MonoBehaviour {
 		timeLeft = this.duration;
 	}
 
-	public void Start () {
-		int index = 0;
-		duration = 10;
-		timeLeft = this.duration;
-		foreach (string p in PowerUpManagementScript.getPowerUpList(1)) {
-			if (p.Equals(this.GetType().Name)) {
-				powerUpID = index;
-				break;
-			}
-			index++;
-		}
-	}
+	public abstract void Start ();
+		// CURRENTLY NOT WORKING
+//		int index = 0;
+//		duration = 10;
+//		timeLeft = this.duration;
+//		foreach (string p in PowerUpManagementScript.getPowerUpList(1)) {
+//			if (p.Equals(this.GetType().Name)) {
+//				powerUpID = index;
+//				break;
+//			}
+//			index++;
+//		}
 	
 	// Update is called once per frame
 	abstract public void FixedUpdate ();
@@ -52,8 +52,8 @@ public abstract class PowerUp : MonoBehaviour {
 	}
 
 	public void DestroyAllHelper() {
-		this.DemodifyObject ();
-		Destroy (this);
+		timeLeft = 0.0f;
+		Timer ();
 	}
 
 	public override string ToString () {
@@ -93,5 +93,10 @@ public abstract class PowerUp : MonoBehaviour {
 		} else {
 			return false;
 		}
+	}
+
+	public override int GetHashCode ()
+	{
+		return base.GetHashCode ();
 	}
 }
