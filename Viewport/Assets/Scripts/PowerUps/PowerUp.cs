@@ -16,7 +16,7 @@ public abstract class PowerUp : MonoBehaviour {
 		timeLeft = this.duration;
 	}
 
-	public abstract void Start ();
+	//public abstract void Start ();
 		// CURRENTLY NOT WORKING
 //		int index = 0;
 //		duration = 10;

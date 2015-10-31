@@ -15,7 +15,7 @@ public class Smaller : PowerUp {
 	public Smaller (int duration) : base (duration) {
 	}
 	
-	public override void Start () {
+	public void Start () {
 		duration = 10;
 		timeLeft = this.duration;
 		deltaScale = new Vector3(0.5F,0.5F,0.5F);

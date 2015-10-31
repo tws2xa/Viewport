@@ -8,16 +8,22 @@ public class Pull : PowerUp {
 
 	float gravForceModifier;
 
+	ParticleSystem objPart;
+	ParticleSystem prefabPart;
+
 	public Pull(int duration) : base(duration)
 	{
 	}
 
 	// Use this for initialization
-	public override void Start () {
+	public void Start () {
 		powerUpID = 6;
 		duration = 10;
 		timeLeft = this.duration;
 		gravForceModifier = 10.0f;
+		objPart = gameObject.GetComponent<ParticleSystem> ();
+		GameObject playerPrefab = (GameObject)(Resources.Load("Prefabs/PlayerPrefab", typeof(GameObject)));
+		prefabPart = playerPrefab.GetComponent<ParticleSystem> ();
 		tags = new List<string> ();
 		tags.Add ("Player");
 		tags.Add ("Moveable");
@@ -40,10 +46,17 @@ public class Pull : PowerUp {
 	}
 
 	public override void ModifyObject() {
+		objPart.emissionRate = 100.0f;
+		objPart.startSpeed = -5.0f;
+		objPart.startLifetime = 0.34f;
+		objPart.transform.localScale = objPart.transform.localScale * 5;
 
 	}
 
 	public override void DemodifyObject() {
-
+		objPart.emissionRate = prefabPart.emissionRate;
+		objPart.startSpeed = prefabPart.startSpeed;
+		objPart.startLifetime = prefabPart.startLifetime;
+		objPart.transform.localScale = prefabPart.transform.localScale;
 	}
 }

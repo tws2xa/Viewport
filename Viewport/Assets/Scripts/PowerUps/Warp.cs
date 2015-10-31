@@ -21,7 +21,7 @@ public class Warp : PowerUp {
     {
     }
 
-	public override void Start()
+	public void Start()
     {
 		powerUpID = 2;
         duration = 10;

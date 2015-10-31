@@ -97,7 +97,7 @@ public class PlayerPowerUpController : MonoBehaviour {
 		}
 		if (!activePowers.Contains (power) && activePowers.Count < maxAmtPow) {
 			activePowers.Add (power);
-			power.Start ();
+			//power.Start ();
 			gameObject.AddComponent (power.GetType ());
 			Debug.Log("Adding: " + power.ToString ());
 			powerUpParticles.enableEmission = true;

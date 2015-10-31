@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c6b4872e1b4b418559b111b814322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  soundEnabled: 0
   cycleTracks: 1
   bkgMusicClips:
   - {fileID: 8300000, guid: 072b57e42a14b094293b1fa66048db4a, type: 3}
@@ -2838,6 +2838,26 @@ Prefab:
       propertyPath: viewportTargetIndicatorTemlate
       value: 
       objectReference: {fileID: 178740, guid: 18282a62f7a20479d92613931aaab57a, type: 2}
+    - target: {fileID: 19841138, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: -5.17000008
+      objectReference: {fileID: 0}
+    - target: {fileID: 19841138, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: .180000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 19841138, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: .340000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 19841138, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
+      propertyPath: ShapeModule.radius
+      value: 5.19000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 19841138, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
+      propertyPath: EmissionModule.rate.scalar
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11415720, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
