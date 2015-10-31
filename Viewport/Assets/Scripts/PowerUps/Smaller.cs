@@ -33,7 +33,6 @@ public class Smaller : PowerUp {
 	}
 	
 	public override void DemodifyObject () {
-		transform.localScale = new Vector3 (1, 1, 1);
 	}
 	
 	public void scaleTimer(){
@@ -49,7 +48,7 @@ public class Smaller : PowerUp {
 			if (interpolant >= 1.0F){
 				interpolant = 1.0F;
 			}
-			transform.localScale = Vector3.Lerp(transform.localScale, origScale, 0.1F);
+			transform.localScale = Vector3.Lerp(transform.localScale, origScale, interpolant);
 		}
 	}
 }

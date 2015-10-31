@@ -71,11 +71,11 @@ public class Warp : PowerUp {
 			}
 			transform.localScale = Vector3.Lerp (transform.localScale, origScale + deltaScale, interpolant);
 		} else if (timePassed >= duration/2 && timePassed <= duration) {
-			transform.localScale = Vector3.Lerp(transform.localScale, origScale, 0.1F);
 			interpolant = timePassed/duration;
 			if (interpolant >= 1.0F){
 				interpolant = 1.0F;
 			}
+			transform.localScale = Vector3.Lerp(transform.localScale, origScale, interpolant);
 		}
 	}
 }
