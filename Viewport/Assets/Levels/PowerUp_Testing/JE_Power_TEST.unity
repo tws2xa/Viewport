@@ -242,7 +242,7 @@ GameObject:
   - 54: {fileID: 159641898}
   m_Layer: 0
   m_Name: Pyramid2
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -599,7 +599,7 @@ GameObject:
   - 54: {fileID: 346223717}
   m_Layer: 0
   m_Name: Pyramid6
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1082,7 +1082,7 @@ GameObject:
   - 54: {fileID: 623432884}
   m_Layer: 0
   m_Name: Pyramid3
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1194,11 +1194,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 456434, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11496082, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
       propertyPath: powerUpID
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
@@ -1217,7 +1217,7 @@ GameObject:
   - 54: {fileID: 645845864}
   m_Layer: 0
   m_Name: Pyramid1
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1510,7 +1510,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450048, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11482590, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: playerNum
@@ -2034,7 +2034,7 @@ GameObject:
   - 54: {fileID: 1554845073}
   m_Layer: 0
   m_Name: Pyramid5
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2812,7 +2812,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450048, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 108692, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: m_Name
@@ -2838,26 +2838,6 @@ Prefab:
       propertyPath: viewportTargetIndicatorTemlate
       value: 
       objectReference: {fileID: 178740, guid: 18282a62f7a20479d92613931aaab57a, type: 2}
-    - target: {fileID: 19841138, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: -5.17000008
-      objectReference: {fileID: 0}
-    - target: {fileID: 19841138, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
-      propertyPath: InitialModule.startSize.scalar
-      value: .180000007
-      objectReference: {fileID: 0}
-    - target: {fileID: 19841138, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: .340000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 19841138, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
-      propertyPath: ShapeModule.radius
-      value: 5.19000006
-      objectReference: {fileID: 0}
-    - target: {fileID: 19841138, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
-      propertyPath: EmissionModule.rate.scalar
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11415720, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
@@ -3114,7 +3094,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450048, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11482590, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: playerNum
@@ -3150,7 +3130,7 @@ GameObject:
   - 54: {fileID: 2119892590}
   m_Layer: 0
   m_Name: Pyramid4
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
