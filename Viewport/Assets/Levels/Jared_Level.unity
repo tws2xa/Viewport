@@ -176,6 +176,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -237,6 +241,10 @@ Prefab:
     - target: {fileID: 5476636, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
       propertyPath: m_Mass
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
@@ -362,6 +370,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -452,7 +464,7 @@ GameObject:
   - 54: {fileID: 151665476}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -618,6 +630,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -635,7 +651,7 @@ GameObject:
   - 54: {fileID: 197357297}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -963,7 +979,7 @@ GameObject:
   - 54: {fileID: 376877280}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1052,7 +1068,7 @@ GameObject:
   - 54: {fileID: 381958981}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1416,7 +1432,7 @@ GameObject:
   - 54: {fileID: 627675702}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1505,7 +1521,7 @@ GameObject:
   - 54: {fileID: 629702277}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1705,7 +1721,7 @@ GameObject:
   - 54: {fileID: 698017963}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1838,6 +1854,10 @@ Prefab:
     - target: {fileID: 5476636, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
       propertyPath: m_Mass
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
@@ -1979,6 +1999,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -1996,7 +2020,7 @@ GameObject:
   - 54: {fileID: 851682426}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2085,7 +2109,7 @@ GameObject:
   - 54: {fileID: 864499282}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2251,7 +2275,7 @@ GameObject:
   - 54: {fileID: 955756756}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2340,7 +2364,7 @@ GameObject:
   - 54: {fileID: 1008561982}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2478,6 +2502,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -2565,7 +2593,7 @@ GameObject:
   - 54: {fileID: 1119156253}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2724,7 +2752,7 @@ GameObject:
   - 54: {fileID: 1162715906}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2858,6 +2886,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -2952,6 +2984,10 @@ Prefab:
     - target: {fileID: 5476636, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
       propertyPath: m_Mass
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
@@ -3051,7 +3087,7 @@ GameObject:
   - 54: {fileID: 1260171458}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3217,6 +3253,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -3277,7 +3317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c6b4872e1b4b418559b111b814322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  soundEnabled: 0
   cycleTracks: 1
   bkgMusicClips:
   - {fileID: 8300000, guid: 072b57e42a14b094293b1fa66048db4a, type: 3}
@@ -3298,7 +3338,7 @@ GameObject:
   - 54: {fileID: 1307013376}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3494,6 +3534,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -3563,6 +3607,10 @@ Prefab:
     - target: {fileID: 456434, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
       propertyPath: m_LocalScale.y
       value: .850000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496082, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
+      propertyPath: powerUpID
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
@@ -3658,7 +3706,7 @@ GameObject:
   - 54: {fileID: 1423520833}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3842,7 +3890,7 @@ GameObject:
   - 54: {fileID: 1459899454}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4034,6 +4082,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -4051,7 +4103,7 @@ GameObject:
   - 54: {fileID: 1487272906}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4140,7 +4192,7 @@ GameObject:
   - 54: {fileID: 1531026182}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4386,6 +4438,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -4521,6 +4577,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -4583,6 +4643,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -4600,7 +4664,7 @@ GameObject:
   - 54: {fileID: 1730934606}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4862,6 +4926,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -4982,6 +5050,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -5039,7 +5111,7 @@ GameObject:
   - 54: {fileID: 1902939059}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5161,7 +5233,7 @@ GameObject:
   - 54: {fileID: 1920299902}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5326,6 +5398,10 @@ Prefab:
       propertyPath: m_Mass
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
   m_IsPrefabParent: 0
@@ -5343,7 +5419,7 @@ GameObject:
   - 54: {fileID: 2024048057}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5472,6 +5548,10 @@ Prefab:
     - target: {fileID: 5476636, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
       propertyPath: m_Mass
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
@@ -5622,7 +5702,7 @@ GameObject:
   - 54: {fileID: 2105930520}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5751,6 +5831,10 @@ Prefab:
     - target: {fileID: 5476636, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
       propertyPath: m_Mass
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 138156, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
+      propertyPath: m_TagString
+      value: Moveable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a8e3a4393b9f4910b29d604d08e3046, type: 2}
