@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Warp : PowerUp {
 
+    //Should stretch player width to 1 unit more than original
+
     Rigidbody orb;
     Vector3 deltaScale;
     Vector3 newScale;

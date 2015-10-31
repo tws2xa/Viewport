@@ -45,6 +45,7 @@ public class ObjectSpawnPowerUp : PowerUp {
             GameObject obstacle = GameObject.CreatePrimitive(PrimitiveType.Cube);
             obstacle.transform.position = playerPos + transform.up;
             obstacle.AddComponent<Rigidbody>();
+            obstacle.tag = "Moveable";
         }
     }
 }

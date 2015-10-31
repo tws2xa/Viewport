@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Bigger : PowerUp {
 	
-	// This powerUp should slow the Player to 1/4 original acceleration. Max speed should still be the same.
+	// This powerUp should grow the Player to 0.5 units bigger.
 	
 	// Make sure, when you create a powerUp, to add it to the ENUMERATION in PowerUpManagementScript.
 	
