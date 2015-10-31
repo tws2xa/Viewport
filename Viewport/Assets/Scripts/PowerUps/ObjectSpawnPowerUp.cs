@@ -12,7 +12,7 @@ public class ObjectSpawnPowerUp : PowerUp {
     }
 
 	// Use this for initialization
-	public void Start () {
+	public new void Start () {
         delay = 5.0f;
         powerUpID = 4;
         duration = 10;

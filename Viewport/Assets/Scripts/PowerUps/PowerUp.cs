@@ -16,18 +16,19 @@ public abstract class PowerUp : MonoBehaviour {
 		timeLeft = this.duration;
 	}
 
-	//public abstract void Start ();
+	public void Start (){
 		// CURRENTLY NOT WORKING
-//		int index = 0;
-//		duration = 10;
-//		timeLeft = this.duration;
-//		foreach (string p in PowerUpManagementScript.getPowerUpList(1)) {
-//			if (p.Equals(this.GetType().Name)) {
-//				powerUpID = index;
-//				break;
-//			}
-//			index++;
-//		}
+		int index = 0;
+		duration = 10;
+		timeLeft = this.duration;
+		foreach (string p in PowerUpManagementScript.getPowerUpList(1)) {
+			if (p.Equals(this.GetType().Name)) {
+				powerUpID = index;
+				break;
+			}
+			index++;
+		}
+	}
 	
 	// Update is called once per frame
 	abstract public void FixedUpdate ();
