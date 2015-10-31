@@ -14,7 +14,7 @@ public class SlowDown : PowerUp {
 	public SlowDown (int duration) : base (duration) {
 	}
 
-	public override void Start () {
+	public new void Start () {
 		powerUpID = 0;
 		duration = 10;
 		timeLeft = this.duration;

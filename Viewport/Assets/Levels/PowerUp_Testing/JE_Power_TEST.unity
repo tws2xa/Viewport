@@ -242,7 +242,7 @@ GameObject:
   - 54: {fileID: 159641898}
   m_Layer: 0
   m_Name: Pyramid2
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c6b4872e1b4b418559b111b814322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  soundEnabled: 0
   cycleTracks: 1
   bkgMusicClips:
   - {fileID: 8300000, guid: 072b57e42a14b094293b1fa66048db4a, type: 3}
@@ -599,7 +599,7 @@ GameObject:
   - 54: {fileID: 346223717}
   m_Layer: 0
   m_Name: Pyramid6
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1082,7 +1082,7 @@ GameObject:
   - 54: {fileID: 623432884}
   m_Layer: 0
   m_Name: Pyramid3
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1194,11 +1194,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 456434, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11496082, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
       propertyPath: powerUpID
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
@@ -1217,7 +1217,7 @@ GameObject:
   - 54: {fileID: 645845864}
   m_Layer: 0
   m_Name: Pyramid1
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1510,7 +1510,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450048, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11482590, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: playerNum
@@ -2034,7 +2034,7 @@ GameObject:
   - 54: {fileID: 1554845073}
   m_Layer: 0
   m_Name: Pyramid5
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2812,7 +2812,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450048, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 108692, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: m_Name
@@ -3094,7 +3094,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450048, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11482590, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: playerNum
@@ -3130,7 +3130,7 @@ GameObject:
   - 54: {fileID: 2119892590}
   m_Layer: 0
   m_Name: Pyramid4
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

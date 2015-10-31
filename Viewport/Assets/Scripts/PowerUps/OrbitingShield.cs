@@ -25,7 +25,7 @@ public class OrbitingShield : PowerUp {
 	}
 
 	// Use this for initialization
-	public override void Start () {
+	public new void Start () {
 		powerUpID = 9;
 		duration = 10;
 		timeLeft = this.duration;

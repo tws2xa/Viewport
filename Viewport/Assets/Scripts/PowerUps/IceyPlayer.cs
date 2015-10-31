@@ -8,7 +8,7 @@ public class IceyPlayer : PowerUp {
 	public IceyPlayer (int duration) : base (duration) {
 	}
 	
-	public override void Start () {
+	public new void Start () {
 		powerUpID = 3;
 		duration = 10;
 		timeLeft = this.duration;

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Bigger : PowerUp {
 	
-	// This powerUp should slow the Player to 1/4 original acceleration. Max speed should still be the same.
+	// This powerUp should grow the Player to 0.5 units bigger.
 	
 	// Make sure, when you create a powerUp, to add it to the ENUMERATION in PowerUpManagementScript.
 	
@@ -15,10 +15,10 @@ public class Bigger : PowerUp {
 	public Bigger (int duration) : base (duration) {
 	}
 	
-	public override void Start () {
+	public new void Start () {
 		duration = 10;
 		timeLeft = this.duration;
-		deltaScale = new Vector3(1,1,1);
+		deltaScale = new Vector3(0.5F,0.5F,0.5F);
 		origScale = transform.localScale;
 		ModifyObject ();
 	}
@@ -33,7 +33,6 @@ public class Bigger : PowerUp {
 	}
 	
 	public override void DemodifyObject () {
-		transform.localScale = new Vector3 (1, 1, 1);
 	}
 	
 	public void scaleTimer(){
@@ -45,11 +44,11 @@ public class Bigger : PowerUp {
 			}
 			transform.localScale = Vector3.Lerp (transform.localScale, origScale + deltaScale, interpolant);
 		} else if (timePassed >= duration/2 && timePassed <= duration) {
-			transform.localScale = Vector3.Lerp(transform.localScale, origScale, 0.1F);
 			interpolant = timePassed/duration;
 			if (interpolant >= 1.0F){
 				interpolant = 1.0F;
 			}
+            transform.localScale = Vector3.Lerp(transform.localScale, origScale, interpolant);
 		}
 	}
 }

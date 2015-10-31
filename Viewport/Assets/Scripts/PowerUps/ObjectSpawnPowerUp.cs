@@ -12,7 +12,7 @@ public class ObjectSpawnPowerUp : PowerUp {
     }
 
 	// Use this for initialization
-	public override void Start () {
+	public new void Start () {
         delay = 5.0f;
         powerUpID = 4;
         duration = 10;
@@ -45,6 +45,7 @@ public class ObjectSpawnPowerUp : PowerUp {
             GameObject obstacle = GameObject.CreatePrimitive(PrimitiveType.Cube);
             obstacle.transform.position = playerPos + transform.up;
             obstacle.AddComponent<Rigidbody>();
+            obstacle.tag = "Moveable";
         }
     }
 }
