@@ -24,8 +24,29 @@ public class PlayerPowerUpController : MonoBehaviour {
 
 	ParticleSystem powerUpParticles;
 
+	List<Int32> goodPowerUpIDs;
+	List<Int32> neutralPowerUpIDs;
+	List<Int32> badPowerUpIDs;
+
 	// Use this for initialization
 	void Start () {
+		goodPowerUpIDs = new List<Int32> ();
+		neutralPowerUpIDs = new List<Int32> ();
+		badPowerUpIDs = new List<Int32> ();
+
+		badPowerUpIDs.Add (0);
+		goodPowerUpIDs.Add (1);
+		badPowerUpIDs.Add (2);
+		badPowerUpIDs.Add (3);
+		goodPowerUpIDs.Add (4);
+		neutralPowerUpIDs.Add (5);
+		neutralPowerUpIDs.Add (6);
+		neutralPowerUpIDs.Add (7);
+		neutralPowerUpIDs.Add (8);
+		goodPowerUpIDs.Add (9);
+
+		Debug.Log ("START METHOD!");
+
 		powerUpParticles = gameObject.GetComponent<ParticleSystem> ();
 		powerUpParticles.enableEmission = false;
 		maxAmtPow = PowerUpManagementScript.MAX_AMT_POW;
@@ -100,6 +121,13 @@ public class PlayerPowerUpController : MonoBehaviour {
 			power.Start();
 			gameObject.AddComponent (power.GetType ());
 			Debug.Log("Adding: " + power.ToString ());
+			if (goodPowerUpIDs.Contains(power.getPowerUpID())){
+				powerUpParticles.startColor = Color.green;
+			} else if (neutralPowerUpIDs.Contains(power.getPowerUpID())){
+				powerUpParticles.startColor = Color.yellow;
+			} else if (badPowerUpIDs.Contains(power.getPowerUpID())){
+				powerUpParticles.startColor = Color.red;
+			}
 			powerUpParticles.enableEmission = true;
 		}
 	}
