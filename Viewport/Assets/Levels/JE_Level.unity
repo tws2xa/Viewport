@@ -509,7 +509,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 6e9d3c761b150374dbc38038694f4462, type: 2}
     - target: {fileID: 11423154, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: attempts
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
@@ -4021,7 +4021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c6b4872e1b4b418559b111b814322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  soundEnabled: 0
   cycleTracks: 1
   bkgMusicClips:
   - {fileID: 8300000, guid: d5848f340e77e434c8b581a7521558b5, type: 3}

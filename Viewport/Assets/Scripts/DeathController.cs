@@ -25,6 +25,13 @@ public class DeathController : MonoBehaviour {
 	}
 
 	public static void KillPlayer (GameObject player) {
+		GameObject particleDummyPrefab = (GameObject)(Resources.Load ("Prefabs/ParticleDummy", typeof(GameObject)));
+		GameObject particleDummy = GameObject.Instantiate (particleDummyPrefab);
+		particleDummy.transform.position = player.transform.position;
+		ParticleSystem playPart = particleDummy.GetComponent<ParticleSystem> ();
+		playPart.startColor = Color.red;
+		playPart.Emit (100);
+		playPart.enableEmission = false;
         PlayerDeathController playerDeath = player.GetComponent<PlayerDeathController>();
         if (playerDeath.getPrevState()) {
             playerDeath.attempts -= 1;
