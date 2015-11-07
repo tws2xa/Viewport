@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class DeathController : MonoBehaviour {
 
     HashSet<string> tags;
+	public static bool gameOver = false;
 
 	void Start () {
         tags = new HashSet<string>();
@@ -56,6 +57,7 @@ public class DeathController : MonoBehaviour {
         if (playerDeath.getTimer() >= 1 + (playerDeath.secondsPerAttempt * playerDeath.attempts))
         {
             player.SetActive(false);
+			PlayerDeath(player.GetComponent<PlayerControls>().playerNum);
         }
     }
 
@@ -78,4 +80,19 @@ public class DeathController : MonoBehaviour {
 
         }
     }
+
+	public static void PlayerDeath(int playerNum) {
+		//Debug.Log ("p" + playerNum.ToString ());
+		//Debug.Log (Time.fixedTime);
+		PlayerPrefs.SetFloat ("p" + playerNum.ToString() + "TimeActive" , Time.fixedTime);
+		int activeNum = 0;
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player")) {
+			if (go.activeInHierarchy){
+				activeNum++;
+			}
+		}
+		if (activeNum <= 1) {
+			gameOver = true;
+		}
+	}
 }

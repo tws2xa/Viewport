@@ -48,8 +48,6 @@ public class PlayerPowerUpController : MonoBehaviour {
 		neutralPowerUpIDs.Add (8);
 		goodPowerUpIDs.Add (9);
 
-		Debug.Log ("START METHOD!");
-
 		powerUpParticles = gameObject.GetComponent<ParticleSystem> ();
 		powerUpParticles.enableEmission = false;
 		maxAmtPow = PowerUpManagementScript.MAX_AMT_POW;
