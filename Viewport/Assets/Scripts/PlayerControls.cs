@@ -39,20 +39,21 @@ public class PlayerControls : MonoBehaviour {
 
         bool hasCamera = gameObject.GetComponent<ViewportControlManagementScript>().HasCamera();
         Vector3 forceToApply;
+		float velocityLimiter = (Mathf.Max (rigidBody.velocity.magnitude * 0.15f, 1.0f));
         if (!hasCamera) //charge if has camera and charging
         {
                 forceToApply = new Vector3(
-                horizAxis * (charging ? chargeMovementForce : normalMovementForce),
+				horizAxis * (charging ? chargeMovementForce/velocityLimiter : normalMovementForce/velocityLimiter),
                 0,
-                vertAxis * (charging ? chargeMovementForce : normalMovementForce)
+				vertAxis * (charging ? chargeMovementForce/velocityLimiter : normalMovementForce/velocityLimiter)
             );
         }
         else //otherwise move normally
         {
                 forceToApply = new Vector3(
-                horizAxis * 0.75f * normalMovementForce,
+				horizAxis * 0.75f * (normalMovementForce/velocityLimiter),
                 0.0f,
-                vertAxis * 0.75f * normalMovementForce
+				vertAxis * 0.75f * (normalMovementForce/velocityLimiter)
             );
         }
         rigidBody.AddForce(forceToApply);
