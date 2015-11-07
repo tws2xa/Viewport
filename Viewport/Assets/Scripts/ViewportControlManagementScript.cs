@@ -99,11 +99,6 @@ public class ViewportControlManagementScript : MonoBehaviour {
 			ViewportControlManagementScript otherControlScript = collision.gameObject.GetComponent<ViewportControlManagementScript>();
 			DestroyViewportTargetIcon();
 			otherControlScript.TakeCamera();
-
-			// Increment bkg music
-			if(soundManagerScript != null) {
-				soundManagerScript.updateBkgMusic();
-			}
 		}
 	}
 

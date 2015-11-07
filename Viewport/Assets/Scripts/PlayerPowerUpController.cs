@@ -21,6 +21,9 @@ public class PlayerPowerUpController : MonoBehaviour {
 	float timeLeft;
 	List<PowerUpManagementScript> activeManageScripts;
 
+    // List of sounds to choose from when powerup is obtained.
+    public List<AudioClip> powerupGetSounds;
+    private AudioSource audioSrc;
 
 	ParticleSystem powerUpParticles;
 
@@ -52,7 +55,11 @@ public class PlayerPowerUpController : MonoBehaviour {
 		maxAmtPow = PowerUpManagementScript.MAX_AMT_POW;
 		activePowers = new List<PowerUp> ();
 		activeManageScripts = new List<PowerUpManagementScript> ();
-	}
+
+        audioSrc = gameObject.AddComponent<AudioSource>();
+        audioSrc.loop = false;
+        audioSrc.volume = 0.5f;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -62,19 +69,20 @@ public class PlayerPowerUpController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider coll) {
-		if (ObjectIsPowerUp(coll.gameObject)) {
-			// The other object is guarenteed to have a TransferControlScript because
-			// of one of the checks in ObjectCanGrabCamera
-			PowerUpManagementScript otherControlScript = coll.gameObject.GetComponent<PowerUpManagementScript>();
-			PowerUp chosenPowerUp = otherControlScript.getThisPowerUp();
-			ActivatePowerUp(chosenPowerUp);
-			InitiateRespawnTimer(otherControlScript);
-			otherControlScript.gameObject.SetActive(false);
-			// Increment bkg music
-			
-			//			if(soundManagerScript != null) {
-			//				soundManagerScript.updateBkgMusic();
-			//			}
+        if (ObjectIsPowerUp(coll.gameObject)) {
+            // The other object is guarenteed to have a TransferControlScript because
+            // of one of the checks in ObjectCanGrabCamera
+            PowerUpManagementScript otherControlScript = coll.gameObject.GetComponent<PowerUpManagementScript>();
+            PowerUp chosenPowerUp = otherControlScript.getThisPowerUp();
+            ActivatePowerUp(chosenPowerUp);
+            InitiateRespawnTimer(otherControlScript);
+            otherControlScript.gameObject.SetActive(false);
+
+            if (powerupGetSounds.Count > 0) {
+                int soundIndex = UnityEngine.Random.Range(0, powerupGetSounds.Count - 1);
+                audioSrc.clip = powerupGetSounds[soundIndex];
+                audioSrc.Play();
+            }
 		}
 
 

@@ -4,14 +4,18 @@ using System.Collections.Generic;
 
 public class SoundManagementScript : MonoBehaviour {
 
-	public bool soundEnabled = false;
-    public bool cycleTracks = true;
+	public bool soundEnabled = true;
 
-	int currMusicIndex = 0;
-	public AudioClip[] bkgMusicClips;
-	private List<AudioSource> bkgMusicSources;
+    public AudioClip introClip;
+    public AudioClip loopClip;
 
-	public float pitchVelocityMultiplier = 0.0008f;
+	private AudioSource introClipSrc;
+    private AudioSource loopClipSrc;
+
+    private bool introPlayed;
+    private bool introPlaying;
+
+    public float pitchVelocityMultiplier = 0.0008f;
 	private float basePitch = 1.0f;
 	private FollowObject cameraFollowScript;
 
@@ -20,17 +24,26 @@ public class SoundManagementScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		bkgMusicSources = new List<AudioSource> ();
-		foreach (AudioClip clip in bkgMusicClips) {
-			AudioSource src = gameObject.AddComponent<AudioSource>();
-			src.clip = clip;
-			src.playOnAwake = false;
-			src.loop = true;
-			src.Stop();
-			bkgMusicSources.Add (src);
-		}
+        if (introClip != null)
+        {
+            introClipSrc = gameObject.AddComponent<AudioSource>();
+            introClipSrc.clip = introClip;
+            introClipSrc.playOnAwake = false;
+            introClipSrc.loop = false;
+        }
+        if(loopClip != null)
+        {
+            loopClipSrc = gameObject.AddComponent<AudioSource>();
+            loopClipSrc.clip = loopClip;
+            loopClipSrc.playOnAwake = false;
+            loopClipSrc.loop = true;
+        }
 
-		cameraFollowScript = Camera.main.GetComponent<FollowObject> ();
+        introPlaying = false;
+        introPlayed = false;
+
+        // Needed to play music once the camera picks up an object
+        cameraFollowScript = Camera.main.GetComponent<FollowObject> ();
 	}
 	
 	// Called once every frame
@@ -38,9 +51,10 @@ public class SoundManagementScript : MonoBehaviour {
 		if (!soundEnabled)
 			return;
 
-		if (cameraFollowScript.GetTarget () != null) {
-			if (!getCurrentBkgMusic().isPlaying) {
-				startBkgMusic(currMusicIndex);
+		if (cameraFollowScript.GetTarget () != null)
+        {
+			if (getCurrentBkgMusic() == null || !getCurrentBkgMusic().isPlaying) {
+                StartBkgMusic();
 			}
 
 			// Modulate tempo with follow object velocity.
@@ -50,51 +64,53 @@ public class SoundManagementScript : MonoBehaviour {
 			}
 		}
 	}
-
-	// Moves to the next background audio track
-	public void updateBkgMusic() {
-		if (!soundEnabled)
-			return;
-
-		float prevTime = bkgMusicSources [currMusicIndex].time;
-		bkgMusicSources [currMusicIndex].Stop ();
-
-        if (cycleTracks)
-        {
-            currMusicIndex += (ascend ? 1 : -1);
-            if (currMusicIndex == 0 || currMusicIndex == bkgMusicSources.Count - 1)
-            {
-                ascend = !ascend;
-            }
-        }
-        else
-        {
-            if (currMusicIndex < bkgMusicSources.Count)
-            {
-                currMusicIndex++;
-            }
-        }
-
-
-        bkgMusicSources[currMusicIndex].time = prevTime;
-		bkgMusicSources [currMusicIndex].Play ();
-	}
-
+    
 	// Starts the background music at the given index
-	public void startBkgMusic(int index) {
+	public void StartBkgMusic() {
 		if (!soundEnabled)
 			return;
 
-		for (int i=0; i < bkgMusicSources.Count; i++) {
-			bkgMusicSources[i].Stop ();
-		}
-		AudioSource toPlay = bkgMusicSources [index % bkgMusicSources.Count];
-		toPlay.time = 0;
-		toPlay.Play ();
-	}
+        if (introClipSrc != null)
+        {
+            Debug.Log("Intro Clip!");
+            introClipSrc.Play();
+            Invoke("SwapToLoop", introClipSrc.clip.length - 0.3f);
+            introPlaying = true;
+        } else
+        {
+            Debug.Log("Straigh to Loop!");
+            SwapToLoop();
+        }
+    }
+
+    // Switches from the intro to the main loop
+    private void SwapToLoop()
+    {
+        if (introClipSrc != null)
+        {
+            introClipSrc.Stop();
+        }
+
+        if(loopClipSrc != null)
+        {
+            loopClipSrc.Play();
+            introPlaying = false;
+            introPlayed = true;
+        }
+        Debug.Log("Swapped to loop!");
+    }
 
 	// Gets the currently playing background music
 	public AudioSource getCurrentBkgMusic() {
-		return bkgMusicSources[currMusicIndex];
+        if(introPlayed)
+        {
+            return loopClipSrc;
+        } else if (introPlaying)
+        {
+            return introClipSrc;
+        } else
+        {
+            return null;
+        }
 	}
 }

@@ -99,7 +99,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 455872, guid: db1adcb8f6fa43d4f8ec9370ced494c6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .5
+      value: .0199999996
       objectReference: {fileID: 0}
     - target: {fileID: 455872, guid: db1adcb8f6fa43d4f8ec9370ced494c6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -123,7 +123,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 455872, guid: db1adcb8f6fa43d4f8ec9370ced494c6, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 154124, guid: db1adcb8f6fa43d4f8ec9370ced494c6, type: 2}
       propertyPath: m_Name
@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80716c84159dacf40bc8fb0a52ec33b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backThreshold: 5
 --- !u!1 &270186225
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,11 +374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c6b4872e1b4b418559b111b814322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEnabled: 0
-  cycleTracks: 1
-  bkgMusicClips:
-  - {fileID: 8300000, guid: d5848f340e77e434c8b581a7521558b5, type: 3}
-  - {fileID: 8300000, guid: d5848f340e77e434c8b581a7521558b5, type: 3}
+  soundEnabled: 1
+  introClip: {fileID: 8300000, guid: 112bc90a1c294c64fb5827f85f349321, type: 3}
+  loopClip: {fileID: 8300000, guid: b1ffbdd7313e32741b5f2ee6b4779cec, type: 3}
   pitchVelocityMultiplier: .00039999999
 --- !u!114 &270186227
 MonoBehaviour:
@@ -550,6 +549,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eccf36cc2dfe744428c38127e9069ac8, type: 2}
+    - target: {fileID: 19841138, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
+      propertyPath: SubModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
   m_IsPrefabParent: 0
@@ -959,7 +962,7 @@ Transform:
   m_GameObject: {fileID: 1808113106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.8944855, y: 39.2309418, z: -62.1465607}
-  m_LocalScale: {x: 99, y: 11, z: 1}
+  m_LocalScale: {x: 101, y: 11, z: 1}
   m_Children: []
   m_Father: {fileID: 386531880}
   m_RootOrder: 3
