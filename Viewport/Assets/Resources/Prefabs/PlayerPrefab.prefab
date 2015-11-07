@@ -19,6 +19,7 @@ GameObject:
   - 199: {fileID: 19979410}
   - 198: {fileID: 19841138}
   - 114: {fileID: 11423154}
+  - 114: {fileID: 11449656}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -145,6 +146,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4679a4ed0d2f346869ae232976bed969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11449656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4045b6bfad2129941b888eda28c84e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texture: {fileID: 0}
 --- !u!114 &11482590
 MonoBehaviour:
   m_ObjectHideFlags: 1
