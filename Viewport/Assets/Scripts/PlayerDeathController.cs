@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PlayerDeathController : MonoBehaviour {
 
-    public int attempts;
-    public float secondsPerAttempt;
+    private int attempts = 0;
+    private float secondsPerAttempt = 0;
     private float timer;
     private bool prevState = true;
 
