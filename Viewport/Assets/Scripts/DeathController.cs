@@ -30,9 +30,7 @@ public class DeathController : MonoBehaviour {
 		GameObject particleDummy = GameObject.Instantiate (particleDummyPrefab);
 		particleDummy.transform.position = player.transform.position;
 		ParticleSystem playPart = particleDummy.GetComponent<ParticleSystem> ();
-		playPart.startColor = Color.red;
-		playPart.Emit (100);
-		playPart.enableEmission = false;
+		playPart.Emit (50);
         PlayerDeathController playerDeath = player.GetComponent<PlayerDeathController>();
         if (playerDeath.getPrevState()) {
             playerDeath.attempts -= 1;
