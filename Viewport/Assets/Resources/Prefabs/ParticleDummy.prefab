@@ -412,10 +412,10 @@ ParticleSystem:
           rgba: 4294967295
         key1:
           serializedVersion: 2
-          rgba: 4278251007
+          rgba: 3540053503
         key2:
           serializedVersion: 2
-          rgba: 34047
+          rgba: 2130740479
         key3:
           serializedVersion: 2
           rgba: 255
@@ -440,15 +440,15 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
-        atime3: 0
+        atime1: 49151
+        atime2: 59174
+        atime3: 65535
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_NumColorKeys: 5
-        m_NumAlphaKeys: 2
+        m_NumAlphaKeys: 4
       minGradient:
         key0:
           serializedVersion: 2
@@ -1183,11 +1183,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ColorModule.gradient.maxGradient.key1.rgba
-      value: 4278251007
+      value: 3540053503
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ColorModule.gradient.maxGradient.key2.rgba
-      value: 34047
+      value: 2130740479
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ColorModule.gradient.maxGradient.ctime2
@@ -1216,6 +1216,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: InitialModule.startColor.minMaxState
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 49151
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.atime2
+      value: 59174
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.atime3
+      value: 65535
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
