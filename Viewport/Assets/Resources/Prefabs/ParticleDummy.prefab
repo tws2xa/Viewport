@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 746f0928b8c6746939fe7260b89be70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathTimer: 1
+  deathTimer: 2
 --- !u!198 &19831920
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1248,7 +1248,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: deathTimer
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: EmissionModule.rate.scalar
