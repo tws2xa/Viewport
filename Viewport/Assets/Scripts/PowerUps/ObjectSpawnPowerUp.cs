@@ -7,6 +7,8 @@ public class ObjectSpawnPowerUp : PowerUp {
     private float delay;
     ParticleSystem flashiness; // Deal with this later
     Vector3 playerPos;
+    ParticleSystem particlez;
+    ParticleSystem prefabPart;
 
     public ObjectSpawnPowerUp(int duration) : base (duration) {
     }
@@ -17,6 +19,7 @@ public class ObjectSpawnPowerUp : PowerUp {
         powerUpID = 4;
         duration = 10;
         timeLeft = this.duration;
+        particlez = gameObject.GetComponent<ParticleSystem>();
         ModifyObject();
     }
 	
@@ -38,14 +41,30 @@ public class ObjectSpawnPowerUp : PowerUp {
 
     public void objTimer() {
         delay -= Time.deltaTime;
+        if(delay <= 5.0f && delay > 3.0f) {
+            particlez.emissionRate = 50.0f;
+            particlez.startSpeed = -5.0f;
+            particlez.startLifetime = 0.35f;
+        }
+        if(delay <= 3.0f && delay > 1.0f) {
+            particlez.emissionRate = 500.0f;
+            particlez.startSpeed = -5.0f;
+            particlez.startLifetime = 0.35f;
+        }
         if(delay <= 1.0f && delay >= 0.5f) {
             playerPos = gameObject.transform.position;
         }
         if(delay <= 0.05f && delay > 0.0f) {
+            particlez.emissionRate = 2000.0f;
+            particlez.startSpeed = -10.0f;
+            particlez.startLifetime = 0.5f;
             GameObject obstacle = GameObject.CreatePrimitive(PrimitiveType.Cube);
             obstacle.transform.position = playerPos + transform.up;
             obstacle.AddComponent<Rigidbody>();
             obstacle.tag = "Moveable";
+        }
+        if(delay <= 0.0f) {
+            particlez.enableEmission = false;
         }
     }
 }

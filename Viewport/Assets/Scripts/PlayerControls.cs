@@ -12,8 +12,6 @@ public class PlayerControls : MonoBehaviour {
 	private const string CHARGE_BUTTON_STR = "Charge";
 	private const string PLAYER_CONTROL_MODIFIER = "_p{0}"; // {0} replaced with player number 
 
-    private bool isTarget = false;
-
 	private bool onIce = false;
 
 	private Rigidbody rigidBody;
@@ -34,25 +32,23 @@ public class PlayerControls : MonoBehaviour {
 		float vertAxis = Input.GetAxis (getControlInputName(VERT_AXIS_STR));
 		bool charging = Input.GetButton (getControlInputName(CHARGE_BUTTON_STR));
 
-        //if (isTarget)   //don't let player charge if they have the camera
-        //    charging = false;
-
         bool hasCamera = gameObject.GetComponent<ViewportControlManagementScript>().HasCamera();
         Vector3 forceToApply;
+		float velocityLimiter = (Mathf.Max (rigidBody.velocity.magnitude * 0.15f, 1.0f));
         if (!hasCamera) //charge if has camera and charging
         {
                 forceToApply = new Vector3(
-                horizAxis * (charging ? chargeMovementForce : normalMovementForce),
+				horizAxis * (charging ? chargeMovementForce/velocityLimiter : normalMovementForce/velocityLimiter),
                 0,
-                vertAxis * (charging ? chargeMovementForce : normalMovementForce)
+				vertAxis * (charging ? chargeMovementForce/velocityLimiter : normalMovementForce/velocityLimiter)
             );
         }
         else //otherwise move normally
         {
                 forceToApply = new Vector3(
-                horizAxis * 0.75f * normalMovementForce,
+				horizAxis * 0.75f * (normalMovementForce/velocityLimiter),
                 0.0f,
-                vertAxis * 0.75f * normalMovementForce
+				vertAxis * 0.75f * (normalMovementForce/velocityLimiter)
             );
         }
         rigidBody.AddForce(forceToApply);
@@ -87,11 +83,6 @@ public class PlayerControls : MonoBehaviour {
 		}
 		return string.Format (baseStr + PLAYER_CONTROL_MODIFIER, playerNum);
 	}
-
-    public void setTarget(bool isTarget)
-    {
-        this.isTarget = isTarget;
-    }
 
 	public void SetTurnAssistDirection(int modifier) 
 	{

@@ -28,8 +28,8 @@ public class SpeedUp : PowerUp
         duration = 10;
         timeLeft = this.duration;
         orb = gameObject.GetComponent<Rigidbody>();
-		velDelta = 14 - orb.maxAngularVelocity;
-        masDelta = 0.25F;
+		velDelta = 8 - orb.maxAngularVelocity;
+        masDelta = 0.1f;
 		angDrDelta = 0 - orb.angularDrag;
         ModifyObject();
     }

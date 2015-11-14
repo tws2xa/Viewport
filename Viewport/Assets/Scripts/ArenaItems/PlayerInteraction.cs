@@ -27,7 +27,7 @@ public class PlayerInteraction : MonoBehaviour {
 		switch (coll.gameObject.tag) {
 		case "DestroyPlayerOnImpact":
 			this.gameObject.GetComponent<PlayerPowerUpController> ().DeactivatePowerUp (null);
-			DeathController.KillPlayer (this.gameObject);
+			DeathController.KillPlayer (this.gameObject, DeathController.DeathCause.Lava);
 			break;
 		case "Bouncy":
 			bouncyForce = rb.mass * 275.0F;

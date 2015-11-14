@@ -19,6 +19,7 @@ GameObject:
   - 199: {fileID: 19979410}
   - 198: {fileID: 19841138}
   - 114: {fileID: 11423154}
+  - 114: {fileID: 11449656}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -68,7 +69,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108692}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: ad22bae39bbe870499838b2edb988a04, type: 3}
 --- !u!54 &5429206
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -95,6 +96,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2f48a1b5c784f11a04b7fe93921f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerupGetSounds:
+  - {fileID: 8300000, guid: 4b9f909ed85a5a740847372b57586ff5, type: 3}
+  - {fileID: 8300000, guid: c16c7e9a98665a548ad7458430ded5b5, type: 3}
+  - {fileID: 8300000, guid: 0dbdf941c3779f445a698c5f4318491d, type: 3}
+  - {fileID: 8300000, guid: 9c03e35ae663b7f4e9894a5b639f7ae2, type: 3}
+  - {fileID: 8300000, guid: 51c6ee0751b51e24da6ae646d35e61f3, type: 3}
+  - {fileID: 8300000, guid: 8ba32f6658d667a4eac268a20186f0b0, type: 3}
+  - {fileID: 8300000, guid: 8476b0ba4e9d0ce41b9f4eb5bb30cb06, type: 3}
+  - {fileID: 8300000, guid: 570055036f0b9bf4f8adc7c511860f3d, type: 3}
+  - {fileID: 8300000, guid: 351cbc72a8c591346a6d3b03df8d21b5, type: 3}
+  - {fileID: 8300000, guid: e6066f214083d514eae31b93c6498477, type: 3}
+  - {fileID: 8300000, guid: cc0dc1e000020af4d8b67ffa623458dc, type: 3}
 --- !u!114 &11421038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,7 +146,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4679a4ed0d2f346869ae232976bed969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bouncyForce: 550
+--- !u!114 &11449656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4045b6bfad2129941b888eda28c84e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texture: {fileID: 0}
 --- !u!114 &11482590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1259,6 +1283,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1298,6 +1326,54 @@ Prefab:
       propertyPath: secondsPerAttempt
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: ad22bae39bbe870499838b2edb988a04, type: 3}
+    - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b9f909ed85a5a740847372b57586ff5, type: 3}
+    - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c16c7e9a98665a548ad7458430ded5b5, type: 3}
+    - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0dbdf941c3779f445a698c5f4318491d, type: 3}
+    - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9c03e35ae663b7f4e9894a5b639f7ae2, type: 3}
+    - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 51c6ee0751b51e24da6ae646d35e61f3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ba32f6658d667a4eac268a20186f0b0, type: 3}
+    - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8476b0ba4e9d0ce41b9f4eb5bb30cb06, type: 3}
+    - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 570055036f0b9bf4f8adc7c511860f3d, type: 3}
+    - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 351cbc72a8c591346a6d3b03df8d21b5, type: 3}
+    - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: e6066f214083d514eae31b93c6498477, type: 3}
+    - target: {fileID: 0}
+      propertyPath: powerupGetSounds.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: cc0dc1e000020af4d8b67ffa623458dc, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108692}

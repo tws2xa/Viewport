@@ -21,17 +21,43 @@ public class PlayerPowerUpController : MonoBehaviour {
 	float timeLeft;
 	List<PowerUpManagementScript> activeManageScripts;
 
+    // List of sounds to choose from when powerup is obtained.
+    public List<AudioClip> powerupGetSounds;
+    private AudioSource audioSrc;
 
 	ParticleSystem powerUpParticles;
 
+	List<Int32> goodPowerUpIDs;
+	List<Int32> neutralPowerUpIDs;
+	List<Int32> badPowerUpIDs;
+
 	// Use this for initialization
 	void Start () {
+		goodPowerUpIDs = new List<Int32> ();
+		neutralPowerUpIDs = new List<Int32> ();
+		badPowerUpIDs = new List<Int32> ();
+
+		badPowerUpIDs.Add (0);
+		goodPowerUpIDs.Add (1);
+		badPowerUpIDs.Add (2);
+		badPowerUpIDs.Add (3);
+		goodPowerUpIDs.Add (4);
+		neutralPowerUpIDs.Add (5);
+		neutralPowerUpIDs.Add (6);
+		neutralPowerUpIDs.Add (7);
+		neutralPowerUpIDs.Add (8);
+		goodPowerUpIDs.Add (9);
+
 		powerUpParticles = gameObject.GetComponent<ParticleSystem> ();
 		powerUpParticles.enableEmission = false;
 		maxAmtPow = PowerUpManagementScript.MAX_AMT_POW;
 		activePowers = new List<PowerUp> ();
 		activeManageScripts = new List<PowerUpManagementScript> ();
-	}
+
+        audioSrc = gameObject.AddComponent<AudioSource>();
+        audioSrc.loop = false;
+        audioSrc.volume = 0.5f;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -41,19 +67,20 @@ public class PlayerPowerUpController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider coll) {
-		if (ObjectIsPowerUp(coll.gameObject)) {
-			// The other object is guarenteed to have a TransferControlScript because
-			// of one of the checks in ObjectCanGrabCamera
-			PowerUpManagementScript otherControlScript = coll.gameObject.GetComponent<PowerUpManagementScript>();
-			PowerUp chosenPowerUp = otherControlScript.getThisPowerUp();
-			ActivatePowerUp(chosenPowerUp);
-			InitiateRespawnTimer(otherControlScript);
-			otherControlScript.gameObject.SetActive(false);
-			// Increment bkg music
-			
-			//			if(soundManagerScript != null) {
-			//				soundManagerScript.updateBkgMusic();
-			//			}
+        if (ObjectIsPowerUp(coll.gameObject)) {
+            // The other object is guarenteed to have a TransferControlScript because
+            // of one of the checks in ObjectCanGrabCamera
+            PowerUpManagementScript otherControlScript = coll.gameObject.GetComponent<PowerUpManagementScript>();
+            PowerUp chosenPowerUp = otherControlScript.getThisPowerUp();
+            ActivatePowerUp(chosenPowerUp);
+            InitiateRespawnTimer(otherControlScript);
+            otherControlScript.gameObject.SetActive(false);
+
+            if (powerupGetSounds.Count > 0) {
+                int soundIndex = UnityEngine.Random.Range(0, powerupGetSounds.Count - 1);
+                audioSrc.clip = powerupGetSounds[soundIndex];
+                audioSrc.Play();
+            }
 		}
 
 
@@ -100,6 +127,13 @@ public class PlayerPowerUpController : MonoBehaviour {
 			power.Start();
 			gameObject.AddComponent (power.GetType ());
 			Debug.Log("Adding: " + power.ToString ());
+			if (goodPowerUpIDs.Contains(power.getPowerUpID())){
+				powerUpParticles.startColor = Color.green;
+			} else if (neutralPowerUpIDs.Contains(power.getPowerUpID())){
+				powerUpParticles.startColor = Color.yellow;
+			} else if (badPowerUpIDs.Contains(power.getPowerUpID())){
+				powerUpParticles.startColor = Color.red;
+			}
 			powerUpParticles.enableEmission = true;
 		}
 	}
