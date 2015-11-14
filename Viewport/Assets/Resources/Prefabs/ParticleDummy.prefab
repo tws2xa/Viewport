@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 452782}
   - 198: {fileID: 19831920}
   - 199: {fileID: 19990946}
+  - 114: {fileID: 11487342}
   m_Layer: 0
   m_Name: ParticleDummy
   m_TagString: Untagged
@@ -29,6 +30,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11487342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746f0928b8c6746939fe7260b89be70b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathTimer: 1
 --- !u!198 &19831920
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -42,7 +55,7 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 1
-  moveWithTransform: 1
+  moveWithTransform: 0
   InitialModule:
     enabled: 1
     startLifetime:
@@ -289,10 +302,10 @@ ParticleSystem:
     m_Mesh: {fileID: 0}
     randomDirection: 0
   EmissionModule:
-    enabled: 0
+    enabled: 1
     m_Type: 0
     rate:
-      scalar: 10
+      scalar: 500
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1155,7 +1168,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: moveWithTransform
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: VelocityModule.enabled
@@ -1232,6 +1245,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ColorModule.gradient.maxGradient.atime3
       value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: deathTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.rate.scalar
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
