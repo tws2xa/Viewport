@@ -15,7 +15,7 @@ public class PowerUpManagementScript : MonoBehaviour {
 		ObjectSpawnPowerUp, Push, Pull, Bigger, Smaller, OrbitingShield};
 
 	// A constant that declares the maximum amount of powerUps a Player can hold.
-	public const int MAX_AMT_POW = 5;
+	public const int MAX_AMT_POW = 1;
 
 	// A constant that declares the respawn timer IN SECONDS.
 	public const float RESPAWN_TIMER = 10.0f;

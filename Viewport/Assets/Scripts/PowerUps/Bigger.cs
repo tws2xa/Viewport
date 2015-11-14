@@ -16,6 +16,7 @@ public class Bigger : PowerUp {
 	}
 	
 	public new void Start () {
+		powerUpID = 7;
 		duration = 10;
 		timeLeft = this.duration;
 		deltaScale = new Vector3(0.5F,0.5F,0.5F);
