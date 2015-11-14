@@ -5697,7 +5697,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 452782, guid: 3956420c834a24144af4652c0ad824c5, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19831920, guid: 3956420c834a24144af4652c0ad824c5, type: 2}
       propertyPath: EmissionModule.time0
