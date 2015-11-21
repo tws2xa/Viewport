@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class endMenuScript : MonoBehaviour {
 
-	
+	/*
 	void Start () {
 
 	}
@@ -75,6 +75,6 @@ public class endMenuScript : MonoBehaviour {
 
 				}
 	
-
+*/
 	
 		}

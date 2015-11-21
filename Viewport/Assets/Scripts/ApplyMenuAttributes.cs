@@ -22,7 +22,7 @@ public class ApplyMenuAttributes : MonoBehaviour {
         {
             PlayerControls controls = players[i].GetComponent<PlayerControls>();
             int playerNum = controls.playerNum;
-<<<<<<< HEAD
+
             if (toPlay1 == 0 && toPlay2 == 0 && toPlay3 == 0 && toPlay4 == 0)
             {
                 toPlay1 = 1;
@@ -30,9 +30,7 @@ public class ApplyMenuAttributes : MonoBehaviour {
                 toPlay3 = 1;
                 toPlay4 = 1;
             }
-=======
 
->>>>>>> origin/master
             if (playerNum == 1 && toPlay1 == 0)
                 players[i].SetActive(false);
             if (playerNum == 2 && toPlay2 == 0)
