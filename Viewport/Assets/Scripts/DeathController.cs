@@ -40,6 +40,7 @@ public class DeathController : MonoBehaviour {
         PlayerDeathController playerDeath = player.GetComponent<PlayerDeathController>();
 		if (cause.Equals (DeathCause.OutOfView)) {
 			FollowObject fo = particleDummy.AddComponent<FollowObject>();
+            particleDummy.GetComponent<SelfDestruct>().waitForCenter = true;
 			fo.followY = false;
 			fo.SetTarget(Camera.main.gameObject);
 			//fo.offsets = (particleDummy.transform.position * 0.75f) - Camera.main.transform.position;
