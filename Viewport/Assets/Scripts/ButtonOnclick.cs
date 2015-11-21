@@ -47,15 +47,22 @@ public class ButtonOnclick : MonoBehaviour {
     //sets player preferences to each player ball choice
     public void submitPlayers()
     {
-        PlayerPrefs.SetInt("player1ball", ball1);
-        PlayerPrefs.SetInt("player2ball", ball2);
-        PlayerPrefs.SetInt("player3ball", ball3);
-        PlayerPrefs.SetInt("player4ball", ball4);
-        PlayerPrefs.SetInt("p1", p1 ? 1 : 0);
-        PlayerPrefs.SetInt("p2", p2 ? 1 : 0);
-        PlayerPrefs.SetInt("p3", p3 ? 1 : 0);
-        PlayerPrefs.SetInt("p4", p4 ? 1 : 0);
-        nextMenu(1);
+        int join1 = p1 ? 1 : 0;
+        int join2 = p2 ? 1 : 0;
+        int join3 = p3 ? 1 : 0;
+        int join4 = p4 ? 1 : 0;
+        if (join1 + join2 + join3 + join4 >= 2)
+        {
+            PlayerPrefs.SetInt("p1ball", ball1);
+            PlayerPrefs.SetInt("p2ball", ball2);
+            PlayerPrefs.SetInt("p3ball", ball3);
+            PlayerPrefs.SetInt("p4ball", ball4);
+            PlayerPrefs.SetInt("p1join", join1);
+            PlayerPrefs.SetInt("p2join", join2);
+            PlayerPrefs.SetInt("p3join", join3);
+            PlayerPrefs.SetInt("p4join", join4);
+            nextMenu(1);
+        }
     }
     public void endMenu()
     {
@@ -68,25 +75,25 @@ public class ButtonOnclick : MonoBehaviour {
         if (menu == 1)
        {    
             //Enables/disables player when "A" button is pressed
-            if(Input.GetKeyUp("joystick 1 button 0"))
+            if(Input.GetKeyUp("joystick 1 button 0") || Input.GetKeyUp("c"))
             { 
                 images[0].enabled = !images[0].enabled;
                 p1 = !p1;
             }
             
-            if (Input.GetKeyUp("joystick 2 button 0"))
+            if (Input.GetKeyUp("joystick 2 button 0") || Input.GetKeyUp("v"))
             {
                 images[1].enabled = !images[1].enabled;
                 p2 = !p2;
             }
             
-            if (Input.GetKeyUp("joystick 3 button 0"))
+            if (Input.GetKeyUp("joystick 3 button 0") || Input.GetKeyUp("b"))
             {
                 images[2].enabled = !images[2].enabled;
                 p3 = !p3;
             }
            
-            if (Input.GetKeyUp("joystick 4 button 0"))
+            if (Input.GetKeyUp("joystick 4 button 0") || Input.GetKeyUp("n"))
             {
                 images[3].enabled = !images[3].enabled;
                 p4 = !p4;
@@ -94,7 +101,7 @@ public class ButtonOnclick : MonoBehaviour {
             //Cycles through material options for each ball
             //does not allow repeats
 
-            if (Input.GetKeyUp("e") || Input.GetKeyUp("joystick 1 button 4") && p1)
+            if ((Input.GetKeyUp("e") || Input.GetKeyUp("joystick 1 button 4")) && p1)
             {
                 arrows[0].sprite = myArrows[1];
                 a1 = 5;
@@ -110,7 +117,7 @@ public class ButtonOnclick : MonoBehaviour {
                 images[0].sprite = mySprites[ball1];
             }
 
-            if (Input.GetKeyUp("d") || Input.GetKeyUp("joystick 1 button 5") && p1)
+            if ((Input.GetKeyUp("d") || Input.GetKeyUp("joystick 1 button 5")) && p1)
             {
                 arrows[1].sprite = myArrows[1];
                 a1 = 5;
@@ -126,7 +133,7 @@ public class ButtonOnclick : MonoBehaviour {
                 images[0].sprite = mySprites[ball1];
             }
 
-            if (Input.GetKeyUp("r") || Input.GetKeyUp("joystick 2 button 4") && p2)
+            if ((Input.GetKeyUp("r") || Input.GetKeyUp("joystick 2 button 4")) && p2)
             {
                 arrows[2].sprite = myArrows[1];
                 a2 = 5;
@@ -142,7 +149,7 @@ public class ButtonOnclick : MonoBehaviour {
                 images[1].sprite = mySprites[ball2];
             }
 
-            if (Input.GetKeyUp("f") || Input.GetKeyUp("joystick 2 button 5") && p2)
+            if ((Input.GetKeyUp("f") || Input.GetKeyUp("joystick 2 button 5")) && p2)
             {
                 arrows[3].sprite = myArrows[1];
                 a2 = 5;
@@ -158,7 +165,7 @@ public class ButtonOnclick : MonoBehaviour {
                 images[1].sprite = mySprites[ball2];
             }
 
-            if (Input.GetKeyUp("t") || Input.GetKeyUp("joystick 3 button 4") && p3)
+            if ((Input.GetKeyUp("t") || Input.GetKeyUp("joystick 3 button 4")) && p3)
             {
                 arrows[4].sprite = myArrows[1];
                 a3 = 5;
@@ -174,7 +181,7 @@ public class ButtonOnclick : MonoBehaviour {
                 images[2].sprite = mySprites[ball3];
             }
 
-            if (Input.GetKeyUp("g") || Input.GetKeyUp("joystick 3 button 5") && p3)
+            if ((Input.GetKeyUp("g") || Input.GetKeyUp("joystick 3 button 5")) && p3)
             {
                 arrows[5].sprite = myArrows[1];
                 a3 = 5;
@@ -190,7 +197,7 @@ public class ButtonOnclick : MonoBehaviour {
                 images[2].sprite = mySprites[ball3];
             }
 
-            if (Input.GetKeyUp("y") || Input.GetKeyUp("joystick 4 button 4") && p4)
+            if ((Input.GetKeyUp("y") || Input.GetKeyUp("joystick 4 button 4")) && p4)
             {
                 arrows[6].sprite = myArrows[1];
                 a4 = 5;
@@ -206,7 +213,7 @@ public class ButtonOnclick : MonoBehaviour {
                 images[3].sprite = mySprites[ball4];
             }
 
-            if (Input.GetKeyUp("h") || Input.GetKeyUp("joystick 4 button 5") && p4)
+            if ((Input.GetKeyUp("h") || Input.GetKeyUp("joystick 4 button 5")) && p4)
             {
                 arrows[7].sprite = myArrows[1];
                 a4 = 5;
