@@ -40,14 +40,26 @@ public class endMenuScript : MonoBehaviour {
 			}
 
 		//sort by times
+		Text player1T = GetComponent<p1time>();
+		Text player2T = GetComponent<p2time>();
+		Text player3T = GetComponent<p3time>();
+		Text player4T = GetComponent<p4time>();
+
+		player1T.text = player1T;
+		player2T.text = player2T;
+		player3T.text = player3T;
+		player4T.text = player4T;
+
 		if (players.Length==4) {
-			if (PlayerPrefs.HasKey ("p1TimeActive")) {
+		
 				int tmp;
 				if (player1Time > player2Time) { tmp = player1Time; player1Time = player2Time; player2Time = tmp; }
 				if (player3Time > player4Time) { tmp = player3Time; player3Time = player4Time; player4Time = tmp; }
 				if (player1Time > player3Time) { tmp = player1Time; player1Time = player3Time; player3Time = tmp; }
 				if (player2Time > player4Time) { tmp = player2Time; player2Time = player4Time; player4Time = tmp; }
 				if (player2Time > player3Time) { tmp = player2Time; player2Time = player3Time; player3Time = tmp; }
+
+
 
 			}
 
@@ -62,11 +74,7 @@ public class endMenuScript : MonoBehaviour {
 					}
 
 				}
-		Text player1T = GetComponent<p1time>();
-		Text player2T = GetComponent<p2time>();
-		Text player3T = GetComponent<p3time>();
-		Text player4T = GetComponent<p4time>();
-			player1T.text = player1Time;
+	
 
 	
 		}
