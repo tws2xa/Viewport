@@ -13,12 +13,16 @@ public class ApplyMenuAttributes : MonoBehaviour {
 
         // get players 
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-
+		int length = players.Length;
+	/*	if (length < 2) {
+						return;
+		}*/
         // make players that were not selected inactive
         for(int i = 0; i < players.Length; i++)
         {
             PlayerControls controls = players[i].GetComponent<PlayerControls>();
             int playerNum = controls.playerNum;
+
             if (playerNum == 1 && toPlay1 == 0)
                 players[i].SetActive(false);
             if (playerNum == 2 && toPlay2 == 0)
