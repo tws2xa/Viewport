@@ -1,9 +1,13 @@
+
+using UnityEngine.UI;
+
 using UnityEngine;
+
 using System.Collections.Generic;
 
 public class endMenuScript : MonoBehaviour {
-
 	/*
+
 	void Start () {
 
 	}
@@ -40,15 +44,8 @@ public class endMenuScript : MonoBehaviour {
 			}
 
 		//sort by times
-		Text player1T = GetComponent<p1time>();
-		Text player2T = GetComponent<p2time>();
-		Text player3T = GetComponent<p3time>();
-		Text player4T = GetComponent<p4time>();
 
-		player1T.text = player1T;
-		player2T.text = player2T;
-		player3T.text = player3T;
-		player4T.text = player4T;
+	
 
 		if (players.Length==4) {
 		
@@ -59,11 +56,31 @@ public class endMenuScript : MonoBehaviour {
 				if (player2Time > player4Time) { tmp = player2Time; player2Time = player4Time; player4Time = tmp; }
 				if (player2Time > player3Time) { tmp = player2Time; player2Time = player3Time; player3Time = tmp; }
 
-
+			Text player1T = GameObject.Find("ScoreMenu").GetComponent<p1time>();
+			Text player2T = GameObject.Find("ScoreMenu").GetComponent<p2time>();
+			Text player3T = GameObject.Find("ScoreMenu").GetComponent<p3time>();
+			Text player4T = GameObject.Find("ScoreMenu").GetComponent<p4time>();
+			
+			player1T.text = player1Time;
+			player2T.text = player2Time;
+			player3T.text = player3Time;
+			player4T.text = player4Time;
 
 			}
 
 		if(players.Length == 3) {
+
+
+
+
+			Text player1T = GameObject.Find("ScoreMenu").GetComponent<p1time>();
+			Text player2T = GameObject.Find("ScoreMenu").GetComponent<p2time>();
+			Text player3T = GameObject.Find("ScoreMenu").GetComponent<p3time>();
+			
+			player1T.text = player1Time;
+			player2T.text = player2Time;
+			player3T.text = player3Time;
+		
 			}
 		if(players.Length == 2){
 				if(player1Time > player2Time) {
@@ -72,9 +89,14 @@ public class endMenuScript : MonoBehaviour {
 					else {
 						maxTime = player2Time;
 					}
+			Text player1T = GameObject.Find("ScoreMenu").GetComponent<p1time>();
+			Text player2T = GameObject.Find("ScoreMenu").GetComponent<p2time>();
 
-				}
+			player1T.text = player1Time;
+			player2T.text = player2Time;
+						
+		}
 	
-*/
-	
+
+	*/
 		}
