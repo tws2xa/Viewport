@@ -33,6 +33,7 @@ public class PlayerInteraction : MonoBehaviour {
 			bouncyForce = rb.mass * 275.0F;
 			bounceVector = new Vector3 (0, bouncyForce, 0);
 			rb.AddForce (bounceVector);
+			coll.gameObject.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
 			break;
 		case "Icey":
 			pc.OnIce ();

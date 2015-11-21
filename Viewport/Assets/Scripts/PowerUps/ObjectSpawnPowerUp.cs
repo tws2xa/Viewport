@@ -10,6 +10,8 @@ public class ObjectSpawnPowerUp : PowerUp {
     ParticleSystem particlez;
     ParticleSystem prefabPart;
 
+	GameObject spawnBox;
+
     public ObjectSpawnPowerUp(int duration) : base (duration) {
     }
 
@@ -19,6 +21,7 @@ public class ObjectSpawnPowerUp : PowerUp {
         powerUpID = 4;
         duration = 10;
         timeLeft = this.duration;
+		spawnBox = (GameObject)(Resources.Load ("Prefabs/BoxA", typeof(GameObject)));
         particlez = gameObject.GetComponent<ParticleSystem>();
 		GameObject playerPrefab = (GameObject)(Resources.Load("Prefabs/PlayerPrefab", typeof(GameObject)));
 		prefabPart = playerPrefab.GetComponent<ParticleSystem> ();
@@ -60,10 +63,8 @@ public class ObjectSpawnPowerUp : PowerUp {
             particlez.emissionRate = 2000.0f;
             particlez.startSpeed = -10.0f;
             particlez.startLifetime = 0.5f;
-            GameObject obstacle = GameObject.CreatePrimitive(PrimitiveType.Cube);
+			GameObject obstacle = GameObject.Instantiate(spawnBox);
             obstacle.transform.position = playerPos + transform.up;
-            obstacle.AddComponent<Rigidbody>();
-            obstacle.tag = "Moveable";
         }
         if(delay <= 0.0f) {
 			particlez.startSpeed = prefabPart.startSpeed;
