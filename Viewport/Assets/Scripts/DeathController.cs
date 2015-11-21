@@ -36,8 +36,14 @@ public class DeathController : MonoBehaviour {
 		GameObject particleDummy = GameObject.Instantiate (particleDummyPrefab);
 		particleDummy.transform.position = player.transform.position;
 		ParticleSystem playPart = particleDummy.GetComponent<ParticleSystem> ();
-		playPart.Emit (50);
+		//playPart.Emit (50);
         PlayerDeathController playerDeath = player.GetComponent<PlayerDeathController>();
+		if (cause.Equals (DeathCause.OutOfView)) {
+			FollowObject fo = particleDummy.AddComponent<FollowObject>();
+			fo.followY = false;
+			fo.SetTarget(Camera.main.gameObject);
+			//fo.offsets = (particleDummy.transform.position * 0.75f) - Camera.main.transform.position;
+		}
         /*if (playerDeath.getPrevState()) {
             playerDeath.attempts -= 1;
             playerDeath.setPrevState(false);

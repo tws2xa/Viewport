@@ -12,8 +12,6 @@ public class PlayerControls : MonoBehaviour {
 	private const string CHARGE_BUTTON_STR = "Charge";
 	private const string PLAYER_CONTROL_MODIFIER = "_p{0}"; // {0} replaced with player number 
 
-    private bool isTarget = false;
-
 	private bool onIce = false;
 
 	private Rigidbody rigidBody;
@@ -33,9 +31,6 @@ public class PlayerControls : MonoBehaviour {
 		float horizAxis = Input.GetAxis(getControlInputName(HORIZ_AXIS_STR));
 		float vertAxis = Input.GetAxis (getControlInputName(VERT_AXIS_STR));
 		bool charging = Input.GetButton (getControlInputName(CHARGE_BUTTON_STR));
-
-        //if (isTarget)   //don't let player charge if they have the camera
-        //    charging = false;
 
         bool hasCamera = gameObject.GetComponent<ViewportControlManagementScript>().HasCamera();
         Vector3 forceToApply;
@@ -88,11 +83,6 @@ public class PlayerControls : MonoBehaviour {
 		}
 		return string.Format (baseStr + PLAYER_CONTROL_MODIFIER, playerNum);
 	}
-
-    public void setTarget(bool isTarget)
-    {
-        this.isTarget = isTarget;
-    }
 
 	public void SetTurnAssistDirection(int modifier) 
 	{

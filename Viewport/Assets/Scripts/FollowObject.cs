@@ -65,17 +65,7 @@ public class FollowObject : MonoBehaviour {
 	public void SetTarget(GameObject newTarget) {
         if (newTarget != null)
         {
-            if (target != initialTarget && target != null)
-            { 
-                targetPlayer = target.GetComponent<PlayerControls>();
-                targetPlayer.setTarget(false);
-            }         
 			target = newTarget;
-            if (target != initialTarget)
-            {
-                targetPlayer = target.GetComponent<PlayerControls>();
-                targetPlayer.setTarget(true);
-            }
             targetTransform = newTarget.transform;
 			lockedOnTarget = false;
 		}

@@ -20,6 +20,8 @@ public class ObjectSpawnPowerUp : PowerUp {
         duration = 10;
         timeLeft = this.duration;
         particlez = gameObject.GetComponent<ParticleSystem>();
+		GameObject playerPrefab = (GameObject)(Resources.Load("Prefabs/PlayerPrefab", typeof(GameObject)));
+		prefabPart = playerPrefab.GetComponent<ParticleSystem> ();
         ModifyObject();
     }
 	
@@ -64,6 +66,9 @@ public class ObjectSpawnPowerUp : PowerUp {
             obstacle.tag = "Moveable";
         }
         if(delay <= 0.0f) {
+			particlez.startSpeed = prefabPart.startSpeed;
+			particlez.startLifetime = prefabPart.startLifetime;
+			particlez.emissionRate = prefabPart.emissionRate;
             particlez.enableEmission = false;
         }
     }

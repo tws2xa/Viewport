@@ -21,7 +21,28 @@ public class ButtonOnclick : MonoBehaviour {
 
     public void changeScene()
     {
-        Application.LoadLevel(image);
+        Application.LoadLevel(image + 1);
+    }
+    public void nextMenu(int menu)
+    {
+        if (menu == 0)
+        {
+            GameObject.Find("Select Players").GetComponent<RectTransform>().offsetMax = new Vector2(1,0);
+            GameObject.Find("Select Players").GetComponent<RectTransform>().offsetMin = new Vector2(0,1);
+            GameObject.Find("Main Menu").GetComponent<RectTransform>().offsetMax = new Vector2(50000, 0);
+            GameObject.Find("Main Menu").GetComponent<RectTransform>().offsetMin = new Vector2(50000, 1);
+            // GameObject.Find("player").GetComponent<RectTransform>().localPosition = new Vector3(1763, 584, 0);
+            this.menu = 1;
+        }
+        if(menu == 1)
+        {
+            GameObject.Find("Select Level").GetComponent<RectTransform>().offsetMax = new Vector2(1, 0);
+            GameObject.Find("Select Level").GetComponent<RectTransform>().offsetMin = new Vector2(0, 1);
+            GameObject.Find("Select Players").GetComponent<RectTransform>().offsetMax = new Vector2(50000, 0);
+            GameObject.Find("Select Players").GetComponent<RectTransform>().offsetMin = new Vector2(50000, 1);
+
+            this.menu = 2;
+        }
     }
     //sets player preferences to each player ball choice
     public void submitPlayers()
@@ -34,6 +55,7 @@ public class ButtonOnclick : MonoBehaviour {
         PlayerPrefs.SetInt("p2", p2 ? 1 : 0);
         PlayerPrefs.SetInt("p3", p3 ? 1 : 0);
         PlayerPrefs.SetInt("p4", p4 ? 1 : 0);
+        nextMenu(1);
     }
     public void endMenu()
     {
