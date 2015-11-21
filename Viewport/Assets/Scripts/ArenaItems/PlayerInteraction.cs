@@ -10,6 +10,13 @@ public class PlayerInteraction : MonoBehaviour {
 
 	float bouncyForce;
 	Vector3 bounceVector;
+	Material currBouncePadMat;
+	bool bouncePadMatActive = false;
+
+	float timePassed;
+	float interpolant;
+
+	float durationOfBP = 0.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +27,15 @@ public class PlayerInteraction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		timePassed += Time.deltaTime;
+		interpolant = timePassed/durationOfBP;
+		if (interpolant >= 1.0f) {
+			interpolant = 1.0f;
+			bouncePadMatActive = false;
+		}
+		if (bouncePadMatActive) {
+			currBouncePadMat.SetColor("_EmissionColor", Vector4.Lerp(new Color(0.4f, 0.4f, 0.4f, 1.0f), Color.black, interpolant));
+		}
 	}
 
 	void OnCollisionEnter(Collision coll) {
@@ -33,7 +48,10 @@ public class PlayerInteraction : MonoBehaviour {
 			bouncyForce = rb.mass * 275.0F;
 			bounceVector = new Vector3 (0, bouncyForce, 0);
 			rb.AddForce (bounceVector);
-			coll.gameObject.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+			currBouncePadMat = coll.gameObject.GetComponent<MeshRenderer>().material;
+			currBouncePadMat.EnableKeyword("_EMISSION");
+			timePassed = 0.0f;
+			bouncePadMatActive = true;
 			break;
 		case "Icey":
 			pc.OnIce ();
