@@ -16,6 +16,7 @@ public class Warp : PowerUp {
 	float forcDelta;
 	float timePassed;
 	float interpolant;
+	float changeTime;
 
 	CapsuleCollider capsuleColl;
 
@@ -27,6 +28,7 @@ public class Warp : PowerUp {
     {
 		powerUpID = 2;
         duration = 10;
+		changeTime = 0.3f;
         timeLeft = this.duration;
         orb = gameObject.GetComponent<Rigidbody>();
         deltaScale = new Vector3(1, 0, 0);
@@ -66,18 +68,18 @@ public class Warp : PowerUp {
     }
 	public void scaleTimer(){
 		timePassed += Time.deltaTime;
-		if (timePassed <= duration/2 && timePassed >= 0.0F) {
-			interpolant = timePassed/duration/2;
+		if (timePassed <= changeTime && timePassed >= 0.0F) {
+			interpolant = timePassed/changeTime;
 			if (interpolant >= 1.0F){
 				interpolant = 1.0F;
 			}
-			transform.localScale = Vector3.Lerp (transform.localScale, origScale + deltaScale, interpolant);
-		} else if (timePassed >= duration/2 && timePassed <= duration) {
-			interpolant = timePassed/duration;
+			transform.localScale = Vector3.Lerp (origScale, origScale + deltaScale, interpolant);
+		} else if (timePassed >= duration - changeTime && timePassed <= duration) {
+			interpolant = (timePassed - (duration - changeTime))/changeTime;
 			if (interpolant >= 1.0F){
 				interpolant = 1.0F;
 			}
-			transform.localScale = Vector3.Lerp(transform.localScale, origScale, interpolant);
+			transform.localScale = Vector3.Lerp(origScale + deltaScale, origScale, interpolant);
 		}
 	}
 }
