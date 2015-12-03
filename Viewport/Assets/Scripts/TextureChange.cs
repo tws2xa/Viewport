@@ -11,11 +11,12 @@ public class TextureChange : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         pNum = gameObject.GetComponent<PlayerControls>().playerNum;
+        print("Starting Player: " + pNum);
         tNum = PlayerPrefs.GetInt("p"+pNum+"ball");
-        currentRenderer = GetComponent<MeshRenderer>();
-        if(tNum >= 0)
+        currentRenderer = gameObject.GetComponent<MeshRenderer>();
+        if(tNum != -2)
         {
-            print("Player " + pNum + "=" + tNum);
+            print("Player " + pNum + " Color: " + tNum);
             currentRenderer.material = materials[tNum];
         }
         //if (texture != null)
