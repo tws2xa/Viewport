@@ -122,12 +122,12 @@ public class ButtonOnclick : MonoBehaviour {
                 arrows[1].sprite = myArrows[1];
                 a1 = 5;
                 ball1--;
-                if (ball1 < 0)
+                if (ball1 < 0 && ball1 != -2)
                     ball1 = mySprites.Length - 1;
                 while (ball1 == ball2 || ball1 == ball3 || ball1 == ball4)
                 {
                     ball1--;
-                    if (ball1 < 0)
+                    if (ball1 < 0 && ball1 != -2)
                         ball1 = mySprites.Length - 1;
                 }
                 images[0].sprite = mySprites[ball1];
@@ -154,12 +154,12 @@ public class ButtonOnclick : MonoBehaviour {
                 arrows[3].sprite = myArrows[1];
                 a2 = 5;
                 ball2--;
-                if (ball2 < 0)
+                if (ball2 < 0 && ball2 != -2)
                     ball2 = mySprites.Length - 1;
                 while (ball1 == ball2 || ball2 == ball3 || ball2 == ball4)
                 {
                     ball2--;
-                    if (ball2 < 0)
+                    if (ball2 < 0 && ball2 != -2)
                         ball2 = mySprites.Length - 1;
                 }
                 images[1].sprite = mySprites[ball2];
@@ -186,12 +186,12 @@ public class ButtonOnclick : MonoBehaviour {
                 arrows[5].sprite = myArrows[1];
                 a3 = 5;
                 ball3--;
-                if (ball3 < 0)
+                if (ball3 < 0 && ball3 != -2)
                     ball3 = mySprites.Length - 1;
                 while (ball1 == ball3 || ball2 == ball3 || ball3 == ball4)
                 {
                     ball3--;
-                    if (ball3 < 0)
+                    if (ball3 < 0 && ball3 != -2)
                         ball3 = mySprites.Length - 1;
                 }
                 images[2].sprite = mySprites[ball3];
@@ -218,16 +218,81 @@ public class ButtonOnclick : MonoBehaviour {
                 arrows[7].sprite = myArrows[1];
                 a4 = 5;
                 ball4--;
-                if (ball4 < 0)
+                if (ball4 < 0 && ball4 != -2)
                     ball4 = mySprites.Length - 1;
                 while (ball1 == ball4 || ball4 == ball2 || ball3 == ball4)
                 {
                     ball4--;
-                    if (ball4 < 0)
+                    if (ball4 < 0 && ball4 != -2)
                         ball4 = mySprites.Length - 1;
                 }
                 images[3].sprite = mySprites[ball4];
             }
+
+            //Sets ball color to -2 (a non-existent color) so they don't conflict when disabled
+            if (!p1)
+            {
+                ball1 = -2;
+            }
+            if (!p2)
+            {
+                ball2 = -2;
+            }
+            if (!p3)
+            {
+                ball3 = -2;
+            }
+            if (!p4)
+            {
+                ball4 = -2;
+            }
+
+            //Cycles through colors to a new one that isn't selected
+            if (p1 && ball1 == -2)
+            {
+                for(int i = 0; i <= mySprites.Length - 1; i++)
+                {
+                    if(i != ball2 && i != ball3 && i != ball4)
+                    {
+                        ball1 = i;
+                        break;
+                    }
+                }
+            }
+            if (p2 && ball1 == -2)
+            {
+                for (int i = 0; i <= mySprites.Length - 1; i++)
+                {
+                    if (i != ball1 && i != ball3 && i != ball4)
+                    {
+                        ball2 = i;
+                        break;
+                    }
+                }
+            }
+            if (p3 && ball1 == -2)
+            {
+                for (int i = 0; i <= mySprites.Length - 1; i++)
+                {
+                    if (i != ball2 && i != ball1 && i != ball4)
+                    {
+                        ball3 = i;
+                        break;
+                    }
+                }
+            }
+            if (p4 && ball1 == -2)
+            {
+                for (int i = 0; i <= mySprites.Length - 1; i++)
+                {
+                    if (i != ball2 && i != ball3 && i != ball1)
+                    {
+                        ball4 = i;
+                        break;
+                    }
+                }
+            }
+
             //causes left and right arrows to flash on key press
             if (a1 > 0)
                 a1--;
