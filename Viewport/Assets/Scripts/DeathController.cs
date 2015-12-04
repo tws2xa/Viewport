@@ -19,13 +19,21 @@ public class DeathController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
-        foreach (string tag in tags) {
-            foreach (GameObject obj in GameObject.FindGameObjectsWithTag(tag)) {
-                if (!GeometryUtility.TestPlanesAABB(planes, obj.GetComponent<Collider>().bounds)) {
-                    KillPlayer(obj, DeathCause.OutOfView);
-                } else if (!obj.GetComponent<PlayerDeathController>().getPrevState()) {
-                    obj.GetComponent<PlayerDeathController>().setPrevState(true);
+        if (Camera.main != null)
+        {
+            Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+            foreach (string tag in tags)
+            {
+                foreach (GameObject obj in GameObject.FindGameObjectsWithTag(tag))
+                {
+                    if (!GeometryUtility.TestPlanesAABB(planes, obj.GetComponent<Collider>().bounds))
+                    {
+                        KillPlayer(obj, DeathCause.OutOfView);
+                    }
+                    else if (!obj.GetComponent<PlayerDeathController>().getPrevState())
+                    {
+                        obj.GetComponent<PlayerDeathController>().setPrevState(true);
+                    }
                 }
             }
         }

@@ -80,9 +80,7 @@ public class SoundManagementScript : MonoBehaviour {
 	public void StartBkgMusic() {
 		if (!soundEnabled)
 			return;
-
-        Debug.Log("Howdy!");
-
+        
         if (mainSongSource != null)
         {
             mainSongSource.Play();
