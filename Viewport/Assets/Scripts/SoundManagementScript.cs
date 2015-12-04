@@ -4,46 +4,53 @@ using System.Collections.Generic;
 
 public class SoundManagementScript : MonoBehaviour {
 
+    public int songNum = 1; // 1 or 2
+
 	public bool soundEnabled = true;
 
-    public AudioClip introClip;
-    public AudioClip loopClip;
+    public AudioClip mainSong1Clip;
+    public AudioClip mainSong2Clip;
+    public List<AudioClip> overlay1Clips;
+    public List<AudioClip> overlay2Clips;
 
-	private AudioSource introClipSrc;
-    private AudioSource loopClipSrc;
+	private AudioSource mainSongSource;
+    private List<AudioSource> overlaySources;
+    private int currentOverlay;
 
-    private bool introPlayed;
-    private bool introPlaying;
+    public float avoidOverlayTime = 0; // Don't play overlays until this many seconds have passed in game
+    public float overlayVolume = 0.3f;
+    private float overlayStartTimer;
 
-    public float pitchVelocityMultiplier = 0.0008f;
-	private float basePitch = 1.0f;
-	private FollowObject cameraFollowScript;
-
-	private bool ascend = true;
-
+    // public float pitchVelocityMultiplier = 0.0008f;
+	// private float basePitch = 1.0f;
+	// private FollowObject cameraFollowScript;
+    
 
 	// Use this for initialization
 	void Start () {
-        if (introClip != null)
+        if ((songNum == 1 && mainSong1Clip != null) || (songNum == 2 && mainSong2Clip != null))
         {
-            introClipSrc = gameObject.AddComponent<AudioSource>();
-            introClipSrc.clip = introClip;
-            introClipSrc.playOnAwake = false;
-            introClipSrc.loop = false;
+            mainSongSource = gameObject.AddComponent<AudioSource>();
+            mainSongSource.clip = ((songNum == 1) ? mainSong1Clip : mainSong2Clip);
+            mainSongSource.playOnAwake = true;
+            mainSongSource.loop = true;
         }
-        if(loopClip != null)
+        overlaySources = new List<AudioSource>();
+        foreach(AudioClip overlay in ((songNum == 1) ? overlay1Clips : overlay2Clips))
         {
-            loopClipSrc = gameObject.AddComponent<AudioSource>();
-            loopClipSrc.clip = loopClip;
-            loopClipSrc.playOnAwake = false;
-            loopClipSrc.loop = true;
+            AudioSource source = gameObject.AddComponent<AudioSource>();
+            source.clip = overlay;
+            source.playOnAwake = true;
+            source.loop = true;
+            source.volume = 0;
+            overlaySources.Add(source);
         }
-
-        introPlaying = false;
-        introPlayed = false;
+        currentOverlay = -1;
 
         // Needed to play music once the camera picks up an object
-        cameraFollowScript = Camera.main.GetComponent<FollowObject> ();
+        // cameraFollowScript = Camera.main.GetComponent<FollowObject> ();
+
+        StartBkgMusic();
 	}
 	
 	// Called once every frame
@@ -51,18 +58,22 @@ public class SoundManagementScript : MonoBehaviour {
 		if (!soundEnabled)
 			return;
 
+        if(overlayStartTimer <= avoidOverlayTime)
+        {
+            overlayStartTimer += Time.deltaTime;
+        }
+
+        /*
 		if (cameraFollowScript.GetTarget () != null)
         {
-			if (getCurrentBkgMusic() == null || !getCurrentBkgMusic().isPlaying) {
-                StartBkgMusic();
-			}
-
-			// Modulate tempo with follow object velocity.
+			Modulate tempo with follow object velocity.
 			Rigidbody targetObjectRb = cameraFollowScript.GetTarget().GetComponent<Rigidbody>();
 			if(targetObjectRb) {
 				getCurrentBkgMusic().pitch = basePitch + targetObjectRb.velocity.magnitude * pitchVelocityMultiplier;
 			}
+            
 		}
+        */
 	}
     
 	// Starts the background music at the given index
@@ -70,47 +81,48 @@ public class SoundManagementScript : MonoBehaviour {
 		if (!soundEnabled)
 			return;
 
-        if (introClipSrc != null)
+        Debug.Log("Howdy!");
+
+        if (mainSongSource != null)
         {
-            Debug.Log("Intro Clip!");
-            introClipSrc.Play();
-            Invoke("SwapToLoop", introClipSrc.clip.length - 0.3f);
-            introPlaying = true;
-        } else
-        {
-            Debug.Log("Straigh to Loop!");
-            SwapToLoop();
+            mainSongSource.Play();
+            foreach(AudioSource source in overlaySources) {
+                source.volume = 0;
+                source.Play();
+            }
         }
+        overlayStartTimer = 0.0f;
     }
 
-    // Switches from the intro to the main loop
-    private void SwapToLoop()
+    /// <summary>
+    /// Called whenever the camera changes hands.
+    /// </summary>
+    public void HandleCameraSwitch()
     {
-        if (introClipSrc != null)
-        {
-            introClipSrc.Stop();
-        }
-
-        if(loopClipSrc != null)
-        {
-            loopClipSrc.Play();
-            introPlaying = false;
-            introPlayed = true;
-        }
-        Debug.Log("Swapped to loop!");
+        PlayNextOverlay();
     }
 
-	// Gets the currently playing background music
-	public AudioSource getCurrentBkgMusic() {
-        if(introPlayed)
+    /// <summary>
+    /// Plays the next overlay in the list.
+    /// Loops around to beginning, if reached the end of the list.
+    /// </summary>
+    public void PlayNextOverlay() {
+        if(overlayStartTimer < avoidOverlayTime)
         {
-            return loopClipSrc;
-        } else if (introPlaying)
-        {
-            return introClipSrc;
-        } else
-        {
-            return null;
+            return; // Don't play overlays yet.
         }
-	}
+
+        if(!soundEnabled || overlaySources.Count <= 0)
+        {
+            return; // No Overlays to Play
+        }
+
+        currentOverlay = (currentOverlay + 1) % overlaySources.Count;
+        Debug.Log("Playing Overlay: " + currentOverlay);
+        for(int i=0; i<overlaySources.Count; i++)
+        {
+            overlaySources[i].volume = ((i == currentOverlay) ? overlayVolume : 0);
+        }
+    }
+
 }

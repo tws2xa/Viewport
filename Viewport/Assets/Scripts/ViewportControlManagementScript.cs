@@ -59,6 +59,10 @@ public class ViewportControlManagementScript : MonoBehaviour {
 			cameraFollowScript.SetTarget (gameObject);
 			grabShieldTimer = GRAB_SHIELD_TIME;
 			CreateViewportTargetIndicator ();
+            if(soundManagerScript != null)
+            {
+                soundManagerScript.HandleCameraSwitch();
+            }
 		}
 	}
 

@@ -40,10 +40,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c6b4872e1b4b418559b111b814322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  songNum: 1
   soundEnabled: 1
-  introClip: {fileID: 8300000, guid: 112bc90a1c294c64fb5827f85f349321, type: 3}
-  loopClip: {fileID: 8300000, guid: b1ffbdd7313e32741b5f2ee6b4779cec, type: 3}
-  pitchVelocityMultiplier: .00039999999
+  mainSong1Clip: {fileID: 8300000, guid: 752fbcab34623ac4a84a8633e56a4d2b, type: 3}
+  mainSong2Clip: {fileID: 0}
+  overlay1Clips:
+  - {fileID: 8300000, guid: 8069d108820987042bf93e2c735b707b, type: 3}
+  - {fileID: 8300000, guid: d7d05d52e02535d40b6670b1ef40e55b, type: 3}
+  - {fileID: 8300000, guid: 67b660633d9d81d4885ee02535f58dbd, type: 3}
+  - {fileID: 8300000, guid: be0546ddf938caa49bbc44375e4124e7, type: 3}
+  overlay2Clips: []
+  avoidOverlayTime: 0
+  overlayVolume: .200000003
 --- !u!114 &11493618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,7 +75,35 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: overlay1Clips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mainSong1Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 752fbcab34623ac4a84a8633e56a4d2b, type: 3}
+    - target: {fileID: 0}
+      propertyPath: overlay1Clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8069d108820987042bf93e2c735b707b, type: 3}
+    - target: {fileID: 0}
+      propertyPath: overlay1Clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: d7d05d52e02535d40b6670b1ef40e55b, type: 3}
+    - target: {fileID: 0}
+      propertyPath: overlay1Clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 67b660633d9d81d4885ee02535f58dbd, type: 3}
+    - target: {fileID: 0}
+      propertyPath: overlay1Clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: be0546ddf938caa49bbc44375e4124e7, type: 3}
+    - target: {fileID: 0}
+      propertyPath: overlayVolume
+      value: .200000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147304}

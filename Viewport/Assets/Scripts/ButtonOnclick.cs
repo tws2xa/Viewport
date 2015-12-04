@@ -31,7 +31,7 @@ public class ButtonOnclick : MonoBehaviour {
     {
         if(menu < 0 || menu > 3)
         {
-            Console.WriteLine("Error - Setting Menu to Invalid Number: " + menuNum);
+            Debug.Log("Error - Setting Menu to Invalid Number: " + menuNum);
             return;
         }
         mainMenu.SetActive(menuNum == 0);
