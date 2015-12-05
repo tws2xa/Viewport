@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Levels/Alden_Simple_Level.unity
   - enabled: 1
     path: Assets/Levels/Kevin Bread and Butter.unity
+  - enabled: 1
+    path: Assets/Levels/endMenu.unity

@@ -5,6 +5,8 @@ public class DeathController : MonoBehaviour {
 
     HashSet<string> tags;
 	public static bool gameOver = false;
+	public static float waitForEndMenu = 3;
+	static float toEndMenuTimer = -1;
 
     public AudioClip deathSound;
     public float deathSoundVolume = 1.0f;
@@ -17,6 +19,10 @@ public class DeathController : MonoBehaviour {
     }
 
 	void Start () {
+		PlayerPrefs.DeleteKey ("p1TimeActive");
+		PlayerPrefs.DeleteKey ("p2TimeActive");
+		PlayerPrefs.DeleteKey ("p3TimeActive");
+		PlayerPrefs.DeleteKey ("p4TimeActive");
         tags = new HashSet<string>();
         tags.Add("Player");
         if (deathSound != null)
@@ -49,6 +55,16 @@ public class DeathController : MonoBehaviour {
                 }
             }
         }
+
+		if (gameOver) { 
+			toEndMenuTimer -= Time.deltaTime;
+			if(toEndMenuTimer < 0) {
+				toEndMenuTimer = -1;
+				gameOver = false;
+				Application.LoadLevel("endMenu");
+			}
+		}
+
 	}
 
 	public static void KillPlayer (GameObject player, DeathCause cause) {
@@ -126,6 +142,7 @@ public class DeathController : MonoBehaviour {
 		}
 		if (activeNum <= 1) {
 			gameOver = true;
+			toEndMenuTimer = waitForEndMenu;
 		}
 	}
 }
