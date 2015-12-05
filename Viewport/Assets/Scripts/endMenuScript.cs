@@ -8,11 +8,9 @@ using System.Collections.Generic;
 public class endMenuScript : MonoBehaviour {
 	//time texts: p1t is the winner time -> p4t is the loser time
 
-
-	public List<Text> playerTimeText = new List<Text>();
 	
+	public List<Text> playerTimeText = new List<Text>();
 	public List<Text> placingText = new List<Text>();
-
 	public List<Text> playerPlaceText = new List<Text>();
 
 
