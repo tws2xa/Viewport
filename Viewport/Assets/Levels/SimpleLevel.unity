@@ -1023,6 +1023,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11426870, guid: e6428368f64cffa4a83ec228ef675b35, type: 2}
+      propertyPath: overlayMethod
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6428368f64cffa4a83ec228ef675b35, type: 2}
   m_IsPrefabParent: 0
