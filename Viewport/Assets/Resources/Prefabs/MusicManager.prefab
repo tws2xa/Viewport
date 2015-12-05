@@ -43,13 +43,15 @@ MonoBehaviour:
   songNum: 1
   soundEnabled: 1
   mainSong1Clip: {fileID: 8300000, guid: 752fbcab34623ac4a84a8633e56a4d2b, type: 3}
-  mainSong2Clip: {fileID: 0}
+  mainSong2Clip: {fileID: 8300000, guid: e1e8713047fd42b4c9b39b2a5db8aa60, type: 3}
   overlay1Clips:
   - {fileID: 8300000, guid: 8069d108820987042bf93e2c735b707b, type: 3}
-  - {fileID: 8300000, guid: d7d05d52e02535d40b6670b1ef40e55b, type: 3}
   - {fileID: 8300000, guid: 67b660633d9d81d4885ee02535f58dbd, type: 3}
   - {fileID: 8300000, guid: be0546ddf938caa49bbc44375e4124e7, type: 3}
-  overlay2Clips: []
+  overlay2Clips:
+  - {fileID: 8300000, guid: 00fd850fd403f394d8409dd82d088176, type: 3}
+  - {fileID: 8300000, guid: 70ada00dd0547674eb68f535c7d5664d, type: 3}
+  - {fileID: 8300000, guid: af84ecf8bcec8c945b0b6891b3032865, type: 3}
   avoidOverlayTime: 0
   overlayVolume: .200000003
 --- !u!114 &11493618
@@ -78,7 +80,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: overlay1Clips.Array.size
-      value: 4
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: overlay2Clips.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: mainSong1Clip
@@ -91,11 +97,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: overlay1Clips.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: d7d05d52e02535d40b6670b1ef40e55b, type: 3}
+      objectReference: {fileID: 8300000, guid: 67b660633d9d81d4885ee02535f58dbd, type: 3}
     - target: {fileID: 0}
       propertyPath: overlay1Clips.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 67b660633d9d81d4885ee02535f58dbd, type: 3}
+      objectReference: {fileID: 8300000, guid: be0546ddf938caa49bbc44375e4124e7, type: 3}
     - target: {fileID: 0}
       propertyPath: overlay1Clips.Array.data[3]
       value: 
@@ -104,6 +110,22 @@ Prefab:
       propertyPath: overlayVolume
       value: .200000003
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mainSong2Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e1e8713047fd42b4c9b39b2a5db8aa60, type: 3}
+    - target: {fileID: 0}
+      propertyPath: overlay2Clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 00fd850fd403f394d8409dd82d088176, type: 3}
+    - target: {fileID: 0}
+      propertyPath: overlay2Clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 70ada00dd0547674eb68f535c7d5664d, type: 3}
+    - target: {fileID: 0}
+      propertyPath: overlay2Clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: af84ecf8bcec8c945b0b6891b3032865, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147304}
