@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 using UnityEngine;
-
+using System;
 using System.Collections.Generic;
 
 public class endMenuScript : MonoBehaviour {
@@ -47,10 +47,10 @@ public class endMenuScript : MonoBehaviour {
 		Dictionary<float, int> dictionary =
 			new Dictionary<float, int>();
 
-		dictionary.Add (3f, 1);
-		dictionary.Add (2f, 2);
-		dictionary.Add (31f, 3);
-		dictionary.Add (4f, 4);
+		dictionary.Add (30f, 1);
+		dictionary.Add (240f, 2);
+		dictionary.Add (50f, 3);
+		dictionary.Add (230f, 4);
 
 		/*
 		if (PlayerPrefs.HasKey ("p1TimeActive")) {
@@ -91,11 +91,16 @@ public class endMenuScript : MonoBehaviour {
 		times.Reverse ();
 
 		for (int i = 0; i < times.Count; i++) {
-			this.playerTimeText[i].text = times[i].ToString ();
+			TimeSpan t = TimeSpan.FromSeconds(times[i]);
+			if(i >= 1) {
+				this.playerTimeText[i].text = string.Format ("{0}:{1:00}", 
+			                                             (int)t.TotalMinutes,
+			                                             t.Seconds);
+			}
 			int playerNumber = dictionary[times[i]];
-			string playerNumberStr = "Player " + playerNumber;
+			string playerNumberStr = "Player " + playerNumber + ": ";
 			this.playerPlaceText[i].text = playerNumberStr;
-
+			
 			}
 
 			
