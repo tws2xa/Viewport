@@ -10,13 +10,19 @@ public class endMenuScript : MonoBehaviour {
 
 	
 	public List<Text> playerTimeText = new List<Text>();
-	public List<Text> placingText = new List<Text>();
+
 	public List<Text> playerPlaceText = new List<Text>();
 
 
 
 	void Start () {
+		GameObject endMenu = GameObject.Find ("EndMenu");
+		RectTransform endMenuTransform = endMenu.GetComponent<RectTransform> ();
+		endMenuTransform.anchoredPosition = Vector2.zero;
+
+
 		setTimes ();
+
 	}
 	
 	// Update is called once per frame
