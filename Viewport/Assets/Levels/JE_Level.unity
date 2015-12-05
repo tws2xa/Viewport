@@ -833,7 +833,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496082, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
       propertyPath: powerUpID
-      value: -1
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
@@ -1901,6 +1901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51f092a2a71249afae23d87301e7855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 0}
+  deathSoundVolume: 1
 --- !u!114 &515585126
 MonoBehaviour:
   m_ObjectHideFlags: 0

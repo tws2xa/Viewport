@@ -22,6 +22,11 @@ public class PlayerInteraction : MonoBehaviour {
 	void Start () {
 		rb = gameObject.GetComponent<Rigidbody> ();
 		pc = gameObject.GetComponent<PlayerControls> ();
+		foreach (GameObject pad in GameObject.FindGameObjectsWithTag("Bouncy")) {
+			Material currMat = pad.GetComponent<MeshRenderer>().material;
+			currMat.EnableKeyword("_EMISSION");
+			currMat.SetColor("_EmissionColor", Color.black);
+		}
 		bounceVector = new Vector3 (0, bouncyForce, 0);
 	}
 	

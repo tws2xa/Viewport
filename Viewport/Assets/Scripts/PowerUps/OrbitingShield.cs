@@ -16,9 +16,12 @@ public class OrbitingShield : PowerUp {
 	float shieldSize;
 	float shieldRotateSpeed;
 	
-	GameObject shieldSphere;
-	Vector3 shieldUpdatingPosition;
-	Vector3 shieldDeltaPos;
+	//GameObject shieldSphere;
+	//Vector3 shieldUpdatingPosition;
+	//Vector3 shieldDeltaPos;
+
+	GameObject shieldSpheres;
+	GameObject shieldSpheresOnPlayer;
 
 	public OrbitingShield (int duration) : base (duration) 
 	{
@@ -33,14 +36,19 @@ public class OrbitingShield : PowerUp {
 		//shieldList = new List<OrbitingShieldSphere> ();
 
 		shieldSize = 0.5f;
-		shieldRotateSpeed = 5.0f;
+		shieldRotateSpeed = 300.0f;
 
 		playerUpdatingPosition = gameObject.transform.position;
-		shieldSphere = GameObject.CreatePrimitive (PrimitiveType.Sphere);
-		shieldSphere.transform.localScale = new Vector3 (shieldSize, shieldSize, shieldSize);
-		shieldDeltaPos = new Vector3 (0.0f, 0.0f, 1.0f);
-		shieldUpdatingPosition = playerUpdatingPosition + shieldDeltaPos;
-		shieldSphere.transform.position = shieldUpdatingPosition;
+		shieldSpheres = (GameObject)(Resources.Load ("Prefabs/OrbitingShield", typeof(GameObject)));
+		shieldSpheresOnPlayer = GameObject.Instantiate (shieldSpheres);
+		shieldSpheresOnPlayer.transform.position = playerUpdatingPosition;
+		shieldSpheresOnPlayer.GetComponent<FollowObject> ().SetTarget (gameObject);
+		shieldSpheresOnPlayer.GetComponent<AutoSpin> ().spinAmount = shieldRotateSpeed;
+		//shieldSphere = GameObject.CreatePrimitive (PrimitiveType.Sphere);
+		//shieldSphere.transform.localScale = new Vector3 (shieldSize, shieldSize, shieldSize);
+		//shieldDeltaPos = new Vector3 (0.0f, 0.0f, 1.0f);
+		//shieldUpdatingPosition = playerUpdatingPosition + shieldDeltaPos;
+		//shieldSphere.transform.position = shieldUpdatingPosition;
 	}
 
 //	void spawnShieldTimer (){
@@ -56,17 +64,17 @@ public class OrbitingShield : PowerUp {
 	public override void FixedUpdate () {
 		Timer ();
 
-		playerUpdatingPosition = gameObject.transform.position;
+		//playerUpdatingPosition = gameObject.transform.position;
 
 //		foreach (OrbitingShieldSphere o in shieldList) {
 //			o.UpdatePosition(playerUpdatingPosition);
 //		}
-		shieldDeltaPos = Quaternion.Euler(0, shieldRotateSpeed, 0.0f) * shieldDeltaPos;
+		//shieldDeltaPos = Quaternion.Euler(0, shieldRotateSpeed, 0.0f) * shieldDeltaPos;
 		
-		shieldUpdatingPosition = playerUpdatingPosition + shieldDeltaPos;
-		shieldUpdatingPosition.y = playerUpdatingPosition.y;
+		//shieldUpdatingPosition = playerUpdatingPosition + shieldDeltaPos;
+		//shieldUpdatingPosition.y = playerUpdatingPosition.y;
 		
-		shieldSphere.transform.position = shieldUpdatingPosition;
+		//shieldSphere.transform.position = shieldUpdatingPosition;
 	}
 
 	public override void ModifyObject() {
@@ -81,6 +89,7 @@ public class OrbitingShield : PowerUp {
 //		foreach (OrbitingShieldSphere o in shieldList) {
 //			o.DestroyShield();
 //		}
-		Destroy (shieldSphere);
+		Destroy (shieldSpheres);
+		Destroy (shieldSpheresOnPlayer);
 	}
 }
