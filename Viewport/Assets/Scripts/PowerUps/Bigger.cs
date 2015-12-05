@@ -11,12 +11,14 @@ public class Bigger : PowerUp {
 	Vector3 origScale;
 	float timePassed;
 	float interpolant;
+	float changeTime;
 	
 	public Bigger (int duration) : base (duration) {
 	}
 	
 	public new void Start () {
 		powerUpID = 7;
+		changeTime = 0.3f;
 		duration = 10;
 		timeLeft = this.duration;
 		deltaScale = new Vector3(0.5F,0.5F,0.5F);
@@ -38,18 +40,18 @@ public class Bigger : PowerUp {
 	
 	public void scaleTimer(){
 		timePassed += Time.deltaTime;
-		if (timePassed <= duration/2 && timePassed >= 0.0F) {
-			interpolant = timePassed/duration/2;
+		if (timePassed <= changeTime && timePassed >= 0.0F) {
+			interpolant = timePassed/changeTime;
 			if (interpolant >= 1.0F){
 				interpolant = 1.0F;
 			}
-			transform.localScale = Vector3.Lerp (transform.localScale, origScale + deltaScale, interpolant);
-		} else if (timePassed >= duration/2 && timePassed <= duration) {
-			interpolant = timePassed/duration;
+			transform.localScale = Vector3.Lerp (origScale, origScale + deltaScale, interpolant);
+		} else if (timePassed >= duration - changeTime && timePassed <= duration) {
+			interpolant = (timePassed - (duration - changeTime))/changeTime;
 			if (interpolant >= 1.0F){
 				interpolant = 1.0F;
 			}
-            transform.localScale = Vector3.Lerp(transform.localScale, origScale, interpolant);
+            transform.localScale = Vector3.Lerp(origScale + deltaScale, origScale, interpolant);
 		}
 	}
 }

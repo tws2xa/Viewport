@@ -155,7 +155,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4045b6bfad2129941b888eda28c84e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texture: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: bc79d10954736034b970f9bb09bbee36, type: 2}
+  - {fileID: 2100000, guid: eccf36cc2dfe744428c38127e9069ac8, type: 2}
+  - {fileID: 2100000, guid: b9a3dea58c7b8d045b6a6afb81e6da92, type: 2}
+  - {fileID: 2100000, guid: 61964b2cc9ca19a478a56b3d88e718cb, type: 2}
+  - {fileID: 2100000, guid: b7fa6a46f506bf84f98d5ff4376b74ad, type: 2}
+  - {fileID: 2100000, guid: e786ff91dd694ce479704d97f670a945, type: 2}
+  - {fileID: 2100000, guid: 45edfafeeb303f34b8812b9e8dffbe5a, type: 2}
+  - {fileID: 2100000, guid: 8fce8786fcdac284fbe90e5b5326fe92, type: 2}
 --- !u!114 &11482590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1281,6 +1289,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: materials.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: powerupGetSounds.Array.size
       value: 11
       objectReference: {fileID: 0}
@@ -1400,6 +1412,38 @@ Prefab:
       propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bc79d10954736034b970f9bb09bbee36, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: eccf36cc2dfe744428c38127e9069ac8, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: b9a3dea58c7b8d045b6a6afb81e6da92, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 61964b2cc9ca19a478a56b3d88e718cb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: b7fa6a46f506bf84f98d5ff4376b74ad, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: e786ff91dd694ce479704d97f670a945, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45edfafeeb303f34b8812b9e8dffbe5a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fce8786fcdac284fbe90e5b5326fe92, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108692}

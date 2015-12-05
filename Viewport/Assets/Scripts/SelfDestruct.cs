@@ -50,8 +50,9 @@ public class SelfDestruct : MonoBehaviour {
             {
                 Destroy(this.gameObject);
             }
-            else
+            else if (reachedCenter) {
                 deathTimer -= Time.deltaTime;
+			}
             
         }
 	}

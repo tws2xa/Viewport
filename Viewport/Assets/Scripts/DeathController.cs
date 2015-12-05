@@ -6,6 +6,10 @@ public class DeathController : MonoBehaviour {
     HashSet<string> tags;
 	public static bool gameOver = false;
 
+    public AudioClip deathSound;
+    public float deathSoundVolume = 1.0f;
+    private static AudioSource deathSoundSource;
+
     public enum DeathCause
     {
         OutOfView,
@@ -15,17 +19,33 @@ public class DeathController : MonoBehaviour {
 	void Start () {
         tags = new HashSet<string>();
         tags.Add("Player");
+        if (deathSound != null)
+        {
+            deathSoundSource = gameObject.AddComponent<AudioSource>();
+            deathSoundSource.clip = deathSound;
+            deathSoundSource.loop = false;
+            deathSoundSource.volume = deathSoundVolume;
+            deathSoundSource.playOnAwake = false;
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
-        foreach (string tag in tags) {
-            foreach (GameObject obj in GameObject.FindGameObjectsWithTag(tag)) {
-                if (!GeometryUtility.TestPlanesAABB(planes, obj.GetComponent<Collider>().bounds)) {
-                    KillPlayer(obj, DeathCause.OutOfView);
-                } else if (!obj.GetComponent<PlayerDeathController>().getPrevState()) {
-                    obj.GetComponent<PlayerDeathController>().setPrevState(true);
+        if (Camera.main != null)
+        {
+            Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+            foreach (string tag in tags)
+            {
+                foreach (GameObject obj in GameObject.FindGameObjectsWithTag(tag))
+                {
+                    if (!GeometryUtility.TestPlanesAABB(planes, obj.GetComponent<Collider>().bounds))
+                    {
+                        KillPlayer(obj, DeathCause.OutOfView);
+                    }
+                    else if (!obj.GetComponent<PlayerDeathController>().getPrevState())
+                    {
+                        obj.GetComponent<PlayerDeathController>().setPrevState(true);
+                    }
                 }
             }
         }
@@ -64,12 +84,14 @@ public class DeathController : MonoBehaviour {
             }
         }
 
-        //playerDeath.setTimer(playerDeath.getTimer() + Time.deltaTime);
-        //if (playerDeath.getTimer() >= 1 + (playerDeath.secondsPerAttempt * playerDeath.attempts))
-        //{
-            player.SetActive(false);
-			PlayerDeath(player.GetComponent<PlayerControls>().playerNum, cause);
-        //}
+
+        if (deathSoundSource != null)
+        {
+            deathSoundSource.Play();
+        }
+
+        player.SetActive(false);
+		PlayerDeath(player.GetComponent<PlayerControls>().playerNum, cause);
     }
 
     public static void RandomPlayerCameraReassign()

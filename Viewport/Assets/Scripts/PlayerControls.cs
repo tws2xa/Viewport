@@ -46,9 +46,9 @@ public class PlayerControls : MonoBehaviour {
         else //otherwise move normally
         {
                 forceToApply = new Vector3(
-				horizAxis * 0.75f * (normalMovementForce/velocityLimiter),
+				horizAxis * 0.90f * (normalMovementForce/velocityLimiter),
                 0.0f,
-				vertAxis * 0.75f * (normalMovementForce/velocityLimiter)
+				vertAxis * 0.90f * (normalMovementForce/velocityLimiter)
             );
         }
         rigidBody.AddForce(forceToApply);
