@@ -323,6 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51f092a2a71249afae23d87301e7855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 0}
+  deathSoundVolume: 1
 --- !u!114 &187474725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,10 +1022,6 @@ Prefab:
     - target: {fileID: 419970, guid: e6428368f64cffa4a83ec228ef675b35, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11426870, guid: e6428368f64cffa4a83ec228ef675b35, type: 2}
-      propertyPath: songNum
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6428368f64cffa4a83ec228ef675b35, type: 2}

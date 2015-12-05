@@ -42,6 +42,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songNum: 1
   soundEnabled: 1
+  overlayMethod: 2
+  overlayVolume: .600000024
+  overlayFadeTime: 2
   mainSong1Clip: {fileID: 8300000, guid: 752fbcab34623ac4a84a8633e56a4d2b, type: 3}
   mainSong2Clip: {fileID: 8300000, guid: e1e8713047fd42b4c9b39b2a5db8aa60, type: 3}
   overlay1Clips:
@@ -52,8 +55,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 00fd850fd403f394d8409dd82d088176, type: 3}
   - {fileID: 8300000, guid: 70ada00dd0547674eb68f535c7d5664d, type: 3}
   - {fileID: 8300000, guid: af84ecf8bcec8c945b0b6891b3032865, type: 3}
-  avoidOverlayTime: 0
-  overlayVolume: .200000003
 --- !u!114 &11493618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,7 +109,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: be0546ddf938caa49bbc44375e4124e7, type: 3}
     - target: {fileID: 0}
       propertyPath: overlayVolume
-      value: .200000003
+      value: .600000024
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: mainSong2Clip
