@@ -30,6 +30,13 @@ public class endMenuScript : MonoBehaviour {
 		setTimes ();
 	}
 
+	public void toMenu() {
+		Application.LoadLevel ("menu");
+	}
+
+
+
+
 	public void setTimes() {
 		//get players
 		//generate 2, 3 or 4 places
