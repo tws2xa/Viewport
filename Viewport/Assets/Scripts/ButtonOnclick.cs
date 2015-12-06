@@ -25,6 +25,8 @@ public class ButtonOnclick : MonoBehaviour {
     
     public void changeScene()
     {
+        int levelTarget = image + 1;
+        PlayerPrefs.SetInt("SelectedLevel", levelTarget);
         Application.LoadLevel(image + 1);
     }
     public void showMenu(int menuNum)
@@ -380,8 +382,23 @@ public class ButtonOnclick : MonoBehaviour {
         }
     }
 
+    private void ClearPrefs()
+    {
+        PlayerPrefs.DeleteKey("p1ball");
+        PlayerPrefs.DeleteKey("p2ball");
+        PlayerPrefs.DeleteKey("p3ball");
+        PlayerPrefs.DeleteKey("p4ball");
+        PlayerPrefs.DeleteKey("p1join");
+        PlayerPrefs.DeleteKey("p2join");
+        PlayerPrefs.DeleteKey("p3join");
+        PlayerPrefs.DeleteKey("p4join");
+        PlayerPrefs.DeleteKey("SelectedLevel");
+    }
+
     public void Start()
     {
+        ClearPrefs();
+
         //finds all game objects
         mySprites = (Sprite[])Resources.LoadAll<Sprite>("ballsprites");
         images = GameObject.Find("Balls").GetComponentsInChildren<Image>();
