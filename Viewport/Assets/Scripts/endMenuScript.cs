@@ -75,13 +75,18 @@ public class endMenuScript : MonoBehaviour {
         times = new List<KeyValuePair<int, float>>();
         for(int i=1; i<=4; i++)
         {
-            if(PlayerPrefs.HasKey("p" + i + "TimeActive"))
+            // Only add if playing
+            if (wasPlaying[i-1])
             {
-                float playerTime = PlayerPrefs.GetFloat("p" + i + "TimeActive");
-                times.Add(new KeyValuePair<int, float>(i, playerTime));
-            } else
-            {
-                times.Add(new KeyValuePair<int, float>(i, float.MaxValue - 5.0f));
+                if (PlayerPrefs.HasKey("p" + i + "TimeActive"))
+                {
+                    float playerTime = PlayerPrefs.GetFloat("p" + i + "TimeActive");
+                    times.Add(new KeyValuePair<int, float>(i, playerTime));
+                }
+                else
+                {
+                    times.Add(new KeyValuePair<int, float>(i, float.MaxValue - 5.0f));
+                }
             }
 
         }
@@ -118,17 +123,14 @@ public class endMenuScript : MonoBehaviour {
     public void SetSphereMaterials()
     {
         // Get Spheres
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < times.Count; i++)
         {
-            if (wasPlaying[i])
+            int playerNum = times[i].Key;
+            int textureNum = PlayerPrefs.GetInt("p" + playerNum + "ball");
+            if (textureNum != -2)
             {
-                int playerNum = times[i].Key;
-                int textureNum = PlayerPrefs.GetInt("p" + playerNum + "ball");
-                if (textureNum != -2)
-                {
-                    MeshRenderer currentRenderer = spheres[i].GetComponent<MeshRenderer>();
-                    currentRenderer.material = materials[textureNum];
-                }
+                MeshRenderer currentRenderer = spheres[i].GetComponent<MeshRenderer>();
+                currentRenderer.material = materials[textureNum];
             }
         }
     }
@@ -141,25 +143,34 @@ public class endMenuScript : MonoBehaviour {
         
 		//p1ball getInt 
 		//textureChange.cs
-
+        
+        // Set the placing and time text
 		for (int i = 0; i < times.Count; i++)
         {
-			if(i >= 1)
+            if (times[i].Value > 0)
             {
-				TimeSpan t = TimeSpan.FromSeconds(times[i].Value);
-				this.playerTimeText[i].text = string.Format (
-                    "{0}:{1:00}",
-                    (int)t.TotalMinutes,
-                    t.Seconds);
-			}
-            else
-            {
-				Debug.Log ("Player " + times[i].Key + ": Wins!");
-			}
+                if (i >= 1)
+                {
+                    TimeSpan t = TimeSpan.FromSeconds(times[i].Value);
+                    this.playerTimeText[i].enabled = true;
+                    this.playerTimeText[i].text = string.Format(
+                        "{0}:{1:00}",
+                        (int)t.TotalMinutes,
+                        t.Seconds);
+                }
 
-			int playerNumber = times[i].Key;
-			string playerNumberStr = "Player " + playerNumber + ": ";
-			this.playerPlaceText[i].text = playerNumberStr;
+                int playerNumber = times[i].Key;
+                string playerNumberStr = "Player " + playerNumber + ": ";
+                this.playerPlaceText[i].enabled = true;
+                this.playerPlaceText[i].text = playerNumberStr;
+            }
 		}
+
+        // Clear unused places
+        for(int i=times.Count; i<4; i++)
+        {
+            this.playerPlaceText[i].enabled = false;
+            this.playerTimeText[i].enabled = false;
+        }
 	}	
 }
