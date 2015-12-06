@@ -5,18 +5,18 @@ using System;
 
 public class ButtonOnclick : MonoBehaviour {
     public Sprite[] mySprites;
-    public Sprite[] myArrows;
-    public Sprite[] myLevels;
-    public int ball1, ball2, ball3, ball4;
-    public Image[] images;
-    public Image[] arrows;
-    public Image[] levels;
-    public Image[] menuArrows;
-    public int a1, a2, a3, a4;
-    bool p1, p2, p3, p4;
-    public int menu;
-    Image levelImage;
-    int image;
+    private Sprite[] myArrows;
+    private Sprite[] myLevels;
+    private int ball1, ball2, ball3, ball4;
+    private Image[] images;
+    private Image[] arrows;
+    private Image[] levels;
+    private Image[] menuArrows;
+    private int a1, a2, a3, a4;
+    private bool p1, p2, p3, p4;
+    private int menu;
+    private Image levelImage;
+    private int image;
 
 
     GameObject mainMenu;
@@ -84,35 +84,113 @@ public class ButtonOnclick : MonoBehaviour {
        
     }
 
+    public int GetFirstUnusedImageInt()
+    {
+        return GetNextUnusedImageInt(0);
+    }
+
+    /// <summary>
+    /// Find the next unused ball image starting from start (inclusive).
+    /// </summary>
+    /// <param name="start">Where to begin checking for unused images (inclusive)</param>
+    public int GetNextUnusedImageInt(int start)
+    {
+        return FindUnusedImage(start, 1);
+    }
+
+    /// <summary>
+    /// Find the previous unused ball image starting from start (inclusive).
+    /// </summary>
+    /// <param name="start">Where to begin checking for unused images (inclusive)</param>
+    public int GetPreviousUnusedImageInt(int start)
+    {
+        return FindUnusedImage(start, -1);
+    }
+
+    /// <summary>
+    /// Finds the next unused images
+    /// </summary>
+    /// <param name="start">Where to start (inclusive)</param>
+    /// <param name="delta">How much to change each iteration</param>
+    public int FindUnusedImage(int start, int delta)
+    {
+        int i = start;
+        while (ball1 == i || ball2 == i || ball3 == i || ball4 == i)
+        {
+            i = (i + delta) % mySprites.Length;
+            if (i == start)
+            {
+                // Not enough sprite images for players
+                Debug.Log("More Players Than Sprites!");
+                return -1;
+            }
+        }
+        return i;
+    }
     public void HandleSelectPlayerUpdate()
     {
         //Enables/disables player when "A" button is pressed
         if (Input.GetKeyUp("joystick 1 button 0") || Input.GetKeyUp("c"))
         {
-            images[0].enabled = !images[0].enabled;
             p1 = !p1;
+            if(p1)
+            {
+                ball1 = GetFirstUnusedImageInt();
+                images[0].sprite = mySprites[ball1];
+            } else
+            {
+                ball1 = -2;
+            }
+            images[0].enabled = !images[0].enabled;
         }
 
         if (Input.GetKeyUp("joystick 2 button 0") || Input.GetKeyUp("v"))
         {
-            images[1].enabled = !images[1].enabled;
             p2 = !p2;
+            if (p2)
+            {
+                ball2 = GetFirstUnusedImageInt();
+                images[1].sprite = mySprites[ball2];
+            }
+            else
+            {
+                ball2 = -2;
+            }
+            images[1].enabled = !images[1].enabled;
         }
 
         if (Input.GetKeyUp("joystick 3 button 0") || Input.GetKeyUp("b"))
         {
-            images[2].enabled = !images[2].enabled;
             p3 = !p3;
+            if (p3)
+            {
+                ball3 = GetFirstUnusedImageInt();
+                images[2].sprite = mySprites[ball3];
+            }
+            else
+            {
+                ball3 = -2;
+            }
+            images[2].enabled = !images[2].enabled;
         }
 
         if (Input.GetKeyUp("joystick 4 button 0") || Input.GetKeyUp("n"))
         {
-            images[3].enabled = !images[3].enabled;
             p4 = !p4;
+            if (p4)
+            {
+                ball4 = GetFirstUnusedImageInt();
+                images[3].sprite = mySprites[ball4];
+            }
+            else
+            {
+                ball4 = -2;
+            }
+            images[3].enabled = !images[3].enabled;
         }
+
         //Cycles through material options for each ball
         //does not allow repeats
-
         if ((Input.GetKeyUp("e") || Input.GetKeyUp("joystick 1 button 4")) && p1)
         {
             arrows[0].sprite = myArrows[1];
@@ -240,25 +318,7 @@ public class ButtonOnclick : MonoBehaviour {
             }
             images[3].sprite = mySprites[ball4];
         }
-
-        //Sets ball color to -2 (a non-existent color) so they don't conflict when disabled
-        if (!p1)
-        {
-            ball1 = -2;
-        }
-        if (!p2)
-        {
-            ball2 = -2;
-        }
-        if (!p3)
-        {
-            ball3 = -2;
-        }
-        if (!p4)
-        {
-            ball4 = -2;
-        }
-
+        
         //Cycles through colors to a new one that isn't selected
         if (p1 && ball1 == -2)
         {
@@ -400,7 +460,7 @@ public class ButtonOnclick : MonoBehaviour {
         ClearPrefs();
 
         //finds all game objects
-        mySprites = (Sprite[])Resources.LoadAll<Sprite>("ballsprites");
+        // mySprites = (Sprite[])Resources.LoadAll<Sprite>("ballsprites");
         images = GameObject.Find("Balls").GetComponentsInChildren<Image>();
         myArrows = (Sprite[])Resources.LoadAll<Sprite>("arrowsprites");
         arrows = GameObject.Find("arrows").GetComponentsInChildren<Image>();
@@ -408,10 +468,10 @@ public class ButtonOnclick : MonoBehaviour {
         myLevels = (Sprite[])Resources.LoadAll<Sprite>("levelsprites");
         levelImage = GameObject.Find("levelimage").GetComponent<Image>();
         image = 0;
-        ball1 = 0;
-        ball2 = 1;
-        ball3 = 2;
-        ball4 = 3;
+        ball1 = -2;
+        ball2 = -2;
+        ball3 = -2;
+        ball4 = -2;
         menu = 1;
         a1 = 0;
         a2 = 0;

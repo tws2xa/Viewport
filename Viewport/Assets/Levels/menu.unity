@@ -1992,22 +1992,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f272576fd0716fa4995359f550cb22d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySprites: []
-  myArrows: []
-  myLevels: []
-  ball1: 0
-  ball2: 0
-  ball3: 0
-  ball4: 0
-  images: []
-  arrows: []
-  levels: []
-  menuArrows: []
-  a1: 0
-  a2: 0
-  a3: 0
-  a4: 0
-  menu: 1
+  mySprites:
+  - {fileID: 21300000, guid: f69154595eca38649b18ca88d2a292ae, type: 3}
+  - {fileID: 21300000, guid: c00a074023ea921428a09d6087ec689f, type: 3}
+  - {fileID: 21300000, guid: 57a8b2ec3edd3f747bf85bb164c41ec3, type: 3}
+  - {fileID: 21300000, guid: 8ab10366c5802754da166f6ca867c967, type: 3}
+  - {fileID: 21300000, guid: 8ebea08626be65543867d08169cccbd4, type: 3}
+  - {fileID: 21300000, guid: fbb7d8e08c7c9c7449fffed5504b9474, type: 3}
+  - {fileID: 21300000, guid: c0ccefaf351d21949b42bc4e52c752b2, type: 3}
+  - {fileID: 21300000, guid: 32fa13f2ea6ef694dbbd59a15664f6fa, type: 3}
 --- !u!1 &1181230313
 GameObject:
   m_ObjectHideFlags: 0
