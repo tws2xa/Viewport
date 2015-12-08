@@ -104,7 +104,6 @@ public class ViewportControlManagementScript : MonoBehaviour {
             {
                 int playerNum = gameObject.GetComponent<PlayerControls>().playerNum;
                 colNum = PlayerPrefs.GetInt("p" + playerNum + "ball");
-                Debug.Log("Player Number: " + playerNum + "Color Number: " + colNum);
             }
             SpriteRenderer renderer = ((GameObject)viewportTargetIndicator).GetComponent<SpriteRenderer>();
             if(renderer != null)
