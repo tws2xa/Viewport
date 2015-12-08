@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ViewportControlManagementScript : MonoBehaviour {
 
@@ -15,12 +16,25 @@ public class ViewportControlManagementScript : MonoBehaviour {
 
 	private SoundManagementScript soundManagerScript;
 
+    public Dictionary<int, Color> playerColors = new Dictionary<int, Color>()
+    {
+        {-1, Color.black }, // Something not a player
+        {0, new Color(0.6f, 0.2f, 0.2f)}, // Red
+        {1, new Color(0.25f, 0.7f, 0.23f)},// Green
+        {2, new Color(0.27f, 0.3f, 0.5f)}, // Blue,
+        {3, new Color(0.7f, 0.75f, 0.32f)}, // Yellow
+        {4, Color.cyan},
+        {5, new Color(1, 0.5f, 0.5f)}, // Pink
+        {6, new Color(1.0f, 0.1f, 1.0f)}, // Purple
+        {7, new Color(1.0f, 0.8f, 0.1f)} // Orange
+    };
+
 	// Use this for initialization
 	void Start () {
 		viewportCam = Camera.main;
 		cameraFollowScript = viewportCam.GetComponent<FollowObject> ();
 		loadSoundManager ();
-	}
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -83,8 +97,22 @@ public class ViewportControlManagementScript : MonoBehaviour {
             indicatorFollowScript.followY = true;
             indicatorFollowScript.followZ = true;
             indicatorFollowScript.offsets.y = viewportIndicatorYOffset;
+
+
+            int colNum = -1;
+            if (gameObject.GetComponent<PlayerControls>() != null)
+            {
+                int playerNum = gameObject.GetComponent<PlayerControls>().playerNum;
+                colNum = PlayerPrefs.GetInt("p" + playerNum + "ball");
+                Debug.Log("Player Number: " + playerNum + "Color Number: " + colNum);
+            }
+            SpriteRenderer renderer = ((GameObject)viewportTargetIndicator).GetComponent<SpriteRenderer>();
+            if(renderer != null)
+            {
+                renderer.color = playerColors[colNum];
+            }
         }
-	}
+    }
 
 	/// <summary>
 	/// Removes the viewport target icon.

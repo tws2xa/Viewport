@@ -22,6 +22,8 @@ public class SoundManagementScript : MonoBehaviour {
     public OverlayMethod overlayMethod = OverlayMethod.Camera_Swap_FadeOut;
     public float overlayVolume = 0.7f;
     public float overlayFadeTime = 2.0f; // Seconds for sound to last when using Fade Out Overlay Method
+    public bool playIntro = false;
+    public float introVolume = 0.2f; // Volume to play the intro
     private float currentOverlayTimeValue = -1;
 
     /**
@@ -29,6 +31,8 @@ public class SoundManagementScript : MonoBehaviour {
      **/
     public AudioClip mainSong1Clip;
     public AudioClip mainSong2Clip;
+    public AudioClip intro1Clip;
+    public AudioClip intro2Clip;
     public List<AudioClip> overlay1Clips;
     public List<AudioClip> overlay2Clips;
 
@@ -37,9 +41,10 @@ public class SoundManagementScript : MonoBehaviour {
      **/
 	private AudioSource mainSongSource;
     private List<AudioSource> overlaySources;
+    private AudioSource introSource;
     private int currentOverlay;
-    
 
+    private bool hasStartedBkgMusic; // Whether or not the main background music has started yet.
 
     /**
      * Change Pitch Info
@@ -61,6 +66,15 @@ public class SoundManagementScript : MonoBehaviour {
             mainSongSource.playOnAwake = true;
             mainSongSource.loop = true;
         }
+        if((songNum == 1 && intro1Clip != null) || (songNum == 2 && intro2Clip != null))
+        {
+            introSource = gameObject.AddComponent<AudioSource>();
+            introSource.clip = ((songNum == 1) ? intro1Clip : intro2Clip);
+            introSource.playOnAwake = true;
+            introSource.loop = true;
+            introSource.volume = introVolume;
+        }
+
         overlaySources = new List<AudioSource>();
         foreach(AudioClip overlay in ((songNum == 1) ? overlay1Clips : overlay2Clips))
         {
@@ -76,8 +90,15 @@ public class SoundManagementScript : MonoBehaviour {
         // Needed to play music once the camera picks up an object
         cameraFollowScript = Camera.main.GetComponent<FollowObject> ();
 
-        StartBkgMusic();
-	}
+        if(playIntro)
+        {
+            StartIntroMusic();
+        } else
+        {
+            StartBkgMusic();
+        }
+        hasStartedBkgMusic = !playIntro;
+    }
 
     /// <summary>
     /// Called once every frame
@@ -123,6 +144,22 @@ public class SoundManagementScript : MonoBehaviour {
         
 	}
 
+    public void StartIntroMusic()
+    {
+        if (introSource != null)
+        {
+            introSource.Play();
+        }
+    }
+
+    public void StopIntroMusic()
+    {
+        if (introSource != null)
+        {
+            introSource.Stop();
+        }
+    }
+
     /// <summary>
     /// Starts the background music
     /// </summary>
@@ -155,6 +192,14 @@ public class SoundManagementScript : MonoBehaviour {
     /// Loops around to beginning, if reached the end of the list.
     /// </summary>
     public void PlayNextOverlay() {
+        if(!hasStartedBkgMusic)
+        {
+            StopIntroMusic();
+            StartBkgMusic();
+            hasStartedBkgMusic = true;
+            return;
+        }
+
         if(!soundEnabled || overlayMethod == OverlayMethod.None || overlaySources.Count <= 0)
         {
             return; // Should not play an overlay
@@ -163,7 +208,6 @@ public class SoundManagementScript : MonoBehaviour {
         // Increment Overlay (Wrap to list size)
         //
         currentOverlay = (currentOverlay + 1) % overlaySources.Count;
-        Debug.Log("Playing Overlay: " + currentOverlay);
         for(int i=0; i<overlaySources.Count; i++)
         {
             overlaySources[i].volume = ((i == currentOverlay) ? overlayVolume : 0);
