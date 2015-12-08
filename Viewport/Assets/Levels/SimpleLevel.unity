@@ -1045,6 +1045,7 @@ GameObject:
   - 33: {fileID: 1890669332}
   - 65: {fileID: 1890669331}
   - 23: {fileID: 1890669330}
+  - 114: {fileID: 1890669334}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -1107,6 +1108,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1667868361}
   m_RootOrder: 1
+--- !u!114 &1890669334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1890669329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08610742f58b6464ea6f6af7f590a5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalWidthScaleValue: 1
+  globalHeightScaleValue: 1
 --- !u!1001 &1938626129
 Prefab:
   m_ObjectHideFlags: 0

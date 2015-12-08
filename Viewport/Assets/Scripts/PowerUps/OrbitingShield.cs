@@ -13,7 +13,7 @@ public class OrbitingShield : PowerUp {
 	Vector3 playerUpdatingPosition;
 
 	/** Should not be needed, but temporary fix to allow fix of OrbitingShieldSphere class **/
-	float shieldSize;
+	// float shieldSize;
 	float shieldRotateSpeed;
 	
 	//GameObject shieldSphere;
@@ -35,7 +35,7 @@ public class OrbitingShield : PowerUp {
 
 		//shieldList = new List<OrbitingShieldSphere> ();
 
-		shieldSize = 0.5f;
+		// shieldSize = 0.5f;
 		shieldRotateSpeed = 300.0f;
 
 		playerUpdatingPosition = gameObject.transform.position;
