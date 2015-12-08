@@ -119,14 +119,14 @@ public class PlayerPowerUpController : MonoBehaviour {
 	
 	public void ActivatePowerUp (PowerUp power) {
 		if (power == null) {
-			Debug.Log ("Error: Power is Null (probably)");
+			Debug.LogError("Error: Power is Null (probably)");
 			return;
 		}
 		if (!activePowers.Contains (power) && activePowers.Count < maxAmtPow) {
 			activePowers.Add (power);
 			power.Start();
 			gameObject.AddComponent (power.GetType ());
-			Debug.Log("Adding: " + power.ToString ());
+			// Debug.Log("Adding: " + power.ToString ());
 			if (goodPowerUpIDs.Contains(power.getPowerUpID())){
 				powerUpParticles.startColor = Color.green;
 			} else if (neutralPowerUpIDs.Contains(power.getPowerUpID())){
@@ -145,17 +145,17 @@ public class PlayerPowerUpController : MonoBehaviour {
 				power2.DestroyAllHelper();
 			}
 			activePowers.Clear ();
-			Debug.Log ("Deactivated powerup is null");
+			// Debug.Log ("Deactivated powerup is null");
 			powerUpParticles.enableEmission = false;
 		} else if (activePowers.Contains (power)) {
 			Destroy (gameObject.GetComponent (power.GetType ()));
 			activePowers.Remove (power);
-			Debug.Log("Attempting to remove " + power.ToString ());
+			// Debug.Log("Attempting to remove " + power.ToString ());
 			if (activePowers.Count <= 0) {
 				powerUpParticles.enableEmission = false;
 			}
 		} else {
-			Debug.Log("Tried to remove a power that the object did not have. Power is toString'd here: " + power.ToString ());
+			Debug.LogError("Tried to remove a power that the object did not have. Power: " + power.ToString ());
 		}
 		//gameObject.GetComponent<pu.GetType()>
 	}

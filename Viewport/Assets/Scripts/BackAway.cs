@@ -15,7 +15,7 @@ public class BackAway : MonoBehaviour {
         followObjScript = gameObject.GetComponent<FollowObject>();
         if(followObjScript == null)
         {
-            Debug.Log("Error: You must include a Follow Object Script to use Back Away");
+            Debug.LogError("Error: You must include a Follow Object Script to use Back Away");
         } else {
             // Don't move below the starting position value
             globalYMin = this.transform.position.y;

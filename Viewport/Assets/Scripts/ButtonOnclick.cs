@@ -33,7 +33,7 @@ public class ButtonOnclick : MonoBehaviour {
     {
         if(menu < 0 || menu > 3)
         {
-            Debug.Log("Error - Setting Menu to Invalid Number: " + menuNum);
+            Debug.LogError("Error - Setting Menu to Invalid Number: " + menuNum);
             return;
         }
         mainMenu.SetActive(menuNum == 0);
@@ -121,7 +121,7 @@ public class ButtonOnclick : MonoBehaviour {
             if (i == start)
             {
                 // Not enough sprite images for players
-                Debug.Log("More Players Than Sprites!");
+                Debug.LogError("More Players Than Sprites!");
                 return -1;
             }
         }

@@ -84,7 +84,7 @@ public abstract class PowerUp : MonoBehaviour {
 
 	public static bool operator != (PowerUp p1, PowerUp p2)
 	{
-		Debug.Log ("Entered !=");
+		// Debug.Log ("Entered !=");
 		if ((p1 is PowerUp && p2 is PowerUp)) {
 			return !(p1.Equals (p2));
 		} else if (!(p1 is PowerUp) && p2 is PowerUp) {
