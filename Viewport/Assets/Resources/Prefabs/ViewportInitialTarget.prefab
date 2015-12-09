@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 455872}
   - 212: {fileID: 21233562}
-  - 65: {fileID: 6589604}
   - 114: {fileID: 11480764}
   - 114: {fileID: 11455728}
   - 135: {fileID: 13544622}
@@ -32,18 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!65 &6589604
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154124}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: .789999902, z: .199999973}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11455728
 MonoBehaviour:
   m_ObjectHideFlags: 1
