@@ -100,6 +100,7 @@ GameObject:
   - 33: {fileID: 12780719}
   - 65: {fileID: 12780718}
   - 23: {fileID: 12780717}
+  - 114: {fileID: 12780721}
   m_Layer: 0
   m_Name: Diagnol 2
   m_TagString: Untagged
@@ -117,7 +118,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4b275e14447f7a4438d7b032502cca23, type: 2}
+  - {fileID: 2100000, guid: 8b382285417829d4da0e51e12a5da48d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -162,6 +163,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 385004151}
   m_RootOrder: 1
+--- !u!114 &12780721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 12780716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08610742f58b6464ea6f6af7f590a5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalWidthScaleValue: .855000019
+  globalHeightScaleValue: 1.10000002
 --- !u!1 &18409954
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +398,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4b275e14447f7a4438d7b032502cca23, type: 2}
+  - {fileID: 2100000, guid: 8b382285417829d4da0e51e12a5da48d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1234,7 +1248,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11482590, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: playerNum
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2331392, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -1313,6 +1327,10 @@ Prefab:
     - target: {fileID: 450048, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: m_LocalScale.z
       value: 1.17647052
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482590, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
+      propertyPath: playerNum
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
@@ -2379,7 +2397,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11482590, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: playerNum
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2331392, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -2959,7 +2977,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4b275e14447f7a4438d7b032502cca23, type: 2}
+  - {fileID: 2100000, guid: a28d48ef1d8b96e489b57cc62b1cb9eb, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -6271,6 +6289,7 @@ GameObject:
   - 33: {fileID: 1645929461}
   - 65: {fileID: 1645929460}
   - 23: {fileID: 1645929459}
+  - 114: {fileID: 1645929463}
   m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
@@ -6288,7 +6307,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4b275e14447f7a4438d7b032502cca23, type: 2}
+  - {fileID: 2100000, guid: bc8ea9151a7b5414ea5471df474f0a8f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -6333,6 +6352,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 374596575}
   m_RootOrder: 2
+--- !u!114 &1645929463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1645929458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08610742f58b6464ea6f6af7f590a5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalWidthScaleValue: 1
+  globalHeightScaleValue: 1
 --- !u!4 &1649123049 stripped
 Transform:
   m_PrefabParentObject: {fileID: 456434, guid: 219a2a6a8587a40e497e9255101c414a, type: 2}
@@ -7367,7 +7399,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1905619501}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f51f092a2a71249afae23d87301e7855, type: 3}
   m_Name: 
@@ -8025,6 +8057,7 @@ GameObject:
   - 33: {fileID: 2120003658}
   - 65: {fileID: 2120003657}
   - 23: {fileID: 2120003656}
+  - 114: {fileID: 2120003660}
   m_Layer: 0
   m_Name: Side 2
   m_TagString: Untagged
@@ -8042,7 +8075,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4b275e14447f7a4438d7b032502cca23, type: 2}
+  - {fileID: 2100000, guid: a28d48ef1d8b96e489b57cc62b1cb9eb, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -8087,6 +8120,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 374596575}
   m_RootOrder: 0
+--- !u!114 &2120003660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2120003655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08610742f58b6464ea6f6af7f590a5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalWidthScaleValue: 1
+  globalHeightScaleValue: 1
 --- !u!1 &2124945485
 GameObject:
   m_ObjectHideFlags: 0
