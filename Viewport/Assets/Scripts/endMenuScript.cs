@@ -121,7 +121,6 @@ public class endMenuScript : MonoBehaviour {
             // Only add if playing
             if (wasPlaying[i-1])
             {
-                Debug.Log("Checking Key: " + "p" + i + "TimeActive");
                 if (PlayerPrefs.HasKey("p" + i + "TimeActive"))
                 {
                     float playerTime = PlayerPrefs.GetFloat("p" + i + "TimeActive");
@@ -130,7 +129,6 @@ public class endMenuScript : MonoBehaviour {
                 }
                 else
                 {
-                    Debug.Log("Key Not Found - Time: Big");
                     times.Add(new KeyValuePair<int, float>(i, float.MaxValue - 5.0f));
                 }
             }
