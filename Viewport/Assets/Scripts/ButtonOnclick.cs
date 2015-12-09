@@ -28,6 +28,7 @@ public class ButtonOnclick : MonoBehaviour {
     GameObject mainMenu;
     GameObject selectPlayersMenu;
     GameObject selectLevelMenu;
+	GameObject credits;
     
     public void changeScene()
     {
@@ -100,10 +101,20 @@ public class ButtonOnclick : MonoBehaviour {
 		case 2:
 			HandleSelectLevelUpdate();
 			break;
+		case 3:
+			HandleCredits();
+			break;
 		}
        
     }
+	public void loadCredits() {
+		HandleCredits ();
+	}
 
+	public void HandleCredits() {
+		showMenu (3);
+
+	}
     public int GetFirstUnusedImageInt()
     {
         return GetNextUnusedImageInt(0);
@@ -561,15 +572,18 @@ public class ButtonOnclick : MonoBehaviour {
         mainMenu = GameObject.Find("Main Menu");
         selectPlayersMenu = GameObject.Find("Select Players");
         selectLevelMenu = GameObject.Find("Select Level");
+		credits = GameObject.Find ("CreditsMenus");
 
         // Set Menu Positions
         RectTransform mainMenuTransform = mainMenu.GetComponent<RectTransform>();
         RectTransform selectPlayersMenuTransform = selectPlayersMenu.GetComponent<RectTransform>();
         RectTransform selectLevelMenuTransform = selectLevelMenu.GetComponent<RectTransform>();
+		RectTransform selectCredits = credits.GetComponent<RectTransform>();
 
-        mainMenuTransform.anchoredPosition = Vector2.zero;
+		mainMenuTransform.anchoredPosition = Vector2.zero;
         selectPlayersMenuTransform.anchoredPosition = Vector2.zero;
         selectLevelMenuTransform.anchoredPosition = Vector2.zero;
+		selectCredits.anchoredPosition = Vector2.zero;
 
         // Show the Main Menu
         showMenu(0);
