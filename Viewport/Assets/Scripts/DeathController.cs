@@ -21,6 +21,13 @@ public class DeathController : MonoBehaviour {
     }
 
 	void Start () {
+
+        // Clear all times
+        for(int i=1; i<=4; i++)
+        {
+            PlayerPrefs.DeleteKey("p" + i + "TimeActive");
+        }
+
         tags = new HashSet<string>();
         tags.Add("Player");
         if (deathSound != null)
