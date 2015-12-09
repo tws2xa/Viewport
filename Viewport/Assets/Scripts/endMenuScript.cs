@@ -124,7 +124,6 @@ public class endMenuScript : MonoBehaviour {
                 if (PlayerPrefs.HasKey("p" + i + "TimeActive"))
                 {
                     float playerTime = PlayerPrefs.GetFloat("p" + i + "TimeActive");
-                    Debug.Log("Key Found - Time: " + playerTime);
                     times.Add(new KeyValuePair<int, float>(i, playerTime));
                 }
                 else
