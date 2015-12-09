@@ -2,21 +2,22 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using System.Collections.Generic;
 
 public class ButtonOnclick : MonoBehaviour {
     public Sprite[] mySprites;
     private Sprite[] myArrows;
-    private Sprite[] myLevels;
+    public Sprite[] levelSprites;
     private int ball1, ball2, ball3, ball4;
     private Image[] images;
+    public string[] levelNames;
     private Image[] arrows;
-    private Image[] levels;
     private Image[] menuArrows;
     private int a1, a2, a3, a4;
     private bool p1, p2, p3, p4;
     private int menu;
     private Image levelImage;
-    private int image;
+    private int levelSelected;
 
 	private int menuSelector = 0;
 	private float menuSelectorTimer = 1.5f;
@@ -30,9 +31,9 @@ public class ButtonOnclick : MonoBehaviour {
     
     public void changeScene()
     {
-        int levelTarget = image + 1;
-        PlayerPrefs.SetInt("SelectedLevel", levelTarget);
-        Application.LoadLevel(image + 1);
+        String levelString = levelNames[levelSelected];
+        PlayerPrefs.SetString("SelectedLevel", levelString);
+        Application.LoadLevel(levelString);
     }
     public void showMenu(int menuNum)
     {
@@ -475,15 +476,15 @@ public class ButtonOnclick : MonoBehaviour {
         {
             menuArrows[0].sprite = myArrows[1];
             a1 = 5;
-            if (image > 0)
+            if (levelSelected > 0)
             {
-                image--;
-                levelImage.sprite = myLevels[image];
+                levelSelected--;
+                levelImage.sprite = levelSprites[levelSelected];
             }
             else
             {
-                image = myLevels.Length - 1;
-                levelImage.sprite = myLevels[image];
+                levelSelected = levelSprites.Length - 1;
+                levelImage.sprite = levelSprites[levelSelected];
 
             }
         }
@@ -491,15 +492,15 @@ public class ButtonOnclick : MonoBehaviour {
         {
             menuArrows[1].sprite = myArrows[1];
             a1 = 5;
-            if (image < myLevels.Length - 1)
+            if (levelSelected < levelSprites.Length - 1)
             {
-                image++;
-                levelImage.sprite = myLevels[image];
+                levelSelected++;
+                levelImage.sprite = levelSprites[levelSelected];
             }
             else
             {
-                image = 0;
-                levelImage.sprite = myLevels[image];
+                levelSelected = 0;
+                levelImage.sprite = levelSprites[levelSelected];
 
             }
         }
@@ -535,9 +536,9 @@ public class ButtonOnclick : MonoBehaviour {
         myArrows = (Sprite[])Resources.LoadAll<Sprite>("arrowsprites");
         arrows = GameObject.Find("arrows").GetComponentsInChildren<Image>();
         menuArrows = GameObject.Find("levelarrow").GetComponentsInChildren<Image>();
-        myLevels = (Sprite[])Resources.LoadAll<Sprite>("levelsprites");
+        //levelSprites = (Sprite[])Resources.LoadAll<Sprite>("levelsprites");
         levelImage = GameObject.Find("levelimage").GetComponent<Image>();
-        image = 0;
+        levelSelected = 0;
         ball1 = -2;
         ball2 = -2;
         ball3 = -2;

@@ -83,8 +83,8 @@ public class endMenuScript : MonoBehaviour {
     {
         if (PlayerPrefs.HasKey("SelectedLevel"))
         {
-            int levelNum = PlayerPrefs.GetInt("SelectedLevel");
-            Application.LoadLevel(levelNum);
+            string levelName = PlayerPrefs.GetString("SelectedLevel");
+            Application.LoadLevel(levelName);
         } else
         {
             toMenu();
