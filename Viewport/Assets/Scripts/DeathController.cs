@@ -95,7 +95,7 @@ public class DeathController : MonoBehaviour {
             if(viewportManager.HasCamera())
             {
                 viewportManager.DestroyViewportTargetIcon();
-                RandomPlayerCameraReassign();
+                RandomPlayerCameraReassign(player.transform.position);
             }
         }
 
@@ -109,7 +109,7 @@ public class DeathController : MonoBehaviour {
 		PlayerDeath(player.GetComponent<PlayerControls>().playerNum, cause);
     }
 
-    public static void RandomPlayerCameraReassign()
+    public static void RandomPlayerCameraReassign(Vector3 iconStartPos)
     {
         GameObject[] remainingPlayers = GameObject.FindGameObjectsWithTag("Player");
         if(remainingPlayers.Length <= 0)
@@ -124,8 +124,7 @@ public class DeathController : MonoBehaviour {
         if (newTarget.GetComponent<ViewportControlManagementScript>() != null)
         {
             ViewportControlManagementScript viewportManager = newTarget.GetComponent<ViewportControlManagementScript>();
-            viewportManager.TakeCamera();
-
+            viewportManager.TakeCamera(iconStartPos);
         }
     }
 

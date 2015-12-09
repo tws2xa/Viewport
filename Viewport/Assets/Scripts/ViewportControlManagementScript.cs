@@ -68,11 +68,11 @@ public class ViewportControlManagementScript : MonoBehaviour {
 	/// <summary>
 	/// Takes control of the viewport.
 	/// </summary>
-	public void TakeCamera() {
+	public void TakeCamera(Vector3 iconPosition) {
 		if (!CameraIsTargeting (gameObject)) {
 			cameraFollowScript.SetTarget (gameObject);
 			grabShieldTimer = GRAB_SHIELD_TIME;
-			CreateViewportTargetIndicator ();
+			CreateViewportTargetIndicator (iconPosition);
             if(soundManagerScript != null)
             {
                 soundManagerScript.HandleCameraSwitch();
@@ -83,9 +83,9 @@ public class ViewportControlManagementScript : MonoBehaviour {
 	/// <summary>
 	/// Creates the viewport target icon.
 	/// </summary>
-	void CreateViewportTargetIndicator() {
+	void CreateViewportTargetIndicator(Vector3 iconStartPosition) {
 		if (viewportTargetIndicatorTemlate != null) {
-			Vector3 iconPosition = transform.position;
+			Vector3 iconPosition = iconStartPosition;
 			iconPosition.y += viewportIndicatorYOffset;
 
 			Quaternion iconRotation = Quaternion.Euler(90, 0, 0);
@@ -97,6 +97,7 @@ public class ViewportControlManagementScript : MonoBehaviour {
             indicatorFollowScript.followY = true;
             indicatorFollowScript.followZ = true;
             indicatorFollowScript.offsets.y = viewportIndicatorYOffset;
+            indicatorFollowScript.moveStepDistance = Camera.main.GetComponent<FollowObject>().moveStepDistance;
 
 
             int colNum = -1;
@@ -129,7 +130,7 @@ public class ViewportControlManagementScript : MonoBehaviour {
 			// of one of the checks in ObjectCanGrabCamera
 			ViewportControlManagementScript otherControlScript = collision.gameObject.GetComponent<ViewportControlManagementScript>();
 			DestroyViewportTargetIcon();
-			otherControlScript.TakeCamera();
+			otherControlScript.TakeCamera(gameObject.transform.position);
 		}
 	}
 
