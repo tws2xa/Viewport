@@ -65,6 +65,7 @@ public class Warp : PowerUp {
 		orb.maxAngularVelocity -= velDelta;
 		orb.angularDrag -= angDrDelta;
 		orb.mass += masDelta;
+        transform.localScale = new Vector3(1, 1, 1);
     }
 	public void scaleTimer(){
 		timePassed += Time.deltaTime;
