@@ -17,6 +17,12 @@ public class endMenuScript : MonoBehaviour {
     private List<GameObject> podiums; // Index = Place #
     private List<KeyValuePair<int, float>> times; // Key = Player #, Value = Time (Seconds)
 
+	public List<GameObject> arrowSelectors;
+
+	private int menuSelector;
+	private float menuSelectorTimer = 1.5f;
+	private bool menuSelectorTimerActive = false;
+
 
 	void Start () {
 		GameObject endMenu = GameObject.Find ("EndMenu");
@@ -30,6 +36,43 @@ public class endMenuScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (menuSelectorTimerActive) {
+			menuSelectorTimer += Time.deltaTime;
+			if (Mathf.Abs(Input.GetAxis ("Horizontal_p1")) < 0.05) {
+				menuSelectorTimer = 1.5f;
+			}
+		}
+		if (menuSelectorTimer > 1.0f) {
+			menuSelectorTimerActive = false;
+			if (Input.GetAxis ("Horizontal_p1") < -0.5f || Input.GetKeyDown (KeyCode.LeftArrow)) {
+				menuSelector = Mathf.Max (0, menuSelector - 1);
+				menuSelectorTimer = 0.0f;
+				menuSelectorTimerActive = true;
+			}
+			else if (Input.GetAxis ("Horizontal_p1") > 0.5f || Input.GetKeyDown (KeyCode.RightArrow)) {
+				menuSelector = Mathf.Min (1, menuSelector + 1);
+				menuSelectorTimer = 0.0f;
+				menuSelectorTimerActive = true;
+			}
+			for (int i = 0; i < arrowSelectors.Count; i++) {
+				if (i == menuSelector && !arrowSelectors[i].activeInHierarchy) {
+					arrowSelectors[i].SetActive(true);
+				} else if (i != menuSelector && arrowSelectors[i].activeInHierarchy) {
+					arrowSelectors[i].SetActive(false);
+					Debug.Log ("Setting False");
+				}
+			}
+		}
+		if (Input.GetKeyUp ("joystick 1 button 0") || Input.GetKeyDown (KeyCode.B)) {
+			switch (menuSelector) {
+			case 0:
+				toMenu();
+				break;
+			case 1:
+				RestartLevel();
+				break;
+			}
+		}
 	}
 
 	public void toMenu() {

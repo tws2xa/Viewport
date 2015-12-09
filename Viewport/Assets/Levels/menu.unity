@@ -4483,7 +4483,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Press A to Join
+  m_Text: 'Press Start to Join
 
 '
 --- !u!222 &1980209739
