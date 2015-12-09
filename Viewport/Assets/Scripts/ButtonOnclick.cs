@@ -42,7 +42,7 @@ public class ButtonOnclick : MonoBehaviour {
     }
     public void showMenu(int menuNum)
     {
-        if(menuNum < 0 || menuNum > 4)
+        if(menuNum < 0 || menuNum >= 4)
         {
             Debug.LogError("Error - Setting Menu to Invalid Number: " + menuNum);
             return;
@@ -118,16 +118,22 @@ public class ButtonOnclick : MonoBehaviour {
        
     }
 	public void loadCredits() {
-		HandleCredits ();
+        showMenu(3);
 	}
 
 	public void HandleCredits() {
-		showMenu(3);
-	/*	anim = GetComponent<Animation>();
-		anim.Play ("Credits");
-		yield return new WaitForSeconds (anim.clip.length);*/
-		
-	}
+		// showMenu(3);
+
+        if (Input.GetKeyUp("joystick 1 button 0") || Input.GetKeyUp(KeyCode.A))
+        {
+            backButton();
+        }
+
+        /*	anim = GetComponent<Animation>();
+            anim.Play ("Credits");
+            yield return new WaitForSeconds (anim.clip.length);*/
+
+    }
 
 
 
@@ -204,7 +210,7 @@ public class ButtonOnclick : MonoBehaviour {
 				}
 			}
 		}
-		if (Input.GetKeyUp ("joystick 1 button 0") || Input.GetKeyDown (KeyCode.A)) {
+		if (Input.GetKeyUp ("joystick 1 button 0") || Input.GetKeyUp (KeyCode.A)) {
 			switch (menuSelector) {
 			case 0:
 				showMenu(1);

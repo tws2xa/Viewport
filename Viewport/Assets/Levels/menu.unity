@@ -576,6 +576,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinAmount: 2
+  aboutX: 0
+  aboutY: 1
+  aboutZ: 0
 --- !u!1 &417301932
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,7 +804,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -300, y: 620}
+  m_AnchoredPosition: {x: -310, y: 620}
   m_SizeDelta: {x: 450, y: 65}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &489698284
@@ -1272,6 +1275,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinAmount: 2
+  aboutX: 0
+  aboutY: 1
+  aboutZ: 0
 --- !u!1 &563404766
 GameObject:
   m_ObjectHideFlags: 0
@@ -3486,6 +3492,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinAmount: 2
+  aboutX: 0
+  aboutY: 1
+  aboutZ: 0
 --- !u!1 &1356589522
 GameObject:
   m_ObjectHideFlags: 0
@@ -4605,6 +4614,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinAmount: 2
+  aboutX: 0
+  aboutY: 1
+  aboutZ: 0
 --- !u!1 &1672920837
 GameObject:
   m_ObjectHideFlags: 0
@@ -4786,6 +4798,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinAmount: 2
+  aboutX: 0
+  aboutY: 1
+  aboutZ: 0
 --- !u!1 &1798785361 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 108692, guid: a632d49bd69f6e349ab4dac56597484a, type: 2}
@@ -4821,6 +4836,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinAmount: 2
+  aboutX: 0
+  aboutY: 1
+  aboutZ: 0
 --- !u!1 &1804699652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4923,6 +4941,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinAmount: 2
+  aboutX: 0
+  aboutY: 1
+  aboutZ: 0
 --- !u!1 &1892280308
 GameObject:
   m_ObjectHideFlags: 0

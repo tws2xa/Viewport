@@ -45,8 +45,12 @@ MonoBehaviour:
   overlayMethod: 2
   overlayVolume: .600000024
   overlayFadeTime: 2
+  playIntro: 0
+  introVolume: .200000003
   mainSong1Clip: {fileID: 8300000, guid: 752fbcab34623ac4a84a8633e56a4d2b, type: 3}
   mainSong2Clip: {fileID: 8300000, guid: e1e8713047fd42b4c9b39b2a5db8aa60, type: 3}
+  intro1Clip: {fileID: 0}
+  intro2Clip: {fileID: 0}
   overlay1Clips:
   - {fileID: 8300000, guid: 8069d108820987042bf93e2c735b707b, type: 3}
   - {fileID: 8300000, guid: 67b660633d9d81d4885ee02535f58dbd, type: 3}
@@ -127,6 +131,10 @@ Prefab:
       propertyPath: overlay2Clips.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: af84ecf8bcec8c945b0b6891b3032865, type: 3}
+    - target: {fileID: 0}
+      propertyPath: songNum
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147304}

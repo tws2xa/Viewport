@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3ca98605915a6c74c93db4e7a1159606, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8b8471fa6953b543a41f6b2e5265c13, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -90,7 +90,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3ca98605915a6c74c93db4e7a1159606,
+      objectReference: {fileID: 21300000, guid: a8b8471fa6953b543a41f6b2e5265c13,
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_Color.r
@@ -115,6 +115,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spinAmount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: aboutY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: aboutZ
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
