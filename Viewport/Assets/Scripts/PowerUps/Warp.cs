@@ -80,7 +80,10 @@ public class Warp : PowerUp {
 			if (interpolant >= 1.0F){
 				interpolant = 1.0F;
 			}
-			transform.localScale = Vector3.Lerp(origScale + deltaScale, origScale, interpolant);
+            if (transform.localScale != origScale)
+            {
+                transform.localScale = Vector3.Lerp(origScale + deltaScale, origScale, interpolant);
+            }
 		}
 	}
 }
