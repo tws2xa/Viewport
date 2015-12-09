@@ -176,7 +176,7 @@ public class ButtonOnclick : MonoBehaviour {
 				}
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.A)) {
+		if (Input.GetKeyUp ("joystick 1 button 0") || Input.GetKeyDown (KeyCode.A)) {
 			switch (menuSelector) {
 			case 0:
 				showMenu(1);
