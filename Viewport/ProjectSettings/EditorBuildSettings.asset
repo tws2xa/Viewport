@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Levels/endMenu.unity
   - enabled: 1
     path: Assets/Levels/Jared_Ice_Ring.unity
+  - enabled: 1
+    path: Assets/Levels/Evan_Bread and Butter.unity
