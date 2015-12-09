@@ -12,6 +12,8 @@ public class DeathController : MonoBehaviour {
     public float deathSoundVolume = 1.0f;
     private static AudioSource deathSoundSource;
 
+	private static float initialTime = 0.0f;
+
     public enum DeathCause
     {
         OutOfView,
@@ -19,10 +21,6 @@ public class DeathController : MonoBehaviour {
     }
 
 	void Start () {
-		PlayerPrefs.DeleteKey ("p1TimeActive");
-		PlayerPrefs.DeleteKey ("p2TimeActive");
-		PlayerPrefs.DeleteKey ("p3TimeActive");
-		PlayerPrefs.DeleteKey ("p4TimeActive");
         tags = new HashSet<string>();
         tags.Add("Player");
         if (deathSound != null)
@@ -33,6 +31,7 @@ public class DeathController : MonoBehaviour {
             deathSoundSource.volume = deathSoundVolume;
             deathSoundSource.playOnAwake = false;
         }
+		initialTime = Time.fixedTime;
 	}
 	
 	// Update is called once per frame
@@ -133,7 +132,7 @@ public class DeathController : MonoBehaviour {
 	public static void PlayerDeath(int playerNum, DeathCause cause) {
 		//Debug.Log ("p" + playerNum.ToString ());
 		//Debug.Log (Time.fixedTime);
-		PlayerPrefs.SetFloat ("p" + playerNum.ToString() + "TimeActive" , Time.fixedTime);
+		PlayerPrefs.SetFloat ("p" + playerNum.ToString() + "TimeActive" , Time.fixedTime - initialTime);
 		int activeNum = 0;
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player")) {
 			if (go.activeInHierarchy){
