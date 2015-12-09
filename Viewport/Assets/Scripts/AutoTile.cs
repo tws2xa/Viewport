@@ -24,8 +24,8 @@ public class AutoTile : MonoBehaviour {
     {
         if (gameObject.transform != null)
         {
-            float width = gameObject.transform.localScale.x;
-            float height = gameObject.transform.localScale.z;
+            float width = gameObject.transform.lossyScale.x;
+            float height = gameObject.transform.lossyScale.z;
 
             float widthMultiplier = width / standardWidth;
             float heightMultiplier = height / standardHeight;
