@@ -59,7 +59,7 @@ public class endMenuScript : MonoBehaviour {
 					arrowSelectors[i].SetActive(true);
 				} else if (i != menuSelector && arrowSelectors[i].activeInHierarchy) {
 					arrowSelectors[i].SetActive(false);
-					Debug.Log ("Setting False");
+					// Debug.Log ("Setting False");
 				}
 			}
 		}

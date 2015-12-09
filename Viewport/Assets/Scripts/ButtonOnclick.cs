@@ -200,7 +200,7 @@ public class ButtonOnclick : MonoBehaviour {
 					arrowSelectors[i].SetActive(true);
 				} else if (i != menuSelector && arrowSelectors[i].activeInHierarchy) {
 					arrowSelectors[i].SetActive(false);
-					Debug.Log ("Setting False");
+					// Debug.Log ("Setting False");
 				}
 			}
 		}
@@ -568,6 +568,7 @@ public class ButtonOnclick : MonoBehaviour {
         //levelSprites = (Sprite[])Resources.LoadAll<Sprite>("levelsprites");
         levelImage = GameObject.Find("levelimage").GetComponent<Image>();
         levelSelected = 0;
+        levelImage.sprite = levelSprites[levelSelected];
         ball1 = -2;
         ball2 = -2;
         ball3 = -2;

@@ -80,22 +80,15 @@ public class DeathController : MonoBehaviour {
 			fo.SetTarget(Camera.main.gameObject);
 			//fo.offsets = (particleDummy.transform.position * 0.75f) - Camera.main.transform.position;
 		}
-        /*if (playerDeath.getPrevState()) {
-            playerDeath.attempts -= 1;
-            playerDeath.setPrevState(false);
-            playerDeath.setTimer(0f);
-        }*/
-
-        // Code here to allow the player to respawn afterwards
-
+        
         // If necessary, reassign the camera
-        if (player.activeSelf && player.GetComponent<ViewportControlManagementScript>() != null)
+        if (player.GetComponent<ViewportControlManagementScript>() != null)
         {
             ViewportControlManagementScript viewportManager = player.GetComponent<ViewportControlManagementScript>();
             if(viewportManager.HasCamera())
             {
                 viewportManager.DestroyViewportTargetIcon();
-                RandomPlayerCameraReassign(player.transform.position);
+                RandomPlayerCameraReassign(player);
             }
         }
 
@@ -109,7 +102,7 @@ public class DeathController : MonoBehaviour {
 		PlayerDeath(player.GetComponent<PlayerControls>().playerNum, cause);
     }
 
-    public static void RandomPlayerCameraReassign(Vector3 iconStartPos)
+    public static void RandomPlayerCameraReassign(GameObject fromObject)
     {
         GameObject[] remainingPlayers = GameObject.FindGameObjectsWithTag("Player");
         if(remainingPlayers.Length <= 0)
@@ -119,13 +112,21 @@ public class DeathController : MonoBehaviour {
 
         int randIndex = (int)Mathf.Floor(Random.value * remainingPlayers.Length);
 
-        GameObject newTarget = remainingPlayers[randIndex];
-
-        if (newTarget.GetComponent<ViewportControlManagementScript>() != null)
+        int startRandIndex = randIndex;
+        while(remainingPlayers[randIndex].Equals(fromObject))
         {
-            ViewportControlManagementScript viewportManager = newTarget.GetComponent<ViewportControlManagementScript>();
-            viewportManager.TakeCamera(iconStartPos);
+            randIndex = (randIndex + 1) % remainingPlayers.Length;
+            if(randIndex == startRandIndex)
+            {
+                return; // No more players
+            }
         }
+
+        GameObject newTarget = remainingPlayers[randIndex];
+        
+        ViewportControlManagementScript viewportManager = newTarget.GetComponent<ViewportControlManagementScript>();
+        viewportManager.TakeCamera(fromObject.transform.position);
+        
     }
 
 	public static void PlayerDeath(int playerNum, DeathCause cause) {

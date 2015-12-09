@@ -2395,19 +2395,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c0ccefaf351d21949b42bc4e52c752b2, type: 3}
   - {fileID: 21300000, guid: 32fa13f2ea6ef694dbbd59a15664f6fa, type: 3}
   levelSprites:
-  - {fileID: 21300000, guid: 6a21ba8610cb50845a0d2319ccc8989c, type: 3}
-  - {fileID: 21300000, guid: 8edbbc3fed96dd14ebbb783f8f598ba7, type: 3}
-  - {fileID: 21300000, guid: bfcbcf843b8f4e74c9805e767d24a05e, type: 3}
-  - {fileID: 21300000, guid: 816cf28978ab0c44daf5dd0398acc97e, type: 3}
-  - {fileID: 21300000, guid: 816cf28978ab0c44daf5dd0398acc97e, type: 3}
-  - {fileID: 21300000, guid: 816cf28978ab0c44daf5dd0398acc97e, type: 3}
-  - {fileID: 21300000, guid: 816cf28978ab0c44daf5dd0398acc97e, type: 3}
-  - {fileID: 21300000, guid: 816cf28978ab0c44daf5dd0398acc97e, type: 3}
-  - {fileID: 21300000, guid: 816cf28978ab0c44daf5dd0398acc97e, type: 3}
+  - {fileID: 21300000, guid: 0c2fbe21b348ba241bfc2fb5578e510c, type: 3}
+  - {fileID: 21300000, guid: dd348b5665d4b3e49aa40ace13604691, type: 3}
+  - {fileID: 21300000, guid: e7ad9f9697115a94289dcc518d096722, type: 3}
+  - {fileID: 21300000, guid: 78b3dde74c62a624abc9c0feee313cd9, type: 3}
+  - {fileID: 21300000, guid: 25e04592962677b4789c433dc3778255, type: 3}
+  - {fileID: 21300000, guid: be6540d3043c2d14e97234b4d15ed2d1, type: 3}
+  - {fileID: 21300000, guid: 07d23fd52523eb74aac554b39a632198, type: 3}
+  - {fileID: 21300000, guid: 4dd2567977d9f1c4dbe4968272bafe8d, type: 3}
+  - {fileID: 21300000, guid: 705664a2e14a392448ad49793656569a, type: 3}
   levelNames:
+  - SimpleLevel
   - Jared_Level
   - Jared_Ice_Ring
-  - SimpleLevel
   - Chuck Crum Level
   - Alden_Simple_Level
   - Evan_Bread and Butter

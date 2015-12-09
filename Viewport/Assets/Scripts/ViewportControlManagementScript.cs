@@ -165,7 +165,7 @@ public class ViewportControlManagementScript : MonoBehaviour {
 	/// <returns><c>true</c> if is given object is targeted, <c>false</c> otherwise.</returns>
 	/// <param name="obj">The object to check.</param>
 	bool CameraIsTargeting(GameObject obj) {
-		return (cameraFollowScript.GetTarget () == obj);
+		return (cameraFollowScript.GetTarget ().Equals(obj));
 	}
 
     /// <summary>
