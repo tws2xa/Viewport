@@ -20,7 +20,10 @@ public class ButtonOnclick : MonoBehaviour {
     private int levelSelected;
 	public Animation anim;
 
-	private int menuSelector = 0;
+    private Vector3 camNormalPosition;
+    public Vector3 camCreditsPosition = new Vector3(0, 20, 5);
+
+    private int menuSelector = 0;
 	private float menuSelectorTimer = 1.5f;
 	private bool menuSelectorTimerActive = false;
 
@@ -39,7 +42,7 @@ public class ButtonOnclick : MonoBehaviour {
     }
     public void showMenu(int menuNum)
     {
-        if(menu < 0 || menu > 4)
+        if(menuNum < 0 || menuNum > 4)
         {
             Debug.LogError("Error - Setting Menu to Invalid Number: " + menuNum);
             return;
@@ -48,6 +51,8 @@ public class ButtonOnclick : MonoBehaviour {
         selectPlayersMenu.SetActive(menuNum == 1);
         selectLevelMenu.SetActive(menuNum == 2);
 		credits.SetActive (menuNum == 3);
+
+        Camera.main.transform.position = ((menuNum == 3) ? camCreditsPosition : camNormalPosition);
 
         this.menu = menuNum;
     }
@@ -551,6 +556,8 @@ public class ButtonOnclick : MonoBehaviour {
     public void Start()
     {
         ClearPrefs();
+
+        camNormalPosition = Camera.main.transform.position;
 
         //finds all game objects
         // mySprites = (Sprite[])Resources.LoadAll<Sprite>("ballsprites");
