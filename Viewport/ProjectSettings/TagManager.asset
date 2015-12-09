@@ -13,6 +13,7 @@ TagManager:
   - testPowerUp
   - Icey
   - Moveable
+  - Selector
   layers:
   - Default
   - TransparentFX

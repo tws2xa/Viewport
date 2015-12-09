@@ -18,6 +18,11 @@ public class ButtonOnclick : MonoBehaviour {
     private Image levelImage;
     private int image;
 
+	private int menuSelector = 0;
+	private float menuSelectorTimer = 1.5f;
+	private bool menuSelectorTimerActive = false;
+
+	public GameObject[] arrowSelectors;
 
     GameObject mainMenu;
     GameObject selectPlayersMenu;
@@ -73,14 +78,28 @@ public class ButtonOnclick : MonoBehaviour {
     {
         // Shows which menu is enabled
         // Changes on menu transition
-        if (menu == 1) // Select Player
-        {
-            HandleSelectPlayerUpdate();
-        }
-        else if(menu == 2) // Select Level
-        {
-            HandleSelectLevelUpdate();
-        }
+//		if (menu == 0) {
+//
+//		}
+//        else if (menu == 1) // Select Player
+//        {
+//            HandleSelectPlayerUpdate();
+//        }
+//        else if(menu == 2) // Select Level
+//        {
+//            HandleSelectLevelUpdate();
+//        }
+		switch (menu) {
+		case 0:
+			HandleSelectMenuUpdate();
+			break;
+		case 1:
+			HandleSelectPlayerUpdate();
+			break;
+		case 2:
+			HandleSelectLevelUpdate();
+			break;
+		}
        
     }
 
@@ -127,10 +146,58 @@ public class ButtonOnclick : MonoBehaviour {
         }
         return i;
     }
+
+	public void HandleSelectMenuUpdate()
+	{
+		if (menuSelectorTimerActive) {
+			menuSelectorTimer += Time.deltaTime;
+			if (Mathf.Abs(Input.GetAxis ("Vertical_p1")) < 0.05) {
+				menuSelectorTimer = 1.5f;
+			}
+		}
+		if (menuSelectorTimer > 1.0f) {
+			menuSelectorTimerActive = false;
+			if (Input.GetAxis ("Vertical_p1") > 0.5f || Input.GetKeyDown (KeyCode.UpArrow)) {
+				menuSelector = Mathf.Max (0, menuSelector - 1);
+				menuSelectorTimer = 0.0f;
+				menuSelectorTimerActive = true;
+			}
+			else if (Input.GetAxis ("Vertical_p1") < -0.5f || Input.GetKeyDown (KeyCode.DownArrow)) {
+				menuSelector = Mathf.Min (2, menuSelector + 1);
+				menuSelectorTimer = 0.0f;
+				menuSelectorTimerActive = true;
+			}
+			for (int i = 0; i < arrowSelectors.Length; i++) {
+				if (i == menuSelector && !arrowSelectors[i].activeInHierarchy) {
+					arrowSelectors[i].SetActive(true);
+				} else if (i != menuSelector && arrowSelectors[i].activeInHierarchy) {
+					arrowSelectors[i].SetActive(false);
+					Debug.Log ("Setting False");
+				}
+			}
+		}
+		if (Input.GetKeyDown (KeyCode.A)) {
+			switch (menuSelector) {
+			case 0:
+				showMenu(1);
+				break;
+			case 1:
+				endMenu();
+				break;
+			case 2:
+				endMenu();
+				break;
+			}
+		}
+	}
+
     public void HandleSelectPlayerUpdate()
     {
+		if (Input.GetKeyUp ("joystick 1 button 0") || Input.GetKeyUp (KeyCode.A)) {
+			submitPlayers();
+		}
         //Enables/disables player when "A" button is pressed
-        if (Input.GetKeyUp("joystick 1 button 0") || Input.GetKeyUp("c"))
+        if (Input.GetKeyUp("joystick 1 button 7") || Input.GetKeyUp("c"))
         {
             p1 = !p1;
             if(p1)
@@ -144,7 +211,7 @@ public class ButtonOnclick : MonoBehaviour {
             images[0].enabled = !images[0].enabled;
         }
 
-        if (Input.GetKeyUp("joystick 2 button 0") || Input.GetKeyUp("v"))
+        if (Input.GetKeyUp("joystick 2 button 7") || Input.GetKeyUp("v"))
         {
             p2 = !p2;
             if (p2)
@@ -159,7 +226,7 @@ public class ButtonOnclick : MonoBehaviour {
             images[1].enabled = !images[1].enabled;
         }
 
-        if (Input.GetKeyUp("joystick 3 button 0") || Input.GetKeyUp("b"))
+        if (Input.GetKeyUp("joystick 3 button 7") || Input.GetKeyUp("b"))
         {
             p3 = !p3;
             if (p3)
@@ -174,7 +241,7 @@ public class ButtonOnclick : MonoBehaviour {
             images[2].enabled = !images[2].enabled;
         }
 
-        if (Input.GetKeyUp("joystick 4 button 0") || Input.GetKeyUp("n"))
+        if (Input.GetKeyUp("joystick 4 button 7") || Input.GetKeyUp("n"))
         {
             p4 = !p4;
             if (p4)
@@ -399,6 +466,9 @@ public class ButtonOnclick : MonoBehaviour {
 
     public void HandleSelectLevelUpdate()
     {
+		if (Input.GetKeyUp ("joystick 1 button 0") || Input.GetKeyUp (KeyCode.A)) {
+			changeScene();
+		}
         //cycles through each menu option
         //arrows flash
         if (Input.GetKeyUp("left") || Input.GetKeyUp("joystick 1 button 4"))
