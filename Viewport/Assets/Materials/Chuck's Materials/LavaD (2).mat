@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Ground1D 1
+  m_Name: LavaD (2)
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _NORMALMAP _PARALLAXMAP
-  m_LightmapFlags: 5
+  m_ShaderKeywords: _EMISSION _NORMALMAP
+  m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: ff21cb3c8b78e4e448b4169a33bfd492, type: 3}
-          m_Scale: {x: 4, y: 6}
+          m_Texture: {fileID: 2800000, guid: aae27108d09bbfd478d21af66d2761c1, type: 3}
+          m_Scale: {x: 8, y: 1.29999995}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 1da7e892ef63b4b85913a488d14d0cfb, type: 3}
+          m_Texture: {fileID: 2800000, guid: b2b314fa1a736654990f7de916f3a9fa, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -40,7 +40,7 @@ Material:
         first:
           name: _ParallaxMap
         second:
-          m_Texture: {fileID: 2800000, guid: 7b92619aa3f724ee5bb8542830625ff8, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -54,8 +54,8 @@ Material:
         first:
           name: _EmissionMap
         second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 5, y: 5}
+          m_Texture: {fileID: 2800000, guid: 59940393f2b5d8445bbb9102a548766b, type: 3}
+          m_Scale: {x: 0, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -138,7 +138,7 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: .0367646813, g: .00988843106, b: 0, a: 1}
       data:
         first:
           name: _Color
