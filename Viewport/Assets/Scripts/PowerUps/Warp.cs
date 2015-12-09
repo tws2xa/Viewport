@@ -65,6 +65,7 @@ public class Warp : PowerUp {
 		orb.maxAngularVelocity -= velDelta;
 		orb.angularDrag -= angDrDelta;
 		orb.mass += masDelta;
+        transform.localScale = new Vector3(1, 1, 1);
     }
 	public void scaleTimer(){
 		timePassed += Time.deltaTime;
@@ -79,7 +80,10 @@ public class Warp : PowerUp {
 			if (interpolant >= 1.0F){
 				interpolant = 1.0F;
 			}
-			transform.localScale = Vector3.Lerp(origScale + deltaScale, origScale, interpolant);
+            if (transform.localScale != origScale)
+            {
+                transform.localScale = Vector3.Lerp(origScale + deltaScale, origScale, interpolant);
+            }
 		}
 	}
 }
