@@ -11,19 +11,23 @@ public class TextureChange : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         pNum = gameObject.GetComponent<PlayerControls>().playerNum;
-        tNum = PlayerPrefs.GetInt("p"+pNum+"ball");
+        string key = "p" + pNum + "ball";
+
+        if (!PlayerPrefs.HasKey(key))
+        {
+            tNum = gameObject.GetComponent<PlayerControls>().playerNum;
+        }
+        else
+        {
+            tNum = PlayerPrefs.GetInt(key);
+        }
+
         currentRenderer = gameObject.GetComponent<MeshRenderer>();
-        if(tNum != -2)
+        if (tNum != -2)
         {
             currentRenderer.material = materials[tNum];
         }
-        //if (texture != null)
-        //{
-        //    texture = new Texture2D(1024, 1024);
-        //    currentRenderer.material.SetColor("_Color", Color.white);
-        //    currentRenderer.material.SetTexture("_MainTex", texture);
-        //}
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
