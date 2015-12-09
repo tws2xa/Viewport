@@ -338,6 +338,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinAmount: 2
+  aboutX: 0
+  aboutY: 1
+  aboutZ: 0
 --- !u!54 &210540864
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -542,6 +545,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinAmount: 2
+  aboutX: 0
+  aboutY: 1
+  aboutZ: 0
 --- !u!54 &452086979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -973,6 +979,10 @@ MonoBehaviour:
   arrowSelectors:
   - {fileID: 2034413884}
   - {fileID: 198338748}
+  loadingIndicatorSpinAmount: 30
+  submitLevelButtons:
+  - {fileID: 2068365527}
+  spinButtonIndicators: []
 --- !u!1001 &624968672
 Prefab:
   m_ObjectHideFlags: 0
@@ -1363,6 +1373,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinAmount: 2
+  aboutX: 0
+  aboutY: 1
+  aboutZ: 0
 --- !u!54 &955285222
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2467,6 +2480,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinAmount: 2
+  aboutX: 0
+  aboutY: 1
+  aboutZ: 0
 --- !u!54 &1812579643
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2940,7 +2956,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: .926470578, g: .926470578, b: .926470578, a: 1}
     m_PressedColor: {r: .823529422, g: .823529422, b: .823529422, a: 1}
-    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_DisabledColor: {r: .213235319, g: .213235319, b: .213235319, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
   m_SpriteState:

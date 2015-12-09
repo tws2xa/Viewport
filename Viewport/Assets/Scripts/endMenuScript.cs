@@ -23,11 +23,16 @@ public class endMenuScript : MonoBehaviour {
 	private float menuSelectorTimer = 1.5f;
 	private bool menuSelectorTimerActive = false;
 
+    public int loadingIndicatorSpinAmount = 30;
+    public List<GameObject> submitLevelButtons;
+    public List<GameObject> spinButtonIndicators;
 
-	void Start () {
+    void Start () {
 		GameObject endMenu = GameObject.Find ("EndMenu");
 		RectTransform endMenuTransform = endMenu.GetComponent<RectTransform> ();
 		endMenuTransform.anchoredPosition = Vector2.zero;
+
+        SetLoadingState(false);
 
         InitLists();
         SetSpheres();
@@ -81,6 +86,7 @@ public class endMenuScript : MonoBehaviour {
 
     public void RestartLevel()
     {
+        SetLoadingState(true);
         if (PlayerPrefs.HasKey("SelectedLevel"))
         {
             string levelName = PlayerPrefs.GetString("SelectedLevel");
@@ -215,5 +221,32 @@ public class endMenuScript : MonoBehaviour {
             this.playerPlaceText[i].enabled = false;
             this.playerTimeText[i].enabled = false;
         }
-	}	
+	}
+
+
+    /// <summary>
+    /// Set the loading state to true or false
+    /// </summary>
+    public void SetLoadingState(bool loading)
+    {
+        // Start the spinning wheels
+        foreach (GameObject obj in spinButtonIndicators)
+        {
+            AutoSpin spin = obj.GetComponent<AutoSpin>();
+            if (spin != null)
+            {
+                spin.spinAmount = (loading ? /* loadingIndicatorSpinAmount */ 0 : 0);
+            }
+        }
+
+        // Enable or Disable the button
+        foreach (GameObject obj in submitLevelButtons)
+        {
+            Button button = obj.GetComponent<Button>();
+            if (button != null)
+            {
+                button.interactable = !loading;
+            }
+        }
+    }
 }

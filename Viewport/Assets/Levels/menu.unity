@@ -133,9 +133,10 @@ GameObject:
   - 224: {fileID: 52944201}
   - 222: {fileID: 52944203}
   - 114: {fileID: 52944202}
+  - 114: {fileID: 52944204}
   m_Layer: 5
   m_Name: SelectedImageRight
-  m_TagString: Untagged
+  m_TagString: SpinButtonIndicator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,6 +191,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 52944200}
+--- !u!114 &52944204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52944200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddfc5810af007249bc7aaee0c24f1b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinAmount: 30
+  aboutX: 0
+  aboutY: 0
+  aboutZ: 1
 --- !u!1001 &213858516
 Prefab:
   m_ObjectHideFlags: 0
@@ -592,7 +608,7 @@ GameObject:
   - 114: {fileID: 417301934}
   m_Layer: 5
   m_Name: Submit
-  m_TagString: Untagged
+  m_TagString: LevelSubmitButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -639,7 +655,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: .925490201, g: .925490201, b: .925490201, a: 1}
     m_PressedColor: {r: .823529422, g: .823529422, b: .823529422, a: 1}
-    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_DisabledColor: {r: .211764708, g: .211764708, b: .211764708, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
   m_SpriteState:
@@ -665,7 +681,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -2628,6 +2644,12 @@ MonoBehaviour:
   - JE_Level
   - BasicIceLevel
   anim: {fileID: 0}
+  loadingIndicatorSpinAmount: 30
+  submitLevelButtons:
+  - {fileID: 417301932}
+  spinButtonIndicators:
+  - {fileID: 52944200}
+  - {fileID: 1555917044}
   camCreditsPosition: {x: 0, y: 110, z: 20}
   arrowSelectors:
   - {fileID: 1006453141}
@@ -4042,9 +4064,10 @@ GameObject:
   - 224: {fileID: 1555917045}
   - 222: {fileID: 1555917047}
   - 114: {fileID: 1555917046}
+  - 114: {fileID: 1555917048}
   m_Layer: 5
   m_Name: SelectedImageLeft
-  m_TagString: Untagged
+  m_TagString: SpinButtonIndicator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4099,6 +4122,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1555917044}
+--- !u!114 &1555917048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1555917044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddfc5810af007249bc7aaee0c24f1b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinAmount: 30
+  aboutX: 0
+  aboutY: 0
+  aboutZ: 1
 --- !u!1 &1578777672
 GameObject:
   m_ObjectHideFlags: 0
@@ -4437,6 +4475,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SetLoadingState
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

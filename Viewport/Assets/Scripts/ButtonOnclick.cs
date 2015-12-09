@@ -20,6 +20,10 @@ public class ButtonOnclick : MonoBehaviour {
     private int levelSelected;
 	public Animation anim;
 
+    public int loadingIndicatorSpinAmount = 30;
+    public List<GameObject> submitLevelButtons;
+    public List<GameObject> spinButtonIndicators;
+
     private Vector3 camNormalPosition;
     public Vector3 camCreditsPosition = new Vector3(0, 20, 5);
 
@@ -36,6 +40,7 @@ public class ButtonOnclick : MonoBehaviour {
     
     public void changeScene()
     {
+        SetLoadingState(true);
         String levelString = levelNames[levelSelected];
         PlayerPrefs.SetString("SelectedLevel", levelString);
         Application.LoadLevel(levelString);
@@ -609,8 +614,33 @@ public class ButtonOnclick : MonoBehaviour {
         selectPlayersMenuTransform.anchoredPosition = Vector2.zero;
         selectLevelMenuTransform.anchoredPosition = Vector2.zero;
 		selectCredits.anchoredPosition = Vector2.zero;
+        
+        SetLoadingState(false);
 
         // Show the Main Menu
         showMenu(0);
+    }
+
+    public void SetLoadingState(bool loading)
+    {
+        // Start the spinning wheels
+        foreach (GameObject obj in spinButtonIndicators)
+        {
+            AutoSpin spin = obj.GetComponent<AutoSpin>();
+            if (spin != null)
+            {
+                spin.spinAmount = (loading ? /* loadingIndicatorSpinAmount */ 0 : 0);
+            }
+        }
+        
+        // Enable or Disable the button
+        foreach (GameObject obj in submitLevelButtons)
+        {
+            Button button = obj.GetComponent<Button>();
+            if (button != null)
+            {
+                button.interactable = !loading;
+            }
+        }
     }
 }
