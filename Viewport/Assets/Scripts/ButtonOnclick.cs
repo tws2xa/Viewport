@@ -18,6 +18,7 @@ public class ButtonOnclick : MonoBehaviour {
     private int menu;
     private Image levelImage;
     private int levelSelected;
+	public Animation anim;
 
 	private int menuSelector = 0;
 	private float menuSelectorTimer = 1.5f;
@@ -38,7 +39,7 @@ public class ButtonOnclick : MonoBehaviour {
     }
     public void showMenu(int menuNum)
     {
-        if(menu < 0 || menu > 3)
+        if(menu < 0 || menu > 4)
         {
             Debug.LogError("Error - Setting Menu to Invalid Number: " + menuNum);
             return;
@@ -46,6 +47,7 @@ public class ButtonOnclick : MonoBehaviour {
         mainMenu.SetActive(menuNum == 0);
         selectPlayersMenu.SetActive(menuNum == 1);
         selectLevelMenu.SetActive(menuNum == 2);
+		credits.SetActive (menuNum == 3);
 
         this.menu = menuNum;
     }
@@ -75,6 +77,9 @@ public class ButtonOnclick : MonoBehaviour {
     {
         Application.Quit();
     }
+	public void backButton() {
+		showMenu (0);
+	}
 
    void Update()
     {
@@ -112,9 +117,15 @@ public class ButtonOnclick : MonoBehaviour {
 	}
 
 	public void HandleCredits() {
-		showMenu (3);
-
+		showMenu(3);
+	/*	anim = GetComponent<Animation>();
+		anim.Play ("Credits");
+		yield return new WaitForSeconds (anim.clip.length);*/
+		
 	}
+
+
+
     public int GetFirstUnusedImageInt()
     {
         return GetNextUnusedImageInt(0);
@@ -194,7 +205,7 @@ public class ButtonOnclick : MonoBehaviour {
 				showMenu(1);
 				break;
 			case 1:
-				endMenu();
+				showMenu(3);
 				break;
 			case 2:
 				endMenu();
